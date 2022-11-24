@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true"/>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QGraphicsView" name="graphicsView">
+    <property name="geometry">
+     <rect>
+      <x>-10</x>
+      <y>-30</y>
+      <width>1111</width>
+      <height>871</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-image: url(&quot;res/images/EasyTicketLogo.png&quot;);</string>
+    </property>
+   </widget>
+   <widget class="QGroupBox" name="verticalGroupBox">
+    <property name="geometry">
+     <rect>
+      <x>370</x>
+      <y>220</y>
+      <width>351</width>
+      <height>161</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-radius: 12%;
+background-color: rgba(32, 32, 32, 196);
+background-image: none;</string>
+    </property>
+    <layout class="QVBoxLayout" name="verticalLayout">
+     <item>
+      <widget class="QLabel" name="loginWelcomeLabel">
+       <property name="styleSheet">
+        <string notr="true">color: white;
+background-color: rgba(64, 64, 64, 196);</string>
+       </property>
+       <property name="text">
+        <string>   Bienvenue ! Veuillez-vous connecter.</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <layout class="QHBoxLayout" name="horizontalLayout_3">
+       <item>
+        <widget class="QLabel" name="adresseMailLabel">
+         <property name="styleSheet">
+          <string notr="true">color: white;
+background-color: rgba(64, 64, 64, 196);</string>
+         </property>
+         <property name="text">
+          <string> Adresse mail </string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="adresseMail">
+         <property name="styleSheet">
+          <string notr="true">color: white
+</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <layout class="QHBoxLayout" name="horizontalLayout_2">
+       <item>
+        <widget class="QLabel" name="motDePasseLabel">
+         <property name="styleSheet">
+          <string notr="true">color: white;
+background-color: rgba(64, 64, 64, 196);</string>
+         </property>
+         <property name="text">
+          <string> Mot de passe</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="motDePasse"/>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <widget class="QPushButton" name="connexionButton">
+       <property name="styleSheet">
+        <string notr="true">color: black;
+background-color: rgba(255, 255, 255, 255);
+border-radius: 12%;</string>
+       </property>
+       <property name="text">
+        <string>Connexion à l'interface</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
