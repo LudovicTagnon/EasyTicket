@@ -8,8 +8,6 @@
 
 class DBManager
 {
-    private:
-
     public:
         DBManager();
         void open(const std::string& user, const std::string& password);

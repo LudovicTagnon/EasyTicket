@@ -19,7 +19,7 @@ class Ticket
         const Date dateDebut;
         const Date dateFin;
         std::vector<Message> messages;
-        NonAdmin* employeeOnIt;
+        const NonAdmin* employeeOnIt;
         bool isClosed;
     public:
         Ticket(const std::string& ticketId, const std::string& title, const Date& dateDebut);

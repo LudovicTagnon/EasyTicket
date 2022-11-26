@@ -16,10 +16,11 @@ class NonAdmin : public User
     public:
         NonAdmin(const std::string& userId, const std::string& name, const std::string& surname, const std::string& email, const TicketManager& ticketManager);
         std::string_view& requestMessage(const Ticket& ticket);
-        std::vector<std::string_view&> requestTicketsSummary(const int pageNum, const std::string_view& filter);
+        //TODO: Have reflection about how to store Summary
+        std::vector<std::string_view> requestTicketsSummary(const int pageNum, const std::string_view& filter);
         void sendMessage(const Ticket& ticket, const std::string_view& message);
-        //void prendreTicket(const std::string_view& employeeId, const Ticket& ticket);
-        //void transfererTicket(const std::string_view& employeeId, const Ticket& ticket);
+        void prendreTicket(const std::string_view& employeeId, const Ticket& ticket);
+        void transfererTicket(const std::string_view& employeeId, const Ticket& ticket);
         void changeCategory(const Ticket& ticket, const Category category);
         ~NonAdmin();
 };

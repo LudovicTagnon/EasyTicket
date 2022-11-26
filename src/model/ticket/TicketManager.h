@@ -13,7 +13,7 @@ class User;
 class TicketManager
 {
     private:
-        std::vector<std::unique_ptr<Ticket>> tickets;
+        std::vector<Ticket> tickets;
 
     public:
         TicketManager();
