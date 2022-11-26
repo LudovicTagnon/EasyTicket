@@ -9,7 +9,7 @@
 class DBManager
 {
     private:
-
+      QSqlDatabase dbEasyTicket;
     public:
         DBManager();
         void open(const std::string& user, const std::string& password);
