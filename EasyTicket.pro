@@ -18,29 +18,29 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
     src/main.cpp \
     src/mainwindow.cpp \
-    src/Date.cpp \
-    src/db/DBManager.cpp \
-    src/ticket/Message.cpp \
-    src/ticket/Ticket.cpp \
-    src/ticket/TicketManager.cpp \
-    src/utilisateur/Client.cpp \
-    src/utilisateur/Ingenieur.cpp \
-    src/utilisateur/NonAdmin.cpp \
-    src/utilisateur/User.cpp \
+    src/model/Date.cpp \
+    src/model/db/DBManager.cpp \
+    src/model/ticket/Message.cpp \
+    src/model/ticket/Ticket.cpp \
+    src/model/ticket/TicketManager.cpp \
+    src/model/utilisateur/Client.cpp \
+    src/model/utilisateur/Ingenieur.cpp \
+    src/model/utilisateur/NonAdmin.cpp \
+    src/model/utilisateur/User.cpp \
 
 HEADERS += \
-    src/Category.h \
+    src/model/Category.h \
     src/mainwindow.h \
-    src/Date.h \
-    src/db/DBManager.h \
-    src/ticket/Message.h \
-    src/ticket/Ticket.h \
-    src/ticket/TicketManager.h \
-    src/utilisateur/Client.h \
-    src/utilisateur/Ingenieur.h \
-    src/utilisateur/NonAdmin.h \
-    src/utilisateur/User.h \
-    src/stat/Stat.h
+    src/model/Date.h \
+    src/model/db/DBManager.h \
+    src/model/ticket/Message.h \
+    src/model/ticket/Ticket.h \
+    src/model/ticket/TicketManager.h \
+    src/model/utilisateur/Client.h \
+    src/model/utilisateur/Ingenieur.h \
+    src/model/utilisateur/NonAdmin.h \
+    src/model/utilisateur/User.h \
+    src/model/stat/Stat.h
 
 FORMS += \
     res/mainwindow.ui
