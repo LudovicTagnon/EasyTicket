@@ -17,10 +17,30 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
     src/main.cpp \
-    src/mainwindow.cpp
+    src/mainwindow.cpp \
+    src/Date.cpp \
+    src/db/DBManager.cpp \
+    src/ticket/Message.cpp \
+    src/ticket/Ticket.cpp \
+    src/ticket/TicketManager.cpp \
+    src/utilisateur/Client.cpp \
+    src/utilisateur/Ingenieur.cpp \
+    src/utilisateur/NonAdmin.cpp \
+    src/utilisateur/User.cpp \
 
 HEADERS += \
-    src/mainwindow.h
+    src/Category.h \
+    src/mainwindow.h \
+    src/Date.h \
+    src/db/DBManager.h \
+    src/ticket/Message.h \
+    src/ticket/Ticket.h \
+    src/ticket/TicketManager.h \
+    src/utilisateur/Client.h \
+    src/utilisateur/Ingenieur.h \
+    src/utilisateur/NonAdmin.h \
+    src/utilisateur/User.h \
+    src/stat/Stat.h
 
 FORMS += \
     res/mainwindow.ui
