@@ -4,8 +4,6 @@
 #include "NonAdmin.h"
 #include "../Category.h"
 
-class TicketManager;
-
 class Client : NonAdmin
 {
     public:

@@ -1,6 +1,6 @@
 #include "EasyTicket.h"
 
-#include "../mainwindow.h"
+#include "../vues/mainwindow.h"
 
 EasyTicket::EasyTicket()
 {

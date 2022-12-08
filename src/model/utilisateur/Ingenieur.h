@@ -4,9 +4,6 @@
 #include "../Category.h"
 #include "NonAdmin.h"
 
-class User;
-class Ticket;
-
 class Ingenieur : NonAdmin
 {
     protected:

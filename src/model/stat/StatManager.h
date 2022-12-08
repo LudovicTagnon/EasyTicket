@@ -1,7 +1,7 @@
 #ifndef STATMANAGER_H
 #define STATMANAGER_H
 
-class DBManager;
+#include "../db/DBManager.h"
 
 class StatManager
 {

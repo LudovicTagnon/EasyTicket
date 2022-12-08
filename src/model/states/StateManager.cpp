@@ -1,5 +1,7 @@
 #include "StateManager.h"
 
+#include <QWidget>
+
 StateManager::StateManager()
 {
 
@@ -27,9 +29,11 @@ bool StateManager::empty()
 
 StateManager::~StateManager()
 {
+    QWidget* top;
     while(!stateManager.empty())
     {
-        delete stateManager.top();
+        top = stateManager.top();
         stateManager.pop();
+        delete top;
     }
 }

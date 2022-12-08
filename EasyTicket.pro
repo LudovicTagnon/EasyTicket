@@ -2,7 +2,7 @@ QT       += core gui sql
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
-CONFIG += c++17
+CONFIG += c++11
 
 # The following define makes your compiler emit warnings if you use
 # any Qt feature that has been marked deprecated (the exact warnings
@@ -17,7 +17,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
     src/main.cpp \
-    src/mainwindow.cpp \
+    src/vues/mainwindow.cpp \
     src/model/EasyTicket.cpp \
     src/model/Date.cpp \
     src/model/db/DBManager.cpp \
@@ -26,12 +26,15 @@ SOURCES += \
     src/model/ticket/TicketManager.cpp \
     src/model/utilisateur/Client.cpp \
     src/model/utilisateur/Ingenieur.cpp \
+    src/model/utilisateur/Admin.cpp \
     src/model/utilisateur/NonAdmin.cpp \
+    src/model/utilisateur/Technicien.cpp \
     src/model/utilisateur/User.cpp \
+    src/model/stat/StatManager.cpp \
     src/model/states/StateManager.cpp \
 
 HEADERS += \
-    src/mainwindow.h \
+    src/vues/mainwindow.h \
     src/model/EasyTicket.h \
     src/model/Category.h \
     src/model/Date.h \
@@ -41,9 +44,12 @@ HEADERS += \
     src/model/ticket/TicketManager.h \
     src/model/utilisateur/Client.h \
     src/model/utilisateur/Ingenieur.h \
+    src/model/utilisateur/Admin.h \
     src/model/utilisateur/NonAdmin.h \
+    src/model/utilisateur/Technicien.h \
     src/model/utilisateur/User.h \
     src/model/stat/Stat.h \
+    src/model/stat/StatManager.h \
     src/model/states/StateManager.h \
 
 FORMS += \

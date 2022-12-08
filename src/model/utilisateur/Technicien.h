@@ -6,7 +6,7 @@
 class Technicien: public Ingenieur
 {
     public:
-        Technicien::Technicien(const std::string& userId, const std::string& name, const std::string& surname, const std::string& email, const TicketManager& ticketManager);
+        Technicien(const std::string& userId, const std::string& name, const std::string& surname, const std::string& email, const TicketManager& ticketManager);
         ~Technicien();
 };
 

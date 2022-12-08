@@ -8,8 +8,7 @@
 #include "User.h"
 #include "../Category.h"
 
-class Ticket;
-class TicketManager;
+#include "../ticket/Ticket.h"
 
 class NonAdmin : public User
 {

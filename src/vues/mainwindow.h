@@ -3,7 +3,7 @@
 
 #include <QMainWindow>
 
-#include "model/EasyTicket.h"
+#include "../model/EasyTicket.h"
 
 #define q2c(string) string.toStdString()
 

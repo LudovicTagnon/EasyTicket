@@ -1,7 +1,6 @@
 #include <QApplication>
 
 #include "model/EasyTicket.h"
-#include "mainwindow.h"
 
 /*
  * https://doc.qt.io/archives/qt-4.7/designer-using-a-ui-file.html
