@@ -18,6 +18,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
     src/main.cpp \
     src/mainwindow.cpp \
+    src/model/EasyTicket.cpp \
     src/model/Date.cpp \
     src/model/db/DBManager.cpp \
     src/model/ticket/Message.cpp \
@@ -27,10 +28,12 @@ SOURCES += \
     src/model/utilisateur/Ingenieur.cpp \
     src/model/utilisateur/NonAdmin.cpp \
     src/model/utilisateur/User.cpp \
+    src/model/states/StateManager.cpp \
 
 HEADERS += \
-    src/model/Category.h \
     src/mainwindow.h \
+    src/model/EasyTicket.h \
+    src/model/Category.h \
     src/model/Date.h \
     src/model/db/DBManager.h \
     src/model/ticket/Message.h \
@@ -40,7 +43,8 @@ HEADERS += \
     src/model/utilisateur/Ingenieur.h \
     src/model/utilisateur/NonAdmin.h \
     src/model/utilisateur/User.h \
-    src/model/stat/Stat.h
+    src/model/stat/Stat.h \
+    src/model/states/StateManager.h \
 
 FORMS += \
     res/mainwindow.ui

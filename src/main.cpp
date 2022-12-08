@@ -1,6 +1,7 @@
-#include "mainwindow.h"
-
 #include <QApplication>
+
+#include "model/EasyTicket.h"
+#include "mainwindow.h"
 
 /*
  * https://doc.qt.io/archives/qt-4.7/designer-using-a-ui-file.html
@@ -11,7 +12,10 @@
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    MainWindow w;
-    w.show();
+
+    EasyTicket easyTicket = EasyTicket();
+
+    easyTicket.start();
+
     return a.exec();
 }

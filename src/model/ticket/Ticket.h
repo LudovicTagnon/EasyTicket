@@ -9,7 +9,6 @@
 #include "Message.h"
 
 class NonAdmin;
-class NonAdmin;
 
 class Ticket
 {

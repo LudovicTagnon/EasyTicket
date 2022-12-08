@@ -2,11 +2,8 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-#include <QPushButton>
-#include <QHBoxLayout>
-#include <QtSql>
-#include <QSqlDatabase>
-#include <QMessageBox>
+
+#include "model/EasyTicket.h"
 
 #define q2c(string) string.toStdString()
 
@@ -19,7 +16,7 @@ class MainWindow : public QMainWindow
     Q_OBJECT
 
 public:
-    MainWindow(QWidget *parent = nullptr);
+    MainWindow(EasyTicket& easyTicket, QWidget *parent = nullptr);
     ~MainWindow();
 
 private slots:
@@ -27,6 +24,7 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
+    EasyTicket& easyTicket;
 };
 
 #endif // MAINWINDOW_H
