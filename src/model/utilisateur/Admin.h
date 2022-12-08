@@ -6,7 +6,7 @@
 
 #include "User.h"
 #include "Admin.h"
-#include "../stat/Stat.h"
+#include "Stat.h"
 
 class Admin : public User
 {
