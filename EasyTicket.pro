@@ -53,7 +53,7 @@ HEADERS += \
     src/model/states/StateManager.h \
 
 FORMS += \
-    res/mainwindow.ui
+    src/vues/mainwindow.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
