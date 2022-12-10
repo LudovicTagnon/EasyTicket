@@ -2,9 +2,10 @@
 #define TICKETMANAGER_H
 
 #include <vector>
-#include <string_view>
 #include <memory>
+#include <QtCore/QString>
 
+#include "../db/DBManager.h"
 #include "Ticket.h"
 #include "../Category.h"
 
@@ -13,18 +14,25 @@ class User;
 class TicketManager
 {
     private:
+        DBManager db;
         std::vector<Ticket> tickets;
 
     public:
         TicketManager();
 
-        std::string_view& requestMessage(const Ticket& ticketId);
+        void openDB(const QString username, const QString password);
+        bool isOpenDB() const;
+        void closeDB();
+
+        void postTicket(const Category category, const QString message);
+        void takeTicket(const Ticket& ticket);
+        QString getMessage(const Ticket& ticket);
         void prendreTicket(const User& user, const Ticket& ticket);
         void transfertTicket(const User& user, const Ticket& ticket);
         //TODO : have reflexions about differences between summary and complete ticket, for the implementation
-        std::string_view requestTicketsSummary(const int pageNum, const std::string_view& filter);
+        std::vector<QString> getTicketsSummary(const int pageNum, const QString& filter);
         void changeCategory(const Ticket& ticket, const Category category);
-        void sendMessage(const Ticket& ticket, const std::string_view& message);
+        void sendMessage(const Ticket& ticket, const QString& message);
 
         ~TicketManager();
 };

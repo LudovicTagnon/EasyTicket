@@ -3,10 +3,12 @@
 
 #include "Ingenieur.h"
 
+class EasyTicket;
+
 class Technicien: public Ingenieur
 {
     public:
-        Technicien(const std::string& userId, const std::string& name, const std::string& surname, const std::string& email, const TicketManager& ticketManager);
+        Technicien(const QString userId, const QString name, const QString surname, const QString email, EasyTicket& easyTicket, const std::set<Category> categories);
         ~Technicien();
 };
 

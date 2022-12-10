@@ -1,24 +1,30 @@
 #include "Ingenieur.h"
 
-Ingenieur::Ingenieur(const std::string& userId, const std::string& name, const std::string& surname, const std::string& email, const TicketManager& ticketManager)
-: NonAdmin(userId, name, surname, email, ticketManager)
+Ingenieur::Ingenieur(const QString userId, const QString name, const QString surname, const QString email, EasyTicket& easyTicket)
+: NonAdmin(userId, name, surname, email, easyTicket), isAllCategories(true)
+{
+
+}
+
+Ingenieur::Ingenieur(const QString userId, const QString name, const QString surname, const QString email, EasyTicket& easyTicket, bool isAllCategories, std::set<Category> categories)
+: NonAdmin(userId, name, surname, email, easyTicket), isAllCategories(isAllCategories), categories(categories)
 {
 
 }
 
 void Ingenieur::takeTicket(const Ticket& ticket)
 {
-
+    easyTicket.takeTicket(ticket);
 }
 
-void Ingenieur::changeCategory(const Category category, const Ticket& ticket)
+void Ingenieur::changeCategory(const Ticket& ticket, const Category category)
 {
-
+    easyTicket.changeCategory(ticket, category);
 }
 
 void Ingenieur::transferTicket(const User& user, const Ticket& ticket)
 {
-
+    easyTicket.transfertTicket(user, ticket);
 }
 
 Ingenieur::~Ingenieur()

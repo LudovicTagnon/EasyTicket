@@ -2,25 +2,24 @@
 #define NONADMIN_H
 
 #include <string>
-#include <string_view>
 #include <vector>
+
+#include <QtCore/QString>
 
 #include "User.h"
 #include "../Category.h"
-
 #include "../ticket/Ticket.h"
+#include "../EasyTicket.h"
+
 
 class NonAdmin : public User
 {
     public:
-        NonAdmin(const std::string& userId, const std::string& name, const std::string& surname, const std::string& email, const TicketManager& ticketManager);
-        std::string_view& requestMessage(const Ticket& ticket);
+        NonAdmin(const QString userId, const QString name, const QString surname, const QString email, EasyTicket& easyTicket);
+        QString& requestMessage(const Ticket& ticket);
         //TODO: Have reflection about how to store Summary
-        std::vector<std::string_view> requestTicketsSummary(const int pageNum, const std::string_view& filter);
-        void sendMessage(const Ticket& ticket, const std::string_view& message);
-        void prendreTicket(const std::string_view& employeeId, const Ticket& ticket);
-        void transfererTicket(const std::string_view& employeeId, const Ticket& ticket);
-        void changeCategory(const Ticket& ticket, const Category category);
+        std::vector<QString> requestTicketsSummary(const int pageNum, const QString& filter);
+        void sendMessage(const Ticket& ticket, const QString& message);
         ~NonAdmin();
 };
 

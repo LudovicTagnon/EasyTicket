@@ -1,17 +1,22 @@
 #ifndef INGENIEUR_H
 #define INGENIEUR_H
 
+#include <set>
+
 #include "../Category.h"
 #include "NonAdmin.h"
+#include "../EasyTicket.h"
 
 class Ingenieur : NonAdmin
 {
     protected:
-        std::vector<Category> categories;
+        bool isAllCategories;
+        std::set<Category> categories;
     public:
-        Ingenieur(const std::string& userId, const std::string& name, const std::string& surname, const std::string& email, const TicketManager& ticketManager);
+        Ingenieur(const QString userId, const QString name, const QString surname, const QString email, EasyTicket& easyTicket);
+        Ingenieur(const QString userId, const QString name, const QString surname, const QString email, EasyTicket& easyTicket, bool isAllCategories, std::set<Category> categories);
         void takeTicket(const Ticket& ticket);
-        void changeCategory(const Category category, const Ticket& ticket);
+        void changeCategory(const Ticket& ticket, const Category category);
         void transferTicket(const User& user, const Ticket& ticket);
         ~Ingenieur();
 };

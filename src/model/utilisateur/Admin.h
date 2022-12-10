@@ -7,13 +7,14 @@
 #include "User.h"
 #include "Admin.h"
 #include "../stat/Stat.h"
+#include "../EasyTicket.h"
 
 class Admin : public User
 {
     private:
         std::vector<Stat*> stats;
     public:
-        Admin(const std::string& userId, const std::string& name, const std::string& surname, const std::string& email, const TicketManager& ticketManager);
+        Admin(const QString userId, const QString name, const QString surname, const QString email, EasyTicket& easyTicket);
         Stat& requestStats();
         ~Admin();
 };

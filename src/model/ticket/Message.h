@@ -1,15 +1,14 @@
 #ifndef MESSAGE_H
 #define MESSAGE_H
 
-#include <string>
-
-#include "../Date.h"
+#include <QtCore/QString>
+#include <ctime>
 
 class Message
 {
     private:
-        const Date date;
-        std::string message;
+        const std::time_t date;
+        QString message;
     public:
         Message();
         ~Message();

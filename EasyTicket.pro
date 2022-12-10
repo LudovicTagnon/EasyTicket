@@ -19,7 +19,6 @@ SOURCES += \
     src/main.cpp \
     src/vues/mainwindow.cpp \
     src/model/EasyTicket.cpp \
-    src/model/Date.cpp \
     src/model/db/DBManager.cpp \
     src/model/ticket/Message.cpp \
     src/model/ticket/Ticket.cpp \
@@ -37,7 +36,6 @@ HEADERS += \
     src/vues/mainwindow.h \
     src/model/EasyTicket.h \
     src/model/Category.h \
-    src/model/Date.h \
     src/model/db/DBManager.h \
     src/model/ticket/Message.h \
     src/model/ticket/Ticket.h \

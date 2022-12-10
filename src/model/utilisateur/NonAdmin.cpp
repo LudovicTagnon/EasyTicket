@@ -1,39 +1,28 @@
 #include "NonAdmin.h"
 
-NonAdmin::NonAdmin(const std::string& userId, const std::string& name, const std::string& surname, const std::string& email, const TicketManager& ticketManager)
-: User(userId, name, surname, email, ticketManager)
+NonAdmin::NonAdmin(const QString userId, const QString name, const QString surname, const QString email, EasyTicket& easyTicket)
+: User(userId, name, surname, email, easyTicket)
 {
 
 }
 
-std::string_view& NonAdmin::requestMessage(const Ticket& ticketId)
+QString& NonAdmin::requestMessage(const Ticket& ticketId)
 {
-    //ticketManager.resquetMessage();
+    //easyTicket.resquetMessage();
+
+    //Useless (to avoid warning)
+    QString s{ "ERROR" };
+    return s;
 }
 
-std::vector<std::string_view> NonAdmin::requestTicketsSummary(const int pageNum, const std::string_view& filter)
+std::vector<QString> NonAdmin::requestTicketsSummary(const int pageNum, const QString& filter)
 {
-
+    return {};
 }
 
-void NonAdmin::sendMessage(const Ticket& ticketId, const std::string_view& message)
+void NonAdmin::sendMessage(const Ticket& ticket, const QString& message)
 {
-
-}
-
-void NonAdmin::prendreTicket(const std::string_view& employeeId, const Ticket& ticketId)
-{
-
-}
-
-void NonAdmin::transfererTicket(const std::string_view& employeeId, const Ticket& ticketId)
-{
-
-}
-
-void NonAdmin::changeCategory(const Ticket& ticketId, const Category category)
-{
-
+    easyTicket.sendMessage(ticket, message);
 }
 
 NonAdmin::~NonAdmin()

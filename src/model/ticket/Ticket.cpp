@@ -1,10 +1,11 @@
 #include "Ticket.h"
 
-Ticket::Ticket(const std::string& ticketId, const std::string& title, const Date& dateDebut)
+Ticket::Ticket(const QString ticketId, const QString title, const std::time_t dateDebut, const bool isClosed, const std::time_t dateFin)
  : ticketId(ticketId)
  , title(title)
- , dateDebut(Date())
- , isClosed(false)
+ , dateDebut(dateDebut)
+ , isClosed(isClosed)
+ , dateFin(dateFin)
 {
 
 }

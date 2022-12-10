@@ -1,9 +1,10 @@
 #include "Technicien.h"
 
-Technicien::Technicien(const std::string& userId, const std::string& name, const std::string& surname, const std::string& email, const TicketManager& ticketManager)
-: Ingenieur(userId, name, surname, email, ticketManager)
+#include "../EasyTicket.h"
+
+Technicien::Technicien(const QString userId, const QString name, const QString surname, const QString email, EasyTicket& easyTicket, const std::set<Category> categories)
+: Ingenieur(userId, name, surname, email, easyTicket, false, categories)
 {
-    categories.clear();
 
     //todo: define categories here
 }

@@ -4,8 +4,8 @@
 #include <string>
 #include <chrono>
 #include <vector>
+#include <ctime>
 
-#include "../Date.h"
 #include "Message.h"
 
 class NonAdmin;
@@ -13,15 +13,18 @@ class NonAdmin;
 class Ticket
 {
     private:
-        const std::string ticketId;
-        const std::string title;
-        const Date dateDebut;
-        const Date dateFin;
+        const QString ticketId;
+        const QString title;
+        const std::time_t dateDebut;
+        const bool isClosed;
+        const std::time_t dateFin;
         std::vector<Message> messages;
         const NonAdmin* employeeOnIt;
-        bool isClosed;
     public:
-        Ticket(const std::string& ticketId, const std::string& title, const Date& dateDebut);
+        Ticket(const QString ticketId, const QString title,
+                const std::time_t dateDebut = std::chrono::system_clock::to_time_t(std::chrono::system_clock::now()),
+                const bool isClosed = false,
+                const std::time_t dateFin = std::chrono::system_clock::to_time_t(std::chrono::system_clock::now()));
         ~Ticket();
 };
 

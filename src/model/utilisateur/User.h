@@ -1,26 +1,26 @@
 #ifndef USER_H
 #define USER_H
 
-#include <string>
+#include <QtCore/QString>
 
-class TicketManager;
+class EasyTicket;
 
 class User
 {
     protected:
-        const std::string userId;
-        const std::string name;
-        const std::string surname;
-        const std::string email;
+        const QString userId;
+        const QString name;
+        const QString surname;
+        const QString email;
 
-        const TicketManager& ticketManager;
+        EasyTicket& easyTicket;
     
     public:
-        User(const std::string& userId,
-             const std::string& name,
-             const std::string& surname,
-             const std::string& email,
-             const TicketManager& ticketManager);
+        User(const QString& userId,
+             const QString& name,
+             const QString& surname,
+             const QString& email,
+             EasyTicket& easyTicket);
         ~User();
 };
 

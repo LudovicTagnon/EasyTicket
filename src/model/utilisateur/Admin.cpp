@@ -1,7 +1,7 @@
 #include "Admin.h"
 
-Admin::Admin(const std::string& userId, const std::string& name, const std::string& surname, const std::string& email, const TicketManager& ticketManager)
-: User(userId, name, surname, email, ticketManager)
+Admin::Admin(const QString userId, const QString name, const QString surname, const QString email, EasyTicket& easyTicket)
+: User(userId, name, surname, email, easyTicket)
 {
 
 }

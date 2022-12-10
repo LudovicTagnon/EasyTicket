@@ -3,12 +3,13 @@
 
 #include "NonAdmin.h"
 #include "../Category.h"
+#include "../EasyTicket.h"
 
 class Client : NonAdmin
 {
     public:
-        Client(const std::string& userId, const std::string& name, const std::string& surname, const std::string& email, const TicketManager& ticketManager);
-        void postTicket(const Category category, const std::string& message);
+        Client(const QString userId, const QString name, const QString surname, const QString email, EasyTicket& easyTicket);
+        void postTicket(const Category category, const QString message);
         ~Client();
 };
 

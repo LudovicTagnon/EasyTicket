@@ -1,14 +1,14 @@
 #include "Client.h"
 
-Client::Client(const std::string& userId, const std::string& name, const std::string& surname, const std::string& email, const TicketManager& ticketManager)
-: NonAdmin(userId, name, surname, email, ticketManager)
+Client::Client(const QString userId, const QString name, const QString surname, const QString email, EasyTicket& easyTicket)
+: NonAdmin(userId, name, surname, email, easyTicket)
 {
 
 }
 
-void Client::postTicket(const Category category, const std::string& message)
+void Client::postTicket(const Category category, const QString message)
 {
-
+    easyTicket.postTicket(category, message);
 }
 
 Client::~Client()
