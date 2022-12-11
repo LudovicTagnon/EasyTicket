@@ -24,7 +24,7 @@
    </property>
    <layout class="QHBoxLayout" name="horizontalLayout">
     <item>
-     <layout class="QVBoxLayout" name="verticalLayout">
+     <layout class="QVBoxLayout" name="LayoutFiltres">
       <item>
        <widget class="QPushButton" name="AfficherEnCoursButton">
         <property name="text">
@@ -69,7 +69,7 @@
        </layout>
       </item>
       <item>
-       <widget class="QListView" name="listView"/>
+       <widget class="QListView" name="listViewTickets"/>
       </item>
      </layout>
     </item>
