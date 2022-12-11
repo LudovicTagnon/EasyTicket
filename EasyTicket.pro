@@ -1,4 +1,4 @@
-QT       += core gui sql
+QT += core gui sql
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -49,6 +49,7 @@ HEADERS += \
     src/model/stat/Stat.h \
     src/model/stat/StatManager.h \
     src/model/states/StateManager.h \
+    cmake-build-debug/EasyTicket_autogen/include/ui_mainwindow.h \
 
 FORMS += \
     src/vues/mainwindow.ui

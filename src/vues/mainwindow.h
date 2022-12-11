@@ -21,6 +21,7 @@ public:
 
 private slots:
     void on_connexionButton_clicked();
+    void on_inscriptionButton_clicked();
 
 private:
     Ui::MainWindow *ui;

@@ -36,7 +36,7 @@
       <x>370</x>
       <y>220</y>
       <width>351</width>
-      <height>161</height>
+      <height>181</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -106,6 +106,18 @@ border-radius: 12%;</string>
        </property>
        <property name="text">
         <string>Connexion à l'interface</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="inscriptionButton">
+       <property name="styleSheet">
+        <string notr="true">color: black;
+background-color: rgba(255, 255, 255, 255);
+border-radius: 12%;</string>
+       </property>
+       <property name="text">
+        <string>Inscription</string>
        </property>
       </widget>
      </item>

@@ -24,10 +24,16 @@ void MainWindow::on_connexionButton_clicked()
     if(easyTicket.isOpenDB())
     {
         QMessageBox::information(this, "Connection", "Connected");
-        easyTicket.closeDB();
+        //easyTicket.closeDB();
+
     }
     else
     {
         QMessageBox::information(this, "Connection", "Error");
     }
+}
+
+void MainWindow::on_inscriptionButton_clicked()
+{
+    //stateManager.push(new MainWindow(*this));
 }
