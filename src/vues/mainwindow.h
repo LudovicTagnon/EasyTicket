@@ -4,6 +4,7 @@
 #include <QMainWindow>
 
 #include "../model/EasyTicket.h"
+#include "vueclient.h"
 
 #define q2c(string) string.toStdString()
 

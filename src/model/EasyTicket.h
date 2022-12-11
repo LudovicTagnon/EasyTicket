@@ -29,6 +29,10 @@ class EasyTicket
         void start();
 
         ~EasyTicket();
+
+    const TicketManager &getTicketManager() const;
+
+    static const StateManager &getStateManager() const;
 };
 
 #endif /*EASYTICKET_H*/

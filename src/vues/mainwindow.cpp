@@ -25,7 +25,7 @@ void MainWindow::on_connexionButton_clicked()
     {
         QMessageBox::information(this, "Connection", "Connected");
         //easyTicket.closeDB();
-
+        //EasyTicket::getStateManager().push(new VueClient(easyTicket));
     }
     else
     {

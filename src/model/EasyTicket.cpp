@@ -74,3 +74,11 @@ EasyTicket::~EasyTicket()
 {
 
 }
+
+const TicketManager &EasyTicket::getTicketManager() const {
+    return ticketManager;
+}
+
+const StateManager &EasyTicket::getStateManager() const {
+    return stateManager;
+}

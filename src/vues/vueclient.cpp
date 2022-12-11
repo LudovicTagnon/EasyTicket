@@ -1,0 +1,18 @@
+//
+// Created by kudovic on 11/12/22.
+//
+
+// You may need to build the project (run Qt uic code generator) to get "ui_VueClient.h" resolved
+
+#include "vueclient.h"
+#include "ui_VueClient.h"
+
+
+VueClient::VueClient(EasyTicket& easyTicket, QWidget *parent) :
+QWidget(parent), ui(new Ui::VueClient), easyTicket(easyTicket) {
+    ui->setupUi(this);
+}
+
+VueClient::~VueClient() {
+    delete ui;
+}
