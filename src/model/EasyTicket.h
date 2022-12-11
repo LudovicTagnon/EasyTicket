@@ -12,7 +12,7 @@ class EasyTicket
         StateManager stateManager;
     public:
         EasyTicket();
-
+        void pushWindow(QWidget* state);
         void openDB(const QString username, const QString password);
         bool isOpenDB() const;
         void closeDB();
@@ -30,9 +30,6 @@ class EasyTicket
 
         ~EasyTicket();
 
-    const TicketManager &getTicketManager() const;
-
-    static const StateManager &getStateManager() const;
 };
 
 #endif /*EASYTICKET_H*/

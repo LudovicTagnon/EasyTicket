@@ -10,6 +10,10 @@ EasyTicket::EasyTicket()
     stateManager.push(new MainWindow(*this));
 }
 
+void EasyTicket::pushWindow(QWidget* state){
+    stateManager.push(state);
+}
+
 void EasyTicket::openDB(const QString username, const QString password)
 {
     ticketManager.openDB(username, password);
@@ -73,12 +77,4 @@ void EasyTicket::start()
 EasyTicket::~EasyTicket()
 {
 
-}
-
-const TicketManager &EasyTicket::getTicketManager() const {
-    return ticketManager;
-}
-
-const StateManager &EasyTicket::getStateManager() const {
-    return stateManager;
 }

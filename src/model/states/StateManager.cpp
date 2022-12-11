@@ -7,8 +7,7 @@ StateManager::StateManager()
 
 }
 
-void StateManager::push(QWidget* state)
-{
+void StateManager::push(QWidget* state) {
     stateManager.push(state);
 }
 
