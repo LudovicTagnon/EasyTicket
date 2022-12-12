@@ -27,6 +27,7 @@ SOURCES += \
     src/vues/vueticket.cpp \
     src/vues/vuepriseticket.cpp \
     src/vues/vuechangecategorie.cpp \
+    src/vues/vuetransferer.cpp \
     src/model/EasyTicket.cpp \
     src/model/db/DBManager.cpp \
     src/model/ticket/Message.cpp \
@@ -49,6 +50,7 @@ HEADERS += \
     src/vues/vueticket.h \
     src/vues/vuepriseticket.h \
     src/vues/vuechangecategorie.h \
+    src/vues/vuetransferer.h \
     src/model/EasyTicket.h \
     src/model/Category.h \
     src/model/db/DBManager.h \
@@ -69,9 +71,11 @@ FORMS += src/vues/mainwindow.ui \
     src/vues/VueClient.ui \
     src/vues/VueIngeTech.ui \
     src/vues/VueAdmin.ui \
-    src/vues/vueticket.ui \
-    src/vues/vuepriseticket.ui \
-    src/vues/vuechangecategorie.ui \
+    src/vues/VueTicket.ui \
+    src/vues/VuePriseTicket.ui \
+    src/vues/VueChangeCategorie.ui \
+    src/vues/VueTransferer.ui \
+
 
 
 # Default rules for deployment.
