@@ -2,7 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-
+#include <QPixmap>
 #include "../model/EasyTicket.h"
 #include "vueclient.h"
 #include "vueingetech.h"

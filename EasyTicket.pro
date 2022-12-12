@@ -1,6 +1,9 @@
 QT += core gui sql
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+greaterThan(QT_MAJOR_VERSION, 4): QT += multimedia
+greaterThan(QT_MAJOR_VERSION, 4): QT += multimediawidgets
+
 
 CONFIG += c++11
 
@@ -21,6 +24,9 @@ SOURCES += \
     src/vues/vueclient.cpp \
     src/vues/vueadmin.cpp \
     src/vues/vueingetech.cpp \
+    src/vues/vueticket.cpp \
+    src/vues/vuepriseticket.cpp \
+    src/vues/vuechangecategorie.cpp \
     src/model/EasyTicket.cpp \
     src/model/db/DBManager.cpp \
     src/model/ticket/Message.cpp \
@@ -40,6 +46,9 @@ HEADERS += \
     src/vues/vueclient.h \
     src/vues/vueadmin.h \
     src/vues/vueingetech.h \
+    src/vues/vueticket.h \
+    src/vues/vuepriseticket.h \
+    src/vues/vuechangecategorie.h \
     src/model/EasyTicket.h \
     src/model/Category.h \
     src/model/db/DBManager.h \
@@ -60,6 +69,10 @@ FORMS += src/vues/mainwindow.ui \
     src/vues/VueClient.ui \
     src/vues/VueIngeTech.ui \
     src/vues/VueAdmin.ui \
+    src/vues/vueticket.ui \
+    src/vues/vuepriseticket.ui \
+    src/vues/vuechangecategorie.ui \
+
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

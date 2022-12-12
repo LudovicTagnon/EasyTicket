@@ -16,3 +16,23 @@ VueIngeTech::VueIngeTech(EasyTicket& easyTicket, QWidget *parent) :
 VueIngeTech::~VueIngeTech() {
     delete ui;
 }
+
+void VueIngeTech::on_OuvrirButton_clicked() {
+    easyTicket.pushWindow(new VueTicket(easyTicket));
+    easyTicket.start();
+}
+
+void VueIngeTech::on_PrendreButton_clicked() {
+    easyTicket.pushWindow(new VuePriseTicket(easyTicket));
+    easyTicket.start();
+}
+
+void VueIngeTech::on_ChangeCatButton_clicked() {
+    easyTicket.pushWindow(new VueChangeCategorie(easyTicket));
+    easyTicket.start();
+}
+
+void VueIngeTech::on_TransfererButton_clicked() {
+    easyTicket.pushWindow(new VueTransferer(easyTicket));
+    easyTicket.start();
+}

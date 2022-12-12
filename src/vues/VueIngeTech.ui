@@ -52,20 +52,6 @@
      <layout class="QVBoxLayout" name="LayoutPage">
       <item>
        <layout class="QGridLayout" name="gridLayout">
-        <item row="1" column="1">
-         <widget class="QPushButton" name="RepondreButton">
-          <property name="text">
-           <string>Répondre</string>
-          </property>
-         </widget>
-        </item>
-        <item row="1" column="3">
-         <widget class="QPushButton" name="PrendreButton">
-          <property name="text">
-           <string>Prendre</string>
-          </property>
-         </widget>
-        </item>
         <item row="1" column="0">
          <widget class="QPushButton" name="OuvrirButton">
           <property name="text">
@@ -84,6 +70,13 @@
          <widget class="QPushButton" name="TransfererButton">
           <property name="text">
            <string>Transférer</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="1">
+         <widget class="QPushButton" name="PrendreButton">
+          <property name="text">
+           <string>Prendre</string>
           </property>
          </widget>
         </item>

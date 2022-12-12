@@ -3,6 +3,8 @@
 #include "ui_mainwindow.h"
 
 #include <QMessageBox>
+#include <QPixmap>
+#include <iostream>
 
 MainWindow::MainWindow(EasyTicket& easyTicket, QWidget *parent)
     : QMainWindow(parent)
@@ -10,6 +12,8 @@ MainWindow::MainWindow(EasyTicket& easyTicket, QWidget *parent)
     , easyTicket(easyTicket)
 {
     ui->setupUi(this);
+
+    std::cout << ui->graphicsView->isVisible() << std::endl;
 }
 
 MainWindow::~MainWindow()
@@ -39,5 +43,5 @@ void MainWindow::on_connexionButton_clicked()
 
 void MainWindow::on_inscriptionButton_clicked()
 {
-    //stateManager.push(new MainWindow(*this));
+    //stateManager.push(new InscriptionWindow(*this));
 }
