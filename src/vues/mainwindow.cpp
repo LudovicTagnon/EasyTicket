@@ -36,7 +36,9 @@ void MainWindow::on_connexionButton_clicked()
     {
         QMessageBox::information(this, "Connection", "Error");
 
-        easyTicket.pushWindow(new VueIngeTech(easyTicket));
+        //easyTicket.pushWindow(new VueIngeTech(easyTicket));
+        //easyTicket.start();
+        easyTicket.pushWindow(new VueClient(easyTicket));
         easyTicket.start();
     }
 }

@@ -16,3 +16,8 @@ QWidget(parent), ui(new Ui::VueClient), easyTicket(easyTicket) {
 VueClient::~VueClient() {
     delete ui;
 }
+
+void VueClient::on_NouveauButton_clicked() {
+    easyTicket.pushWindow(new VueNouveauTicket(easyTicket));
+    easyTicket.start();
+}

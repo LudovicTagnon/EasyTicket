@@ -7,6 +7,7 @@
 
 #include <QWidget>
 #include "../model/EasyTicket.h"
+#include "vuenouveauticket.h"
 
 
 QT_BEGIN_NAMESPACE
@@ -23,6 +24,9 @@ public:
     explicit VueClient(EasyTicket& easyTicket, QWidget *parent = nullptr);
 
     ~VueClient() override;
+
+private slots:
+    void on_NouveauButton_clicked();
 
 private:
     Ui::VueClient *ui;

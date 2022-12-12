@@ -45,13 +45,6 @@
      <layout class="QVBoxLayout" name="LayoutPage">
       <item>
        <layout class="QGridLayout" name="GLayoutOptions">
-        <item row="0" column="0">
-         <widget class="QPushButton" name="NouveauButton">
-          <property name="text">
-           <string>Nouveau</string>
-          </property>
-         </widget>
-        </item>
         <item row="0" column="1">
          <widget class="QPushButton" name="OuvrirButton">
           <property name="text">
@@ -59,10 +52,10 @@
           </property>
          </widget>
         </item>
-        <item row="0" column="2">
-         <widget class="QPushButton" name="RepondreButton">
+        <item row="0" column="0">
+         <widget class="QPushButton" name="NouveauButton">
           <property name="text">
-           <string>Répondre</string>
+           <string>Nouveau</string>
           </property>
          </widget>
         </item>
