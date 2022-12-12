@@ -6,6 +6,7 @@
 #include "../model/EasyTicket.h"
 #include "vueclient.h"
 #include "vueingetech.h"
+#include "vueadmin.h"
 
 #define q2c(string) string.toStdString()
 

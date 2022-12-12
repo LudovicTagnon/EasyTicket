@@ -6,7 +6,7 @@
 #define EASYTICKET_VUEADMIN_H
 
 #include <QWidget>
-
+#include "../model/EasyTicket.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class VueAdmin; }
@@ -16,12 +16,13 @@ class VueAdmin : public QWidget {
 Q_OBJECT
 
 public:
-    explicit VueAdmin(QWidget *parent = nullptr);
+    explicit VueAdmin(EasyTicket& easyTicket, QWidget *parent = nullptr);
 
     ~VueAdmin() override;
 
 private:
     Ui::VueAdmin *ui;
+    EasyTicket& easyTicket;
 };
 
 

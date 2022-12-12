@@ -8,8 +8,8 @@
 #include "ui_VueAdmin.h"
 
 
-VueAdmin::VueAdmin(QWidget *parent) :
-        QWidget(parent), ui(new Ui::VueAdmin) {
+VueAdmin::VueAdmin(EasyTicket& easyTicket, QWidget *parent) :
+        QWidget(parent), ui(new Ui::VueAdmin), easyTicket(easyTicket) {
     ui->setupUi(this);
 }
 

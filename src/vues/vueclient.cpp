@@ -17,6 +17,11 @@ VueClient::~VueClient() {
     delete ui;
 }
 
+void VueClient::on_OuvrirButton_clicked() {
+    easyTicket.pushWindow(new VueTicket(easyTicket));
+    easyTicket.start();
+}
+
 void VueClient::on_NouveauButton_clicked() {
     easyTicket.pushWindow(new VueNouveauTicket(easyTicket));
     easyTicket.start();

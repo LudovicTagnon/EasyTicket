@@ -8,6 +8,7 @@
 #include <QWidget>
 #include "../model/EasyTicket.h"
 #include "vuenouveauticket.h"
+#include "vueticket.h"
 
 
 QT_BEGIN_NAMESPACE
@@ -26,6 +27,7 @@ public:
     ~VueClient() override;
 
 private slots:
+    void on_OuvrirButton_clicked();
     void on_NouveauButton_clicked();
 
 private:

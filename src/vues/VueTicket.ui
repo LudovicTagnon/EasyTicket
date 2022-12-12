@@ -16,22 +16,103 @@
   <widget class="QWidget" name="verticalLayoutWidget">
    <property name="geometry">
     <rect>
-     <x>50</x>
+     <x>40</x>
      <y>50</y>
      <width>661</width>
-     <height>421</height>
+     <height>451</height>
     </rect>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout">
     <item>
-     <widget class="QLabel" name="label">
-      <property name="text">
-       <string>TextLabel</string>
-      </property>
-     </widget>
+     <layout class="QHBoxLayout" name="horizontalLayout_2">
+      <item>
+       <layout class="QVBoxLayout" name="verticalLayout_2">
+        <item>
+         <widget class="QLabel" name="labelTech">
+          <property name="text">
+           <string>Date</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QListWidget" name="listWidget">
+          <item>
+           <property name="text">
+            <string>01/01/1888</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>01/01/1888</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>01/01/1888</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>01/01/1888</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>01/01/1889</string>
+           </property>
+          </item>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <layout class="QVBoxLayout" name="verticalLayout_3">
+        <item>
+         <widget class="QLabel" name="labelTech_2">
+          <property name="text">
+           <string>Christine l'ingénieure</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QListWidget" name="listWidget_2">
+          <item>
+           <property name="text">
+            <string>Bonjour</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Bonjour ienclit</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Vous êtes nuls à la SNCF, remboursez moi!</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Non.</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Ok je vous fait un procès</string>
+           </property>
+          </item>
+         </widget>
+        </item>
+       </layout>
+      </item>
+     </layout>
     </item>
     <item>
-     <widget class="QListWidget" name="listWidget"/>
+     <widget class="QLabel" name="label_2">
+      <property name="text">
+       <string>Répondre ci-dessous:</string>
+      </property>
+     </widget>
     </item>
     <item>
      <widget class="QTextEdit" name="textEdit"/>

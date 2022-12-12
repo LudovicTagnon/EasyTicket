@@ -13,7 +13,7 @@ MainWindow::MainWindow(EasyTicket& easyTicket, QWidget *parent)
 {
     ui->setupUi(this);
 
-    std::cout << ui->graphicsView->isVisible() << std::endl;
+    //std::cout << ui->graphicsView->isVisible() << std::endl;
 }
 
 MainWindow::~MainWindow()
@@ -34,12 +34,16 @@ void MainWindow::on_connexionButton_clicked()
     }
     else
     {
-        QMessageBox::information(this, "Connection", "Error");
+        //QMessageBox::information(this, "Connection", "Error");
 
-        //easyTicket.pushWindow(new VueIngeTech(easyTicket));
-        //easyTicket.start();
-        easyTicket.pushWindow(new VueClient(easyTicket));
+        easyTicket.pushWindow(new VueIngeTech(easyTicket));
         easyTicket.start();
+
+        //easyTicket.pushWindow(new VueClient(easyTicket));
+        //easyTicket.start();
+
+        //easyTicket.pushWindow(new VueAdmin(easyTicket));
+        //easyTicket.start();
     }
 }
 

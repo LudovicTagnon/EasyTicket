@@ -31,13 +31,6 @@
       <item>
        <layout class="QGridLayout" name="gridLayout">
         <item row="1" column="0">
-         <widget class="QPushButton" name="StatistiquesButton">
-          <property name="text">
-           <string>Statistiques</string>
-          </property>
-         </widget>
-        </item>
-        <item row="1" column="1">
          <widget class="QPushButton" name="RafraichirButton">
           <property name="text">
            <string>Rafraichir</string>
@@ -47,7 +40,28 @@
        </layout>
       </item>
       <item>
-       <widget class="QListView" name="listViewStats"/>
+       <widget class="QListWidget" name="listWidgetStats">
+        <item>
+         <property name="text">
+          <string>Nombre de tickets en cours : 5</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Nombre de tickets clos : 2</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Nombre de clients inscrits: 7</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Nombre d'employés inscrits: 5</string>
+         </property>
+        </item>
+       </widget>
       </item>
      </layout>
     </item>
