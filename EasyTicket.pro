@@ -18,6 +18,9 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
     src/main.cpp \
     src/vues/mainwindow.cpp \
+    src/vues/vueclient.cpp \
+    src/vues/vueadmin.cpp \
+    src/vues/vueingetech.cpp \
     src/model/EasyTicket.cpp \
     src/model/db/DBManager.cpp \
     src/model/ticket/Message.cpp \
@@ -34,6 +37,9 @@ SOURCES += \
 
 HEADERS += \
     src/vues/mainwindow.h \
+    src/vues/vueclient.h \
+    src/vues/vueadmin.h \
+    src/vues/vueingetech.h \
     src/model/EasyTicket.h \
     src/model/Category.h \
     src/model/db/DBManager.h \
@@ -49,10 +55,11 @@ HEADERS += \
     src/model/stat/Stat.h \
     src/model/stat/StatManager.h \
     src/model/states/StateManager.h \
-    cmake-build-debug/EasyTicket_autogen/include/ui_mainwindow.h \
 
-FORMS += \
-    src/vues/mainwindow.ui
+FORMS += src/vues/mainwindow.ui \
+    src/vues/VueClient.ui \
+    src/vues/VueIngeTech.ui \
+    src/vues/VueAdmin.ui \
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

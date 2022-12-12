@@ -6,7 +6,7 @@
 #define EASYTICKET_VUECLIENT_H
 
 #include <QWidget>
-#include "EasyTicket.h"
+#include "../model/EasyTicket.h"
 
 
 QT_BEGIN_NAMESPACE

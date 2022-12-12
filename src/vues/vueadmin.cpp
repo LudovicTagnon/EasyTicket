@@ -2,7 +2,7 @@
 // Created by kudovic on 11/12/22.
 //
 
-// You may need to build the project (run Qt uic code generator) to get "ui_VueAdmin.h" resolved
+// You may need to build the project (run Qt uic code generator) to get "ui_vueadmin.h" resolved
 
 #include "vueadmin.h"
 #include "ui_VueAdmin.h"
