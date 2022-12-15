@@ -45,9 +45,9 @@ void TicketManager::transfertTicket(const User& user, const Ticket& ticket)
     db.requestTransfertTicket(user, ticket);
 }
 
-std::vector<QString> TicketManager::getTicketsSummary(const int pageNum, const QString& filter)
+std::vector<QString> TicketManager::getTicketsSummary(const int pageNum, const Filters& filters)
 {
-    return db.requestTicketsSummary(pageNum, filter);
+    return db.requestTicketsSummary(pageNum, filters);
 }
 
 void TicketManager::changeCategory(const Ticket& ticket, const Category category)

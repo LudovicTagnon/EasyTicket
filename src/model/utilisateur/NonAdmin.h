@@ -10,6 +10,7 @@
 #include "../ticket/Category.h"
 #include "../ticket/Ticket.h"
 #include "../EasyTicket.h"
+#include "../ticket/filters/Filters.h"
 
 
 class NonAdmin : public User
@@ -18,7 +19,7 @@ class NonAdmin : public User
         NonAdmin(const QString userId, const QString name, const QString surname, const QString email, EasyTicket& easyTicket);
         QString& requestMessage(const Ticket& ticket);
         //TODO: Have reflection about how to store Summary
-        std::vector<QString> requestTicketsSummary(const int pageNum, const QString& filter);
+        std::vector<QString> requestTicketsSummary(const int pageNum, const Filters& filters);
         void sendMessage(const Ticket& ticket, const QString& message);
         ~NonAdmin();
 };

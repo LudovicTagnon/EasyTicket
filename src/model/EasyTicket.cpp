@@ -59,9 +59,9 @@ void EasyTicket::transfertTicket(const User& user, const Ticket& ticket)
     ticketManager.transfertTicket(user, ticket);
 }
 
-std::vector<QString> EasyTicket::getTicketsSummary(const int pageNum, const QString& filter)
+std::vector<QString> EasyTicket::getTicketsSummary(const int pageNum, const Filters& filters)
 {
-    return ticketManager.getTicketsSummary(pageNum, filter);
+    return ticketManager.getTicketsSummary(pageNum, filters);
 }
 
 void EasyTicket::changeCategory(const Ticket& ticket, const Category category)

@@ -8,6 +8,7 @@
 #include "../db/DBManager.h"
 #include "Ticket.h"
 #include "Category.h"
+#include "filters/Filters.h"
 
 class User;
 
@@ -30,7 +31,7 @@ class TicketManager
         void prendreTicket(const User& user, const Ticket& ticket);
         void transfertTicket(const User& user, const Ticket& ticket);
         //TODO : have reflexions about differences between summary and complete ticket, for the implementation
-        std::vector<QString> getTicketsSummary(const int pageNum, const QString& filter);
+        std::vector<QString> getTicketsSummary(const int pageNum, const Filters& filters);
         void changeCategory(const Ticket& ticket, const Category category);
         void sendMessage(const Ticket& ticket, const QString& message);
 

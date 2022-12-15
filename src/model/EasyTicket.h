@@ -4,6 +4,7 @@
 #include "ticket/TicketManager.h"
 #include "states/StateManager.h"
 #include "ticket/Category.h"
+#include "ticket/filters/Filters.h"
 
 class EasyTicket
 {
@@ -23,7 +24,7 @@ class EasyTicket
         QString getMessage(const Ticket& ticket);
         void prendreTicket(const User& user, const Ticket& ticket);
         void transfertTicket(const User& user, const Ticket& ticket);
-        std::vector<QString> getTicketsSummary(const int pageNum, const QString& filter);
+        std::vector<QString> getTicketsSummary(const int pageNum, const Filters& filters);
         void changeCategory(const Ticket& ticket, const Category category);
 
         void start();

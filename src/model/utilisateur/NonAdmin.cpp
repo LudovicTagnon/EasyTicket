@@ -15,7 +15,7 @@ QString& NonAdmin::requestMessage(const Ticket& ticketId)
     return s;
 }
 
-std::vector<QString> NonAdmin::requestTicketsSummary(const int pageNum, const QString& filter)
+std::vector<QString> NonAdmin::requestTicketsSummary(const int pageNum, const Filters& filers)
 {
     return {};
 }

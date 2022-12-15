@@ -7,6 +7,7 @@
 #include <ctime>
 
 #include "Message.h"
+#include "Category.h"
 
 class NonAdmin;
 
@@ -15,13 +16,14 @@ class Ticket
     private:
         const QString ticketId;
         const QString title;
+        const Category category;
         const std::time_t dateDebut;
         const bool isClosed;
         const std::time_t dateFin;
         std::vector<Message> messages;
         const NonAdmin* employeeOnIt;
     public:
-        Ticket(const QString ticketId, const QString title,
+        Ticket(const QString ticketId, const QString title, const Category category,
                 const std::time_t dateDebut = std::chrono::system_clock::to_time_t(std::chrono::system_clock::now()),
                 const bool isClosed = false,
                 const std::time_t dateFin = std::chrono::system_clock::to_time_t(std::chrono::system_clock::now()));
