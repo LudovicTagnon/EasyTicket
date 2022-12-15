@@ -34,6 +34,8 @@ SOURCES += \
     src/model/ticket/Message.cpp \
     src/model/ticket/Ticket.cpp \
     src/model/ticket/TicketManager.cpp \
+    src/model/ticket/filters/Filters.cpp \
+    src/model/ticket/filters/FiltersBuilder.cpp \
     src/model/utilisateur/Client.cpp \
     src/model/utilisateur/Ingenieur.cpp \
     src/model/utilisateur/Admin.cpp \
@@ -54,8 +56,10 @@ HEADERS += \
     src/vues/vuetransferer.h \
     src/vues/vuenouveauticket.h \
     src/model/EasyTicket.h \
-    src/model/ticket/Category.h \
     src/model/db/DBManager.h \
+    src/model/ticket/Category.h \
+    src/model/ticket/filters/Filters.cpp \
+    src/model/ticket/filters/FiltersBuilder.cpp \
     src/model/ticket/Message.h \
     src/model/ticket/Ticket.h \
     src/model/ticket/TicketManager.h \

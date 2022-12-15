@@ -36,7 +36,7 @@ class FiltersBuilder
         FiltersBuilder& setDateFin(std::time_t dateFin);
         FiltersBuilder& setEmployeeOnIt(NonAdmin* employeeOnIt);
 
-        Filter toFilter();
+        Filters toFilters();
 
         ~FiltersBuilder();
     };

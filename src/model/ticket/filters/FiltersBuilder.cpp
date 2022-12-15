@@ -50,9 +50,9 @@ FiltersBuilder& FiltersBuilder::setEmployeeOnIt(NonAdmin* employeeOnIt)
     this->employeeOnIt = employeeOnIt;
 }
 
-Filter FiltersBuilder::toFilter()
+Filters FiltersBuilder::toFilters()
 {
-    return Filter(ticketId, title, categories, dateDebut, checkClosedState, isClosed, dateFin, employeeOnIt);
+    return Filters(ticketId, title, categories, dateDebut, checkClosedState, isClosed, dateFin, employeeOnIt);
 }
 
 FiltersBuilder::~FiltersBuilder()
