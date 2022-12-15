@@ -22,6 +22,9 @@ public:
 
     ~VueNouveauTicket() override;
 
+private slots:
+    void on_ConfirmerButton_clicked();
+
 private:
     Ui::VueNouveauTicket *ui;
     EasyTicket& easyTicket;

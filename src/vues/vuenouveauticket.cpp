@@ -4,6 +4,7 @@
 
 // You may need to build the project (run Qt uic code generator) to get "ui_VueNouveauTicket.h" resolved
 
+#include <QMessageBox>
 #include "vuenouveauticket.h"
 #include "ui_VueNouveauTicket.h"
 
@@ -16,3 +17,8 @@ VueNouveauTicket::VueNouveauTicket(EasyTicket& easyTicket, QWidget *parent) :
 VueNouveauTicket::~VueNouveauTicket() {
     delete ui;
 }
+
+void VueNouveauTicket::on_ConfirmerButton_clicked() {
+    QMessageBox::information(this, "Status", "Ticket envoyé");
+}
+
