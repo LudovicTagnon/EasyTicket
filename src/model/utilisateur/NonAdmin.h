@@ -7,7 +7,7 @@
 #include <QtCore/QString>
 
 #include "User.h"
-#include "../Category.h"
+#include "../ticket/Category.h"
 #include "../ticket/Ticket.h"
 #include "../EasyTicket.h"
 

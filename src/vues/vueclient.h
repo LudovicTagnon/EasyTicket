@@ -33,7 +33,6 @@ private slots:
 private:
     Ui::VueClient *ui;
     EasyTicket& easyTicket;
-
 };
 
 

@@ -7,7 +7,7 @@
 
 #include "../db/DBManager.h"
 #include "Ticket.h"
-#include "../Category.h"
+#include "Category.h"
 
 class User;
 

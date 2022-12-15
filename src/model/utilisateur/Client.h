@@ -2,7 +2,7 @@
 #define CLIENT_H
 
 #include "NonAdmin.h"
-#include "../Category.h"
+#include "../ticket/Category.h"
 #include "../EasyTicket.h"
 
 class Client : NonAdmin

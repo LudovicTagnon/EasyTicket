@@ -27,7 +27,7 @@
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-image: url(&quot;../../res/images/EasyTicketLogo.png&quot;);</string>
+     <string notr="true">background-image: url(&quot;res/images/EasyTicketLogo.png&quot;);</string>
     </property>
    </widget>
    <widget class="QGroupBox" name="verticalGroupBox">

@@ -3,7 +3,6 @@
 #include "ui_mainwindow.h"
 
 #include <QMessageBox>
-#include <QPixmap>
 #include <iostream>
 
 MainWindow::MainWindow(EasyTicket& easyTicket, QWidget *parent)

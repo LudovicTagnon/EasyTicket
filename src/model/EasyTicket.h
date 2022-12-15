@@ -3,7 +3,7 @@
 
 #include "ticket/TicketManager.h"
 #include "states/StateManager.h"
-#include "Category.h"
+#include "ticket/Category.h"
 
 class EasyTicket
 {

@@ -3,7 +3,7 @@
 
 #include <set>
 
-#include "../Category.h"
+#include "../ticket/Category.h"
 #include "NonAdmin.h"
 #include "../EasyTicket.h"
 

@@ -4,7 +4,7 @@
 #include <QtSql>
 #include <QSqlDatabase>
 
-#include "../Category.h"
+#include "../ticket/Category.h"
 
 class Ticket;
 class User;

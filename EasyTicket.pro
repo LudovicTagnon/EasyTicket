@@ -54,7 +54,7 @@ HEADERS += \
     src/vues/vuetransferer.h \
     src/vues/vuenouveauticket.h \
     src/model/EasyTicket.h \
-    src/model/Category.h \
+    src/model/ticket/Category.h \
     src/model/db/DBManager.h \
     src/model/ticket/Message.h \
     src/model/ticket/Ticket.h \
@@ -77,7 +77,7 @@ FORMS += src/vues/mainwindow.ui \
     src/vues/VuePriseTicket.ui \
     src/vues/VueChangeCategorie.ui \
     src/vues/VueTransferer.ui \
-    src/vues/VueNouveauTicket.cpp \
+    src/vues/VueNouveauTicket.ui 
 
 
 
