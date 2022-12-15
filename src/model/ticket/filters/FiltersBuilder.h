@@ -23,6 +23,7 @@ class FiltersBuilder
         bool isClosed;
         std::time_t dateFin;
         NonAdmin* employeeOnIt;
+        
     public:
         FiltersBuilder();
 
@@ -39,6 +40,6 @@ class FiltersBuilder
         Filters toFilters();
 
         ~FiltersBuilder();
-    };
+};
 
 #endif /*__FILTERSBUILDER_H__*/

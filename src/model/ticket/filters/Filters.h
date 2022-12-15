@@ -5,6 +5,8 @@
 #include <chrono>
 #include <vector>
 #include <ctime>
+#include <any>
+#include <map>
 
 #include "../Message.h"
 #include "../Category.h"
@@ -37,6 +39,9 @@ class Filters
         const bool& getIsClosed(const bool isClosed) const;
         const std::time_t& getDateFin(const std::time_t dateFin) const;
         const NonAdmin* getEmployeeOnIt(const NonAdmin* employeeOnIt) const;
+
+        //https://stackoverflow.com/questions/24702235/c-stdmap-holding-any-type-of-value
+        const std::map<std::string, std::any> toMap();
 
         ~Filters();
 };

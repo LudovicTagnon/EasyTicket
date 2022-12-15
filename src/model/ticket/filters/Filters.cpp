@@ -54,6 +54,20 @@ const NonAdmin* Filters::getEmployeeOnIt(const NonAdmin* employeeOnIt) const
     return employeeOnIt;
 }
 
+const std::map<std::string, std::any> Filters::toMap()
+{
+    //std::string, std::string, std::vector<int>*, std::time_t, std::time_t, bool, bool, NonAdmin*
+    return std::map<std::string, std::any>{
+        {"ticketId", ticketId},
+        {"title", title},
+        {"categories", &categories},
+        {"dateDebut", dateDebut},
+        {"checkClosedState", checkClosedState},
+        {"isClosed", isClosed},
+        {"dateFin", dateFin},
+        {"employeeOnIt", employeeOnIt}};
+}
+
 Filters::~Filters()
 {
 
