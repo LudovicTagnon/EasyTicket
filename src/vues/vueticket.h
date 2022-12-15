@@ -20,6 +20,10 @@ public:
 
     ~VueTicket() override;
 
+private slots:
+    void on_EnvoyerButton_clicked();
+    void on_RetourButton_clicked();
+
 private:
     Ui::VueTicket *ui;
     EasyTicket& easyTicket;

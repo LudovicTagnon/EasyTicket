@@ -19,6 +19,10 @@ VueNouveauTicket::~VueNouveauTicket() {
 }
 
 void VueNouveauTicket::on_ConfirmerButton_clicked() {
-    QMessageBox::information(this, "Status", "Ticket envoyé");
+    QMessageBox::information(this, "Status", "Ticket créé");
+}
+
+void VueNouveauTicket::on_RetourButton_clicked(){
+    this->close();
 }
 

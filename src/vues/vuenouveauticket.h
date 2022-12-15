@@ -24,6 +24,7 @@ public:
 
 private slots:
     void on_ConfirmerButton_clicked();
+    void on_RetourButton_clicked();
 
 private:
     Ui::VueNouveauTicket *ui;
