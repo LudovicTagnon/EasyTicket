@@ -29,7 +29,9 @@ private slots:
     void on_PrendreButton_clicked();
     void on_ChangeCatButton_clicked();
     void on_TransfererButton_clicked();
-
+    void on_ATraiterButton_clicked();
+    void on_ClosButton_clicked();
+    void on_EnCoursButton_clicked();
 private:
     Ui::VueIngeTech *ui;
     EasyTicket& easyTicket;

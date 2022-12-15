@@ -21,6 +21,10 @@ public:
 
     ~VueChangeCategorie() override;
 
+private slots:
+    void on_ConfirmerButton_clicked();
+    void on_AnnulerButton_clicked();
+
 private:
     Ui::VueChangeCategorie *ui;
     EasyTicket& easyTicket;

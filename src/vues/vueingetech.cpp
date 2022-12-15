@@ -4,6 +4,7 @@
 
 // You may need to build the project (run Qt uic code generator) to get "ui_VueIngeTech.h" resolved
 
+#include <QMessageBox>
 #include "vueingetech.h"
 #include "ui_VueIngeTech.h"
 
@@ -15,6 +16,7 @@ VueIngeTech::VueIngeTech(EasyTicket& easyTicket, QWidget *parent) :
 
 VueIngeTech::~VueIngeTech() {
     delete ui;
+
 }
 
 void VueIngeTech::on_OuvrirButton_clicked() {
@@ -35,4 +37,16 @@ void VueIngeTech::on_ChangeCatButton_clicked() {
 void VueIngeTech::on_TransfererButton_clicked() {
     easyTicket.pushWindow(new VueTransferer(easyTicket));
     easyTicket.start();
+}
+
+void VueIngeTech::on_ATraiterButton_clicked(){
+    QMessageBox::information(this, "Status", "Affichage des tickets à traiter");
+}
+
+void VueIngeTech::on_ClosButton_clicked(){
+    QMessageBox::information(this, "Status", "Affichage des tickets clos");
+}
+
+void VueIngeTech::on_EnCoursButton_clicked(){
+    QMessageBox::information(this, "Status", "Affichage des tickets en cours");
 }

@@ -4,6 +4,7 @@
 
 // You may need to build the project (run Qt uic code generator) to get "ui_VueClient.h" resolved
 
+#include <QMessageBox>
 #include "vueclient.h"
 #include "ui_VueClient.h"
 
@@ -26,4 +27,12 @@ void VueClient::on_NouveauButton_clicked() {
     easyTicket.pushWindow(new VueNouveauTicket(easyTicket));
     easyTicket.start();
 
+}
+
+void VueClient::on_ClosButton_clicked(){
+    QMessageBox::information(this, "Status", "Affichage des tickets clos");
+}
+
+void VueClient::on_EnCoursButton_clicked(){
+    QMessageBox::information(this, "Status", "Affichage des tickets en cours");
 }

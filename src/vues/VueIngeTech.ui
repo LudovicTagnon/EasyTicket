@@ -26,21 +26,21 @@
     <item>
      <layout class="QVBoxLayout" name="LayoutFiltres">
       <item>
-       <widget class="QPushButton" name="AfficherEnCoursButton">
+       <widget class="QPushButton" name="EnCoursButton">
         <property name="text">
          <string>En Cours</string>
         </property>
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="AfficherClosButton">
+       <widget class="QPushButton" name="ClosButton">
         <property name="text">
          <string>Clos</string>
         </property>
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="AfficherATraiter">
+       <widget class="QPushButton" name="ATraiterButton">
         <property name="text">
          <string>À traiter</string>
         </property>

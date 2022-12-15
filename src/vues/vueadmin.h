@@ -20,6 +20,9 @@ public:
 
     ~VueAdmin() override;
 
+private slots:
+    void on_RafraichirButton_clicked();
+
 private:
     Ui::VueAdmin *ui;
     EasyTicket& easyTicket;

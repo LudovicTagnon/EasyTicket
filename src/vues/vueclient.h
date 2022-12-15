@@ -29,6 +29,8 @@ public:
 private slots:
     void on_OuvrirButton_clicked();
     void on_NouveauButton_clicked();
+    void on_ClosButton_clicked();
+    void on_EnCoursButton_clicked();
 
 private:
     Ui::VueClient *ui;

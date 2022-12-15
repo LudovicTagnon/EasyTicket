@@ -21,6 +21,10 @@ public:
 
     ~VuePriseTicket() override;
 
+private slots:
+    void on_ConfirmerButton_clicked();
+    void on_AnnulerButton_clicked();
+
 private:
     Ui::VuePriseTicket *ui;
     EasyTicket& easyTicket;

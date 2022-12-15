@@ -4,6 +4,7 @@
 
 // You may need to build the project (run Qt uic code generator) to get "ui_VuePriseTicket.h" resolved
 
+#include <QMessageBox>
 #include "vuepriseticket.h"
 #include "ui_VuePriseTicket.h"
 
@@ -20,3 +21,10 @@ VuePriseTicket::~VuePriseTicket() {
     delete ui;
 }
 
+void VuePriseTicket::on_ConfirmerButton_clicked(){
+    QMessageBox::information(this, "Status", "La prise en charge du ticket vous a bien été attribuée");
+}
+
+void VuePriseTicket::on_AnnulerButton_clicked(){
+    this->close();
+}
