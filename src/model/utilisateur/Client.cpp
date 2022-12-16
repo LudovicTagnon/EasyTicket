@@ -6,9 +6,9 @@ Client::Client(const User user, EasyTicket& easyTicket)
 
 }
 
-void Client::postTicket(const Category category, const QString message)
+void Client::postTicket(const Category category, const QString message, const QString title)
 {
-    easyTicket.postTicket(category, message);
+    easyTicket.postTicket(category, message, title);
 }
 
 Client::~Client()

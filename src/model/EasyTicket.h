@@ -27,7 +27,7 @@ class EasyTicket
         void closeDB();
 
         User getUserInfo(const int userId);
-        void postTicket(const Category category, const QString message);
+        void postTicket(const Category category, const QString message, const QString title);
         void sendMessage(const Ticket& ticket, const QString& message);
         QString getMessage(const Ticket& ticket);
         void prendreTicket(const User& user, const Ticket& ticket);

@@ -81,16 +81,11 @@ User DBManager::getUserInfo(const int userId)
     return User(userId, "John", "Doe", "johndoe@mail.com", easyTicket);
 }
 
-void DBManager::requestPostTicket(const Category category, const QString message)
-{
-    return User(userId, "John", "Doe", "johndoe@mail.com", easyTicket);
-}
-
 int DBManager::requestPostTicket(const Category category, const QString message, const QString title)
 {
   ++ticketId;
-  query.exec("INSERT INTO Ticket(ticket_num, ticket_title, cat_id) VALUES(" + ticketId + ", '" + title + "', " + category + ");");
-  query.exec("INSERT INTO Message(message_text, ticket_num) VALUES('" + message + "', " + ticketId + ");");
+  query.exec("INSERT INTO Ticket(ticket_num, ticket_title, cat_id) VALUES(" + QString::number(ticketId) + ", '" + title + "', " + QString::number(category) + ");");
+  query.exec("INSERT INTO Message(message_text, ticket_num) VALUES('" + message + "', " + QString::number(ticketId) + ");");
   return ticketId;
 }
 
@@ -103,12 +98,12 @@ QString DBManager::requestMessage(const Ticket& ticket)
 
 void DBManager::requestPrendreTicket(const User& user, const Ticket& ticket)
 {
-  query.exec("UPDATE Ticket SET user_id = " + QString::number(user.getUserId()) + "WHERE ticket_num = " + QString::number(ticket.getTicketId()) +";")
+  query.exec("UPDATE Ticket SET user_id = " + QString::number(user.getUserID()) + "WHERE ticket_num = " + QString::number(ticket.getTicketId()) +";");
 }
 
 void DBManager::requestTransfertTicket(const User& user, const Ticket& ticket)
 {
-  query.exec("UPDATE Ticket SET user_id = " + QString::number(user.getUserId()) + "WHERE ticket_num = " + QString::number(ticket.getTicketId()) +";")
+  query.exec("UPDATE Ticket SET user_id = " + QString::number(user.getUserID()) + "WHERE ticket_num = " + QString::number(ticket.getTicketId()) +";");
 }
 
 QStringList DBManager::requestTicketsSummary(const int pageNum, const Filters& filters)
@@ -120,12 +115,17 @@ QStringList DBManager::requestTicketsSummary(const int pageNum, const Filters& f
 
 void DBManager::requestChangeCategory(const Ticket& ticket, const Category category)
 {
-  query.exec("UPDATE Ticket SET car_id = " + category + "WHERE ticket_num = " + QString::number(ticket.getTicketId()) + ";")
+  query.exec("UPDATE Ticket SET car_id = " + QString::number(category) + "WHERE ticket_num = " + QString::number(ticket.getTicketId()) + ";");
 }
 
 void DBManager::requestSendMessage(const Ticket& ticket, const QString& message)
 {
   query.exec("INSERT INTO Message(message_text, ticket_num) VALUES('" + message + "', " + QString::number(ticket.getTicketId()) + ");");
+}
+
+QStringList DBManager::getCategories()
+{
+    return {};
 }
 
 DBManager::~DBManager()
