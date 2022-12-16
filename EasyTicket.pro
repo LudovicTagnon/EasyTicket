@@ -58,8 +58,8 @@ HEADERS += \
     src/model/EasyTicket.h \
     src/model/db/DBManager.h \
     src/model/ticket/Category.h \
-    src/model/ticket/filters/Filters.cpp \
-    src/model/ticket/filters/FiltersBuilder.cpp \
+    src/model/ticket/filters/Filters.h \
+    src/model/ticket/filters/FiltersBuilder.h \
     src/model/ticket/Message.h \
     src/model/ticket/Ticket.h \
     src/model/ticket/TicketManager.h \

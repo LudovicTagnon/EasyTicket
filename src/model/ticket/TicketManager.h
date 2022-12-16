@@ -15,13 +15,14 @@ class User;
 class TicketManager
 {
     private:
-        DBManager db;
+        DBManager& db;
         std::vector<Ticket> tickets;
 
     public:
-        TicketManager();
+        TicketManager(DBManager& db);
 
         void openDB(const QString username, const QString password);
+        void connectionBD(const QString username, const QString password);
         bool isOpenDB() const;
         void closeDB();
 

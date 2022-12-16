@@ -17,15 +17,32 @@ FiltersBuilder& FiltersBuilder::setTitle(QString title)
     return *this;
 }
 
-FiltersBuilder& FiltersBuilder::addCategories(std::vector<Category> categories)
+FiltersBuilder& FiltersBuilder::addCategories(std::set<Category> categories)
 {
-    this->categories.insert(this->categories.end(), categories.begin(), categories.end());
+    this->categories.insert(categories.begin(), categories.end());
     return *this;
 }
 
 FiltersBuilder& FiltersBuilder::addCategory(Category category)
 {
-    this->categories.push_back(category);
+    this->categories.insert(category);
+    return *this;
+}
+
+FiltersBuilder& FiltersBuilder::removeCategories(std::set<Category> categories)
+{
+    std::set<Category> tmp;
+    std::set_difference(this->categories.begin(), this->categories.end()
+                      , categories.begin(), categories.end(), std::inserter(tmp, tmp.end()));
+    this->categories = tmp;
+
+    return *this;
+}
+
+FiltersBuilder& FiltersBuilder::removeCategory(Category category)
+{
+    this->categories.erase(category);
+
     return *this;
 }
 

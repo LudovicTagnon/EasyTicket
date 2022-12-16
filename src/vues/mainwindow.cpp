@@ -23,26 +23,19 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_connexionButton_clicked()
 {
-    easyTicket.openDB("root", "");
-    if(easyTicket.isOpenDB())
+    std::cout << "OK" << std::endl;
+
+    easyTicket.openDB();
+    if(easyTicket.isOpenDB() || true)
     {
         QMessageBox::information(this, "Connection", "Connected");
-        //easyTicket.closeDB();
-        easyTicket.pushWindow(new VueClient(easyTicket));
+        
+        easyTicket.pushWindow(new VueAdmin(easyTicket));
         easyTicket.start();
     }
     else
     {
-        //QMessageBox::information(this, "Connection", "Error");
-
-        //easyTicket.pushWindow(new VueIngeTech(easyTicket));
-        //easyTicket.start();
-
-        easyTicket.pushWindow(new VueClient(easyTicket));
-        easyTicket.start();
-
-        //easyTicket.pushWindow(new VueAdmin(easyTicket));
-        //easyTicket.start();
+        QMessageBox::information(this, "Connection", "Error");
     }
 }
 

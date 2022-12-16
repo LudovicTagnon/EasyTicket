@@ -6,6 +6,8 @@
 #include "../vues/mainwindow.h"
 
 EasyTicket::EasyTicket()
+ : db(DBManager())
+ , ticketManager(TicketManager(db))
 {
     stateManager.push(new MainWindow(*this));
 }
@@ -14,19 +16,24 @@ void EasyTicket::pushWindow(QWidget* state){
     stateManager.push(state);
 }
 
-void EasyTicket::openDB(const QString username, const QString password)
+void EasyTicket::openDB()
 {
-    ticketManager.openDB(username, password);
+    db.open();
+}
+
+void EasyTicket::connectionDB(const QString username, const QString password)
+{
+    db.connection(username, password);
 }
 
 bool EasyTicket::isOpenDB() const
 {
-    return ticketManager.isOpenDB();
+    return db.isOpen();
 }
 
 void EasyTicket::closeDB()
 {
-    ticketManager.closeDB();
+    db.close();
 }
 
 void EasyTicket::postTicket(const Category category, const QString message)

@@ -3,8 +3,9 @@
 
 #include <string>
 #include <chrono>
-#include <vector>
+#include <set>
 #include <ctime>
+#include <algorithm>
 
 #include "../Message.h"
 #include "../Category.h"
@@ -17,7 +18,7 @@ class FiltersBuilder
     private:
         QString ticketId;
         QString title;
-        std::vector<Category> categories;
+        std::set<Category> categories;
         std::time_t dateDebut;
         bool checkClosedState;
         bool isClosed;
@@ -29,8 +30,10 @@ class FiltersBuilder
 
         FiltersBuilder& setTicketId(QString ticketId);
         FiltersBuilder& setTitle(QString title);
-        FiltersBuilder& addCategories(std::vector<Category> categories);
+        FiltersBuilder& addCategories(std::set<Category> categories);
         FiltersBuilder& addCategory(Category category);
+        FiltersBuilder& removeCategories(std::set<Category> categories);
+        FiltersBuilder& removeCategory(Category category);
         FiltersBuilder& setDateDebut(std::time_t dateDebut);
         FiltersBuilder& setCheckClosedState(bool checkClosedState);
         FiltersBuilder& setIsClosed(bool isClosed);

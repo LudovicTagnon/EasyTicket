@@ -9,7 +9,6 @@
 #include "../ticket/Category.h"
 #include "../ticket/filters/Filters.h"
 
-
 class Ticket;
 class User;
 
@@ -23,13 +22,15 @@ class DBManager
         QSqlQuery query;
 
         bool open();
+        bool isOpen() const;
         void createIfNotExistsDataBase();
+        void connection(const QString username, const QString password);
         void close();
 
         void requestPostTicket(const Category category, const QString message);
         void requestTakeTicket(const Ticket& ticket);
         QString requestMessage(const Ticket& ticket);
-        void requestPrendreTicket<:(const User& user, const Ticket& ticket);
+        void requestPrendreTicket(const User& user, const Ticket& ticket);
         void requestTransfertTicket(const User& user, const Ticket& ticket);
         std::vector<QString> requestTicketsSummary(const int pageNum, const Filters& filters);
         void requestChangeCategory(const Ticket& ticket, const Category category);

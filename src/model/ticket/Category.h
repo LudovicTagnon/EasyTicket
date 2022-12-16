@@ -2,11 +2,13 @@
 #define CATEGORY_H
 
 //TODO: Define categories
+
 enum Category {
-    Création,
-    Visualisation,
-    Windows,
-    Réclamation
+    ALL,
+    CREATION,
+    VISUALISATION,
+    WINDOWS,
+    RECLAMATION
 };
 
 #endif /*Category*/

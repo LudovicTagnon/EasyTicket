@@ -1,6 +1,6 @@
 #include "Filters.h"
 
-Filters::Filters(const QString ticketId, const QString title, const std::vector<Category> categories
+Filters::Filters(const QString ticketId, const QString title, const std::set<Category> categories
              , const std::time_t dateDebut, const bool checkClosedState, const bool isClosed, const std::time_t dateFin, const NonAdmin* employeeOnIt)
  : ticketId(ticketId)
  , title(title)
@@ -14,49 +14,49 @@ Filters::Filters(const QString ticketId, const QString title, const std::vector<
     
 }
 
-const QString& Filters::getTicketId(QString ticketId) const
+const QString& Filters::getTicketId() const
 {
     return ticketId;
 }
 
-const QString& Filters::getTitle(QString title) const
+const QString& Filters::getTitle() const
 {
     return title;
 }
 
-const std::vector<Category>& Filters::addCategories(std::vector<Category> categories) const
+const std::set<Category>& Filters::addCategories() const
 {
     return categories;
 }
 
-const std::time_t& Filters::getDateDebut(std::time_t dateDebut) const
+const std::time_t& Filters::getDateDebut() const
 {
     return dateDebut;
 }
 
-const bool& Filters::getCheckClosedState(bool checkClosedState) const
+const bool& Filters::getCheckClosedState() const
 {
     return checkClosedState;
 }
 
-const bool& Filters::getIsClosed(bool isClosed) const
+const bool& Filters::getIsClosed() const
 {
     return isClosed;
 }
 
-const std::time_t& Filters::getDateFin(const std::time_t dateFin) const
+const std::time_t& Filters::getDateFin() const
 {
     return dateFin;
 }
 
-const NonAdmin* Filters::getEmployeeOnIt(const NonAdmin* employeeOnIt) const
+const NonAdmin* Filters::getEmployeeOnIt() const
 {
     return employeeOnIt;
 }
 
 const std::map<std::string, std::any> Filters::toMap()
 {
-    //std::string, std::string, std::vector<int>*, std::time_t, std::time_t, bool, bool, NonAdmin*
+    //std::string, std::string, std::set<Category>*, std::time_t, std::time_t, bool, bool, NonAdmin*
     return std::map<std::string, std::any>{
         {"ticketId", ticketId},
         {"title", title},

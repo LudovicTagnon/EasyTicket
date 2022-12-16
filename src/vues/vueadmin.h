@@ -26,6 +26,8 @@ private slots:
 private:
     Ui::VueAdmin *ui;
     EasyTicket& easyTicket;
+
+    int page;
 };
 
 

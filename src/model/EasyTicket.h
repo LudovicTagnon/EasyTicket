@@ -9,12 +9,14 @@
 class EasyTicket
 {
     private:
+        DBManager db;
         TicketManager ticketManager;
         StateManager stateManager;
     public:
         EasyTicket();
         void pushWindow(QWidget* state);
-        void openDB(const QString username, const QString password);
+        void openDB();
+        void connectionDB(const QString username, const QString password);
         bool isOpenDB() const;
         void closeDB();
 
