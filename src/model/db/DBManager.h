@@ -23,29 +23,29 @@ class User;
 
 class DBManager
 {
-	private:
-		QSqlDatabase dbEasyTicket;
+    private:
+        QSqlDatabase dbEasyTicket;
+        int ticketId = -1;
 
-	public:
-		DBManager();
-		QSqlQuery query;
+    public:
+        DBManager();
+        QSqlQuery query;
 
-		bool open();
-		bool isOpen() const;
-		void createIfNotExistsDataBase();
-		int connection(const QString usermail, const QString password);
-		void close();
+        bool open();
+        bool isOpen() const;
+        void createIfNotExistsDataBase();
+        pair connection(const QString usermail, const QString password);
+        void close();
 
-		void requestPostTicket(const Category category, const QString message);
-		QString requestMessage(const Ticket& ticket);
-		void requestPrendreTicket(const User& user, const Ticket& ticket);
-		void requestTransfertTicket(const User& user, const Ticket& ticket);
-		QStringList requestTicketsSummary(const int pageNum, const Filters& filters);
-		void requestChangeCategory(const Ticket& ticket, const Category category);
-		void requestSendMessage(const Ticket& ticket, const QString& message);
-		QStringList getCategories();
+        int requestPostTicket(const Category category, const QString message, const QString title);
+        QString requestMessage(const Ticket& ticket);
+        void requestPrendreTicket(const User& user, const Ticket& ticket);
+        void requestTransfertTicket(const User& user, const Ticket& ticket);
+        QStringList requestTicketsSummary(const int pageNum, const Filters& filters);
+        void requestChangeCategory(const Ticket& ticket, const Category category);
+        void requestSendMessage(const Ticket& ticket, const QString& message);
 
-		~DBManager();
+        ~DBManager();
 
 };
 

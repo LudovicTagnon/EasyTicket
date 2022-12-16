@@ -27,12 +27,11 @@ bool DBManager::open()
     return true;
 }
 
-int DBManager::connection(const QString usermail, const QString password)
+pair DBManager::connection(const QString usermail, const QString password)
 {
-  query.exec("SELECT user_level FROM User WHERE lower(user_email) like '" + usermail.toLower() + "'and user_password like '" + password + "';");
-
-  if(!query.next()) return -1;
-  else return query.value(0).toInt();
+  query.exec("SELECT user_level, user_id FROM User WHERE lower(user_email) like '" + usermail.toLower() + "'and user_password like '" + password + "';");
+  if(!query.next()) return {-1, -1};
+  else return {query.value(0).toInt(), query.value(1).toInt()};
 }
 
 bool DBManager::isOpen() const
@@ -42,13 +41,13 @@ bool DBManager::isOpen() const
 
 void DBManager::createIfNotExistsDataBase()
 {
-    query.exec("CREATE TABLE IF NOT EXISTS Category (cat_id INT AUTO_INCREMENT, cat_name VARCHAR(25) NOT NULL UNIQUE, PRIMARY KEY (cat_id));");
+    query.exec("CREATE TABLE IF NOT EXISTS Category (cat_id INT, cat_name VARCHAR(25) NOT NULL UNIQUE, PRIMARY KEY (cat_id));");
 
-    query.exec("CREATE TABLE IF NOT EXISTS Message (message_id INT AUTO_INCREMENT, message_text VARCHAR(200) NOT NULL, message_date DATE DEFAULT CURRENT_DATE, Tiicket_num INT NOT NULL, PRIMARY KEY (message_id), FOREIGN KEY (ticket_num)  REFERENCES Ticket(ticket_num) ON DELETE CASCADE);");
+    query.exec("CREATE TABLE IF NOT EXISTS Message (message_text VARCHAR(200) NOT NULL, message_date DATE DEFAULT CURRENT_DATE, ticket_num INT NOT NULL, FOREIGN KEY (ticket_num)  REFERENCES Ticket(ticket_num) ON DELETE CASCADE);");
 
-    query.exec("CREATE TABLE IF NOT EXISTS Ticket (ticket_num INT AUTO_INCREMENT, ticket_date Date NOT NULL DEFAULT CURRENT_DATE, user_id INT NOT NULL, cat_id INT NOT NULL, PRIMARY KEY (ticket_num), FOREIGN KEY (user_id)  REFERENCES User(user_id) ON DELETE CASCADE, FOREIGN KEY (cat_id)  REFERENCES Category(cat_id) ON DELETE CASCADE);");
+    query.exec("CREATE TABLE IF NOT EXISTS Ticket (ticket_num INT, ticket_title VARCHAR(50) NOT NULL, ticket_date_post Date DEFAULT CURRENT_DATE, ticket_date_end Date DEFAULT NULL, user_id INT, cat_id INT NOT NULL, PRIMARY KEY (ticket_num), FOREIGN KEY (user_id)  REFERENCES User(user_id) ON DELETE CASCADE, FOREIGN KEY (cat_id)  REFERENCES Category(cat_id) ON DELETE CASCADE);");
 
-    query.exec("CREATE TABLE IF NOT EXISTS User (user_id  INT AUTO_INCREMENT, user_email VARCHAR(200) NOT NULL, user_password VARCHAR(200) NOT NULL, user_name VARCHAR(200) NOT NULL, user_surname VARCHAR(200) NOT NULL, user_level INT NOT NULL DEFAULT 0, PRIMARY KEY (user_id));");
+    query.exec("CREATE TABLE IF NOT EXISTS User (user_id  INT, user_email VARCHAR(200) NOT NULL, user_password VARCHAR(200) NOT NULL, user_name VARCHAR(200) NOT NULL, user_surname VARCHAR(200) NOT NULL, user_level INT NOT NULL DEFAULT 0, PRIMARY KEY (user_id));");
 
     query.exec("SELECT * FROM Category;");
 
@@ -56,16 +55,16 @@ void DBManager::createIfNotExistsDataBase()
     {
       // qDebug() << "Pas encore créée";
 
-        query.exec("INSERT INTO Category(cat_name) VALUES('ALL');");
-        query.exec("INSERT INTO Category(cat_name) VALUES('CREATION');");
-        query.exec("INSERT INTO Category(cat_name) VALUES('VISUALISATION');");
-        query.exec("INSERT INTO Category(cat_name) VALUES('WINDOWS');");
-        query.exec("INSERT INTO Category(cat_name) VALUES('RECLAMATION');");
+        query.exec("INSERT INTO Category(cat_id, cat_name) VALUES(0, 'ALL');");
+        query.exec("INSERT INTO Category(cat_id, cat_name) VALUES(1, 'CREATION');");
+        query.exec("INSERT INTO Category(cat_id, cat_name) VALUES(2, 'VISUALISATION');");
+        query.exec("INSERT INTO Category(cat_id, cat_name) VALUES(3, 'WINDOWS');");
+        query.exec("INSERT INTO Category(cat_id, cat_name) VALUES(4, 'RECLAMATION');");
 
-        query.exec("INSERT INTO User(user_email, user_password, user_name, user_surname, user_level) VALUES('admin@admin.fr', 'admin', 'Henri', 'LeBigBoss', 2);");
-        query.exec("INSERT INTO User(user_email, user_password, user_name, user_surname, user_level) VALUES('inge@inge.fr', 'inge', 'Harry', 'LeBoss', 1);");
-        query.exec("INSERT INTO User(user_email, user_password, user_name, user_surname, user_level) VALUES('tech@tech.fr', 'tech', 'Harty', 'LApprenti', 1);");
-        query.exec("INSERT INTO User(user_email, user_password, user_name, user_surname, user_level) VALUES('client@client.fr', 'client', 'Hugo', 'LeRandom', 0);");
+        query.exec("INSERT INTO User(user_id, user_email, user_password, user_name, user_surname, user_level) VALUES(1, 'admin@admin.fr', 'admin', 'Henri', 'LeBigBoss', 3);");
+        query.exec("INSERT INTO User(user_id, user_email, user_password, user_name, user_surname, user_level) VALUES(2, 'inge@inge.fr', 'inge', 'Harry', 'LeBoss', 2);");
+        query.exec("INSERT INTO User(user_id, user_email, user_password, user_name, user_surname, user_level) VALUES(3, 'tech@tech.fr', 'tech', 'Harty', 'LApprenti', 1);");
+        query.exec("INSERT INTO User(user_id, user_email, user_password, user_name, user_surname, user_level) VALUES(4, 'client@client.fr', 'client', 'Hugo', 'LeRandom', 0);");
     }
 }
 
@@ -74,9 +73,12 @@ void DBManager::close()
     dbEasyTicket.close();
 }
 
-void DBManager::requestPostTicket(const Category category, const QString message)
+int DBManager::requestPostTicket(const Category category, const QString message, const QString title)
 {
-    //Make request
+  ++ticketId;
+  query.exec("INSERT INTO Ticket(ticket_num, ticket_title, cat_id) VALUES(" + ticketId + ", '" + title + "', " + category + ");");
+  query.exec("INSERT INTO Message(message_text, ticket_num) VALUES('" + message + "', " + ticketId + ");");
+  return ticketId;
 }
 
 QString DBManager::requestMessage(const Ticket& ticket)
@@ -109,11 +111,6 @@ void DBManager::requestChangeCategory(const Ticket& ticket, const Category categ
 }
 
 void DBManager::requestSendMessage(const Ticket& ticket, const QString& message)
-{
-    //Make request
-}
-
-QStringList DBManager::getCategories()
 {
     //Make request
 }
