@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>VueInscription</class>
+ <widget class="QWidget" name="VueInscription">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>904</width>
+    <height>481</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>VueInscription</string>
+  </property>
+  <widget class="QGraphicsView" name="graphicsView">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>-10</y>
+     <width>1111</width>
+     <height>871</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-image: url(&quot;res/images/EasyTicketLogo.png&quot;);</string>
+   </property>
+  </widget>
+  <widget class="QGroupBox" name="verticalGroupBox">
+   <property name="geometry">
+    <rect>
+     <x>280</x>
+     <y>130</y>
+     <width>351</width>
+     <height>181</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-radius: 12%;
+background-color: rgba(32, 32, 32, 196);
+background-image: none;</string>
+   </property>
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <widget class="QLabel" name="InscriptionLabel">
+      <property name="styleSheet">
+       <string notr="true">color: white;
+background-color: rgba(64, 64, 64, 196);</string>
+      </property>
+      <property name="text">
+       <string>Veuillez-vous inscrire.</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout_3">
+      <item>
+       <widget class="QLabel" name="AdresseMailLabel">
+        <property name="styleSheet">
+         <string notr="true">color: white;
+background-color: rgba(64, 64, 64, 196);</string>
+        </property>
+        <property name="text">
+         <string> Adresse mail </string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="AdresseMail">
+        <property name="styleSheet">
+         <string notr="true">color: white
+</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout_2">
+      <item>
+       <widget class="QLabel" name="MDPLabel">
+        <property name="styleSheet">
+         <string notr="true">color: white;
+background-color: rgba(64, 64, 64, 196);</string>
+        </property>
+        <property name="text">
+         <string> Mot de passe</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="MDP"/>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout_4">
+      <item>
+       <widget class="QLabel" name="PrenomLabel">
+        <property name="styleSheet">
+         <string notr="true">color: white;
+background-color: rgba(64, 64, 64, 196);</string>
+        </property>
+        <property name="text">
+         <string>Prénom</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="Prenom">
+        <property name="styleSheet">
+         <string notr="true">color: white
+</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout_6">
+      <item>
+       <widget class="QLabel" name="NomLabel">
+        <property name="styleSheet">
+         <string notr="true">color: white;
+background-color: rgba(64, 64, 64, 196);</string>
+        </property>
+        <property name="text">
+         <string>Nom</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="Nom">
+        <property name="styleSheet">
+         <string notr="true">color: white
+</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <item>
+       <widget class="QPushButton" name="RetourButton">
+        <property name="styleSheet">
+         <string notr="true">color: black;
+background-color: rgba(255, 255, 255, 255);
+border-radius: 12%;</string>
+        </property>
+        <property name="text">
+         <string>Retour</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="ConfirmerButton">
+        <property name="styleSheet">
+         <string notr="true">color: black;
+background-color: rgba(255, 255, 255, 255);
+border-radius: 12%;</string>
+        </property>
+        <property name="text">
+         <string>Confirmer</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

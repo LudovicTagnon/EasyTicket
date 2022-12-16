@@ -26,6 +26,7 @@ SOURCES += \
     src/vues/vuechangecategorie.cpp \
     src/vues/vuetransferer.cpp \
     src/vues/vuenouveauticket.cpp \
+    src/vues/vueinscription.cpp \
     src/model/EasyTicket.cpp \
     src/model/db/DBManager.cpp \
     src/model/ticket/Message.cpp \
@@ -52,6 +53,7 @@ HEADERS += \
     src/vues/vuechangecategorie.h \
     src/vues/vuetransferer.h \
     src/vues/vuenouveauticket.h \
+    src/vues/vueinscription.h \
     src/model/EasyTicket.h \
     src/model/db/DBManager.h \
     src/model/ticket/Category.h \
@@ -78,7 +80,8 @@ FORMS += src/vues/mainwindow.ui \
     src/vues/VuePriseTicket.ui \
     src/vues/VueChangeCategorie.ui \
     src/vues/VueTransferer.ui \
-    src/vues/VueNouveauTicket.ui 
+    src/vues/VueNouveauTicket.ui \
+    src/vues/VueInscription.ui \
 
 
 

@@ -1,6 +1,8 @@
 #ifndef EASYTICKET_H
 #define EASYTICKET_H
 
+#include <QListWidget>
+
 #include "ticket/TicketManager.h"
 #include "states/StateManager.h"
 #include "ticket/Category.h"
@@ -15,7 +17,7 @@ class EasyTicket
     public:
         EasyTicket();
         void pushWindow(QWidget* state);
-        void openDB();
+        bool openDB();
         void connectionDB(const QString username, const QString password);
         bool isOpenDB() const;
         void closeDB();
@@ -26,10 +28,8 @@ class EasyTicket
         QString getMessage(const Ticket& ticket);
         void prendreTicket(const User& user, const Ticket& ticket);
         void transfertTicket(const User& user, const Ticket& ticket);
-        std::vector<QString> getTicketsSummary(const int pageNum, const Filters& filters);
+        QStringList getTicketsSummary(const int pageNum, const Filters& filters);
         void changeCategory(const Ticket& ticket, const Category category);
-
-        void start();
 
         ~EasyTicket();
 

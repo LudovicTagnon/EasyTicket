@@ -50,7 +50,7 @@ void TicketManager::transfertTicket(const User& user, const Ticket& ticket)
     db.requestTransfertTicket(user, ticket);
 }
 
-std::vector<QString> TicketManager::getTicketsSummary(const int pageNum, const Filters& filters)
+QStringList TicketManager::getTicketsSummary(const int pageNum, const Filters& filters)
 {
     return db.requestTicketsSummary(pageNum, filters);
 }

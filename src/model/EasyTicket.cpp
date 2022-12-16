@@ -16,9 +16,9 @@ void EasyTicket::pushWindow(QWidget* state){
     stateManager.push(state);
 }
 
-void EasyTicket::openDB()
+bool EasyTicket::openDB()
 {
-    db.open();
+    return db.open();
 }
 
 void EasyTicket::connectionDB(const QString username, const QString password)
@@ -66,7 +66,7 @@ void EasyTicket::transfertTicket(const User& user, const Ticket& ticket)
     ticketManager.transfertTicket(user, ticket);
 }
 
-std::vector<QString> EasyTicket::getTicketsSummary(const int pageNum, const Filters& filters)
+QStringList EasyTicket::getTicketsSummary(const int pageNum, const Filters& filters)
 {
     return ticketManager.getTicketsSummary(pageNum, filters);
 }
@@ -74,11 +74,6 @@ std::vector<QString> EasyTicket::getTicketsSummary(const int pageNum, const Filt
 void EasyTicket::changeCategory(const Ticket& ticket, const Category category)
 {
     ticketManager.changeCategory(ticket, category);
-}
-
-void EasyTicket::start()
-{
-    stateManager.top()->show();
 }
 
 EasyTicket::~EasyTicket()
