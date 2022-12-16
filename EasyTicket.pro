@@ -2,6 +2,10 @@ QT += core gui sql
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 6b48a6b2edff4f09e49e095b378707d0a88a2f3d
 CONFIG += c++17
 
 # The following define makes your compiler emit warnings if you use
