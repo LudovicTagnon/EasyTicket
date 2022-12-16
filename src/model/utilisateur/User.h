@@ -8,15 +8,15 @@ class EasyTicket;
 class User
 {
     protected:
-        const QString userId;
+        const int userId;
         const QString name;
         const QString surname;
         const QString email;
 
         EasyTicket& easyTicket;
-    
+
     public:
-        User(const QString& userId,
+        User(const int& userId,
              const QString& name,
              const QString& surname,
              const QString& email,

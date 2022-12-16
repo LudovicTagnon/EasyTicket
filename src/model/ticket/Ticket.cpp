@@ -1,6 +1,6 @@
 #include "Ticket.h"
 
-Ticket::Ticket(const QString ticketId, const QString title, const Category category, const std::time_t dateDebut, const bool isClosed, const std::time_t dateFin)
+Ticket::Ticket(const int ticketId, const QString title, const Category category, const std::time_t dateDebut, const bool isClosed, const std::time_t dateFin)
  : ticketId(ticketId)
  , title(title)
  , category(category)
