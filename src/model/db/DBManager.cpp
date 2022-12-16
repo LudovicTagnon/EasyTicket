@@ -130,7 +130,7 @@ QStringList DBManager::getCategories()
 
 QStringList getEmployees()
 {
-    return {}
+    return {};
 }
 
 DBManager::~DBManager()
