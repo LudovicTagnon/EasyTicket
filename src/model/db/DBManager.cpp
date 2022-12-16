@@ -128,7 +128,7 @@ QStringList DBManager::getCategories()
     return {};
 }
 
-QStringList getEmployees()
+QStringList DBManager::getEmployees()
 {
     return {};
 }
