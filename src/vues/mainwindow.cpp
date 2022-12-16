@@ -23,7 +23,7 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_connexionButton_clicked()
 {
-    if(easyTicket.openDB())
+    if(!easyTicket.openDB())
     {
         QMessageBox::information(this, "Connection", "Error");
         return;
