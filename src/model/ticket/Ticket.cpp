@@ -11,7 +11,7 @@ Ticket::Ticket(const int ticketId, const QString title, const Category category,
 
 }
 
-int getTicketId()
+int Ticket::getTicketId()
 {
   return ticketId;
 }
