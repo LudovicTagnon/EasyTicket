@@ -29,10 +29,8 @@ void VueAdmin::on_RafraichirButton_clicked(){
             .setCheckClosedState(false)
             .toFilters());
 
-    QListWidget* list = findChild<QListWidget*>("listWidgetStats");
-
-    list->clear();
-    list->addItems(tmp);
+    ui->listWidgetStats->clear();
+    ui->listWidgetStats->addItems(tmp);
 
     QMessageBox::information(this, "Status", "La page a bien été rafraîchie");
 }

@@ -12,6 +12,8 @@
 VueNouveauTicket::VueNouveauTicket(EasyTicket& easyTicket, QWidget *parent) :
         QWidget(parent), ui(new Ui::VueNouveauTicket), easyTicket(easyTicket) {
     ui->setupUi(this);
+
+    //ui->listWidgetCateg->addItem(easyTicket.getCategories());
 }
 
 VueNouveauTicket::~VueNouveauTicket() {

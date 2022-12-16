@@ -5,16 +5,17 @@
 #include <QSqlDatabase>
 #include <QSqlQuery>
 #include <QSqlRecord>
-#include <QStringList>
+#include <QListWidget>
 
 #include "../ticket/Category.h"
 #include "../ticket/filters/Filters.h"
 
 enum
 {
-  CLIENT,
-  INGETECH,
-  ADMIN
+	CLIENT,
+	TECH,
+	INGE,
+	ADMIN
 };
 
 class Ticket;
@@ -22,28 +23,29 @@ class User;
 
 class DBManager
 {
-    private:
-        QSqlDatabase dbEasyTicket;
+	private:
+		QSqlDatabase dbEasyTicket;
 
-    public:
-        DBManager();
-        QSqlQuery query;
+	public:
+		DBManager();
+		QSqlQuery query;
 
-        bool open();
-        bool isOpen() const;
-        void createIfNotExistsDataBase();
-        int connection(const QString usermail, const QString password);
-        void close();
+		bool open();
+		bool isOpen() const;
+		void createIfNotExistsDataBase();
+		int connection(const QString usermail, const QString password);
+		void close();
 
-        void requestPostTicket(const Category category, const QString message);
-        QString requestMessage(const Ticket& ticket);
-        void requestPrendreTicket(const User& user, const Ticket& ticket);
-        void requestTransfertTicket(const User& user, const Ticket& ticket);
-        QStringList requestTicketsSummary(const int pageNum, const Filters& filters);
-        void requestChangeCategory(const Ticket& ticket, const Category category);
-        void requestSendMessage(const Ticket& ticket, const QString& message);
+		void requestPostTicket(const Category category, const QString message);
+		QString requestMessage(const Ticket& ticket);
+		void requestPrendreTicket(const User& user, const Ticket& ticket);
+		void requestTransfertTicket(const User& user, const Ticket& ticket);
+		QStringList requestTicketsSummary(const int pageNum, const Filters& filters);
+		void requestChangeCategory(const Ticket& ticket, const Category category);
+		void requestSendMessage(const Ticket& ticket, const QString& message);
+		QStringList getCategories();
 
-        ~DBManager();
+		~DBManager();
 
 };
 

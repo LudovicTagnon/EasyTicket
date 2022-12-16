@@ -19,7 +19,7 @@ class EasyTicket
         void pushWindow(QWidget* state);
         void popWindow();
         bool openDB();
-        void connectionDB(const QString username, const QString password);
+        int connectionDB(const QString username, const QString password);
         bool isOpenDB() const;
         void closeDB();
 
@@ -30,6 +30,7 @@ class EasyTicket
         void transfertTicket(const User& user, const Ticket& ticket);
         QStringList getTicketsSummary(const int pageNum, const Filters& filters);
         void changeCategory(const Ticket& ticket, const Category category);
+        QStringList getCategories();
 
         ~EasyTicket();
 

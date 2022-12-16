@@ -12,8 +12,6 @@ MainWindow::MainWindow(EasyTicket& easyTicket, QWidget *parent)
     , easyTicket(easyTicket)
 {
     ui->setupUi(this);
-
-    //std::cout << ui->graphicsView->isVisible() << std::endl;
 }
 
 MainWindow::~MainWindow()
@@ -30,9 +28,25 @@ void MainWindow::on_connexionButton_clicked()
         return;
     }
 
-    QMessageBox::information(this, "Connection", "Connected");
-    
-    easyTicket.pushWindow(new VueClient(easyTicket));
+    switch (easyTicket.connectionDB(ui->AdresseMail->text(), ui->MDP->text())) {
+        case -1:
+            QMessageBox::information(this, "Connection", "Mauvais Login ou MDP");
+            break;
+        case CLIENT:
+            easyTicket.pushWindow(new VueClient(easyTicket));
+            break;
+        case TECH:
+            //Init tech
+            easyTicket.pushWindow(new VueIngeTech(easyTicket));
+            break;
+        case INGE:
+            //Init inge
+            easyTicket.pushWindow(new VueIngeTech(easyTicket));
+            break;
+        case ADMIN:
+            easyTicket.pushWindow(new VueAdmin(easyTicket));
+            break;
+    }
 }
 
 void MainWindow::on_inscriptionButton_clicked()

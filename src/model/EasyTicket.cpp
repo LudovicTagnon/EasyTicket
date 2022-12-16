@@ -26,9 +26,9 @@ bool EasyTicket::openDB()
     return db.open();
 }
 
-void EasyTicket::connectionDB(const QString username, const QString password)
+int EasyTicket::connectionDB(const QString username, const QString password)
 {
-    db.connection(username, password);
+    return db.connection(username, password);
 }
 
 bool EasyTicket::isOpenDB() const
@@ -74,6 +74,11 @@ QStringList EasyTicket::getTicketsSummary(const int pageNum, const Filters& filt
 void EasyTicket::changeCategory(const Ticket& ticket, const Category category)
 {
     ticketManager.changeCategory(ticket, category);
+}
+
+QStringList EasyTicket::getCategories()
+{
+    return db.getCategories();
 }
 
 EasyTicket::~EasyTicket()

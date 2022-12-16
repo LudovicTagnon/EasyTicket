@@ -30,6 +30,7 @@ bool DBManager::open()
 int DBManager::connection(const QString usermail, const QString password)
 {
   query.exec("SELECT user_level FROM User WHERE lower(user_email) like '" + usermail.toLower() + "'and user_password like '" + password + "';");
+
   if(!query.next()) return -1;
   else return query.value(0).toInt();
 }
@@ -108,6 +109,11 @@ void DBManager::requestChangeCategory(const Ticket& ticket, const Category categ
 }
 
 void DBManager::requestSendMessage(const Ticket& ticket, const QString& message)
+{
+    //Make request
+}
+
+QStringList DBManager::getCategories()
 {
     //Make request
 }
