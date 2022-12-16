@@ -2,9 +2,15 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+
 #include "../model/EasyTicket.h"
+#include "../model/utilisateur/Client.h"
+#include "../model/utilisateur/Technicien.h"
+#include "../model/utilisateur/Ingenieur.h"
+#include "../model/utilisateur/Admin.h"
 #include "vueclient.h"
-#include "vueingetech.h"
+#include "vueinge.h"
+#include "vuetech.h"
 #include "vueadmin.h"
 
 #define q2c(string) string.toStdString()

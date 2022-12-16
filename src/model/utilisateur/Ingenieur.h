@@ -7,14 +7,14 @@
 #include "NonAdmin.h"
 #include "../EasyTicket.h"
 
-class Ingenieur : NonAdmin
+class Ingenieur : public NonAdmin
 {
     protected:
         bool isAllCategories;
         std::set<Category> categories;
     public:
-        Ingenieur(const int& userId, const QString& name, const QString& surname, const QString& email, EasyTicket& easyTicket);
-        Ingenieur(const int& userId, const QString& name, const QString& surname, const QString& email, EasyTicket& easyTicket, bool isAllCategories, std::set<Category> categories);
+        Ingenieur(const User user, EasyTicket& easyTicket);
+        Ingenieur(const User user, EasyTicket& easyTicket, bool isAllCategories, std::set<Category> categories);
         void changeCategory(const Ticket& ticket, const Category category);
         void transferTicket(const User& user, const Ticket& ticket);
         ~Ingenieur();

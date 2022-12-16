@@ -1,7 +1,7 @@
 #include "Client.h"
 
-Client::Client(const int& userId, const QString& name, const QString& surname, const QString& email, EasyTicket& easyTicket)
-: NonAdmin(userId, name, surname, email, easyTicket)
+Client::Client(const User user, EasyTicket& easyTicket)
+: NonAdmin(user, easyTicket)
 {
 
 }

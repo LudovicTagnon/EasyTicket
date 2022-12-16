@@ -24,7 +24,7 @@ public:
 
     ~VueIngeTech() override;
 
-private slots:
+protected slots:
     void on_OuvrirButton_clicked();
     void on_PrendreButton_clicked();
     void on_ChangeCatButton_clicked();
@@ -32,7 +32,7 @@ private slots:
     void on_ATraiterButton_clicked();
     void on_ClosButton_clicked();
     void on_EnCoursButton_clicked();
-private:
+protected:
     Ui::VueIngeTech *ui;
     EasyTicket& easyTicket;
 };

@@ -1,12 +1,15 @@
 #ifndef EASYTICKET_H
 #define EASYTICKET_H
 
-#include <QStringList>
+#include <QListWidget>
 
 #include "ticket/TicketManager.h"
+#include "db/DBManager.h"
 #include "states/StateManager.h"
 #include "ticket/Category.h"
 #include "ticket/filters/Filters.h"
+
+class User;
 
 class EasyTicket
 {
@@ -23,6 +26,7 @@ class EasyTicket
         bool isOpenDB() const;
         void closeDB();
 
+        User getUserInfo(const int userId);
         void postTicket(const Category category, const QString message, const QString title);
         void sendMessage(const Ticket& ticket, const QString& message);
         QString getMessage(const Ticket& ticket);

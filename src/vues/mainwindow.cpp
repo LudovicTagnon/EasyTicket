@@ -28,25 +28,23 @@ void MainWindow::on_connexionButton_clicked()
         return;
     }
 
-    std::pair<int, int> pair = easyTicket.connectionDB(ui->AdresseMail->text(), ui->MDP->text());
+    std::pair<int, int> ret = easyTicket.connectionDB(ui->AdresseMail->text(), ui->MDP->text());
 
-    switch (pair.first) {
+    switch (ret.first) {
         case -1:
             QMessageBox::information(this, "Connection", "Mauvais Login ou MDP");
             break;
         case CLIENT:
-            easyTicket.pushWindow(new VueClient(easyTicket));
+            easyTicket.pushWindow(new VueClient(Client(easyTicket.getUserInfo(ret.second), easyTicket), easyTicket));
             break;
         case TECH:
-            //Init tech
-            easyTicket.pushWindow(new VueIngeTech(easyTicket));
+            easyTicket.pushWindow(new VueTech(Technicien(easyTicket.getUserInfo(ret.second), easyTicket, {ALL}), easyTicket));
             break;
         case INGE:
-            //Init inge
-            easyTicket.pushWindow(new VueIngeTech(easyTicket));
+            easyTicket.pushWindow(new VueInge(Ingenieur(easyTicket.getUserInfo(ret.second), easyTicket), easyTicket));
             break;
         case ADMIN:
-            easyTicket.pushWindow(new VueAdmin(easyTicket));
+            easyTicket.pushWindow(new VueAdmin(Admin(easyTicket.getUserInfo(ret.second), easyTicket), easyTicket));
             break;
     }
 }

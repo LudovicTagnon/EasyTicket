@@ -8,8 +8,9 @@
 #include <QListWidget>
 
 #include "../ticket/Category.h"
-#include "../ticket/filters/Filters.h"
-#include "../utilisateur/User.h"
+
+class EasyTicket;
+class Filters;
 
 enum
 {
@@ -24,31 +25,33 @@ class User;
 
 class DBManager
 {
-    private:
-        QSqlDatabase dbEasyTicket;
-        int ticketId = -1;
+	private:
+		EasyTicket& easyTicket;
+    int ticketId = -1;
+		QSqlDatabase dbEasyTicket;
 
-    public:
-        DBManager();
-        QSqlQuery query;
+	public:
+		DBManager(EasyTicket& easyTicket);
+		QSqlQuery query;
 
-        bool open();
-        bool isOpen() const;
-        void createIfNotExistsDataBase();
-        std::pair<int, int> connection(const QString usermail, const QString password);
-        void close();
+		bool open();
+		bool isOpen() const;
+		void createIfNotExistsDataBase();
+		std::pair<int, int> connection(const QString usermail, const QString password);
+		void close();
 
-        int requestPostTicket(const Category category, const QString message, const QString title);
-        QString requestMessage(const Ticket& ticket);
-        void requestPrendreTicket(const User& user, const Ticket& ticket);
-        void requestTransfertTicket(const User& user, const Ticket& ticket);
-        QStringList requestTicketsSummary(const int pageNum, const Filters& filters);
-        void requestChangeCategory(const Ticket& ticket, const Category category);
-        void requestSendMessage(const Ticket& ticket, const QString& message);
-				QStringList getCategories();
+    	User getUserInfo(const int userId);
+		int requestPostTicket(const Category category, const QString message, const QString title);
+		QString requestMessage(const Ticket& ticket);
+		void requestPrendreTicket(const User& user, const Ticket& ticket);
+		void requestTransfertTicket(const User& user, const Ticket& ticket);
+		QStringList requestTicketsSummary(const int pageNum, const Filters& filters);
+		void requestChangeCategory(const Ticket& ticket, const Category category);
+		void requestSendMessage(const Ticket& ticket, const QString& message);
+		QStringList getCategories();
 
-        ~DBManager();
-
+		~DBManager();
+>>>>>>> 47c8c446576152dcd03caa041a0efb3f4c45a330
 };
 
 #endif /*DBMANAGER_H*/

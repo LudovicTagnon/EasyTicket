@@ -6,7 +6,7 @@
 #include "../vues/mainwindow.h"
 
 EasyTicket::EasyTicket()
- : db(DBManager())
+ : db(DBManager(*this))
  , ticketManager(TicketManager(db))
 {
     stateManager.push(new MainWindow(*this));
@@ -39,6 +39,11 @@ bool EasyTicket::isOpenDB() const
 void EasyTicket::closeDB()
 {
     db.close();
+}
+
+User EasyTicket::getUserInfo(const int userId)
+{
+    return db.getUserInfo(userId);
 }
 
 void EasyTicket::postTicket(const Category category, const QString message, const QString title)

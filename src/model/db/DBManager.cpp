@@ -3,9 +3,10 @@
 #include <QFileInfo>
 #include <iostream>
 
+#include "../utilisateur/User.h"
 #include "../ticket/Ticket.h"
 
-DBManager::DBManager() : dbEasyTicket(QSqlDatabase::addDatabase("QSQLITE"))
+DBManager::DBManager(EasyTicket& easyTicket) : easyTicket(easyTicket), dbEasyTicket(QSqlDatabase::addDatabase("QSQLITE"))
 {
 
 }
@@ -30,7 +31,9 @@ bool DBManager::open()
 std::pair<int, int> DBManager::connection(const QString usermail, const QString password)
 {
   query.exec("SELECT user_level, user_id FROM User WHERE lower(user_email) like '" + usermail.toLower() + "'and user_password like '" + password + "';");
+
   if(!query.next()) return {-1, -1};
+
   return {query.value(0).toInt(), query.value(1).toInt()};
 }
 
@@ -73,6 +76,11 @@ void DBManager::close()
     dbEasyTicket.close();
 }
 
+User DBManager::getUserInfo(const int userId)
+{
+    return User(userId, "John", "Doe", "johndoe@mail.com", easyTicket);
+}
+
 int DBManager::requestPostTicket(const Category category, const QString message, const QString title)
 {
   ++ticketId;
@@ -90,12 +98,12 @@ QString DBManager::requestMessage(const Ticket& ticket)
 
 void DBManager::requestPrendreTicket(const User& user, const Ticket& ticket)
 {
-  query.exec("UPDATE Ticket SET user_id = " + QString::number(user.getUserId()) + "WHERE ticket_num = " + QString::number(ticket.getTicketId()) +";");
+  query.exec("UPDATE Ticket SET user_id = " + QString::number(user.getUserID()) + "WHERE ticket_num = " + QString::number(ticket.getTicketId()) +";");
 }
 
 void DBManager::requestTransfertTicket(const User& user, const Ticket& ticket)
 {
-  query.exec("UPDATE Ticket SET user_id = " + QString::number(user.getUserId()) + "WHERE ticket_num = " + QString::number(ticket.getTicketId()) +";");
+  query.exec("UPDATE Ticket SET user_id = " + QString::number(user.getUserID()) + "WHERE ticket_num = " + QString::number(ticket.getTicketId()) +";");
 }
 
 QStringList DBManager::requestTicketsSummary(const int pageNum, const Filters& filters)
@@ -115,9 +123,9 @@ void DBManager::requestSendMessage(const Ticket& ticket, const QString& message)
   query.exec("INSERT INTO Message(message_text, ticket_num) VALUES('" + message + "', " + QString::number(ticket.getTicketId()) + ");");
 }
 
-QStringList getCategories()
+QStringList DBManager::getCategories()
 {
-  return {};
+    return {};
 }
 
 DBManager::~DBManager()

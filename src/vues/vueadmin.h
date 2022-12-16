@@ -6,6 +6,7 @@
 #define EASYTICKET_VUEADMIN_H
 
 #include <QWidget>
+#include "../model/utilisateur/Admin.h"
 #include "../model/EasyTicket.h"
 
 QT_BEGIN_NAMESPACE
@@ -16,7 +17,7 @@ class VueAdmin : public QWidget {
 Q_OBJECT
 
 public:
-    explicit VueAdmin(EasyTicket& easyTicket, QWidget *parent = nullptr);
+    explicit VueAdmin(Admin admin, EasyTicket& easyTicket, QWidget *parent = nullptr);
 
     ~VueAdmin() override;
 
@@ -26,6 +27,7 @@ private slots:
 private:
     Ui::VueAdmin *ui;
     EasyTicket& easyTicket;
+    Admin admin;
 
     int page;
 };
