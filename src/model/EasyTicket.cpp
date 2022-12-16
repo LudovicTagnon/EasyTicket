@@ -41,9 +41,9 @@ void EasyTicket::closeDB()
     db.close();
 }
 
-void EasyTicket::postTicket(const Category category, const QString message)
+void EasyTicket::postTicket(const Category category, const QString message, const QString title)
 {
-    ticketManager.postTicket(category, message);
+    ticketManager.postTicket(category, message, title);
 }
 
 void EasyTicket::sendMessage(const Ticket& ticket, const QString& message)
