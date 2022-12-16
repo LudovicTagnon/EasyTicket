@@ -1,7 +1,7 @@
 #ifndef EASYTICKET_H
 #define EASYTICKET_H
 
-#include <QListWidget>
+#include <QStringList>
 
 #include "ticket/TicketManager.h"
 #include "states/StateManager.h"
@@ -17,6 +17,7 @@ class EasyTicket
     public:
         EasyTicket();
         void pushWindow(QWidget* state);
+        void popWindow();
         bool openDB();
         void connectionDB(const QString username, const QString password);
         bool isOpenDB() const;

@@ -23,5 +23,5 @@ void VueTransferer::on_ConfirmerButton_clicked(){
 }
 
 void VueTransferer::on_AnnulerButton_clicked(){
-    this->close();
+    easyTicket.popWindow();
 }

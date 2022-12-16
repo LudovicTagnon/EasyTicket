@@ -23,5 +23,5 @@ void VueTicket::on_EnvoyerButton_clicked(){
 }
 
 void VueTicket::on_RetourButton_clicked(){
-    this->close();
+    easyTicket.popWindow();
 }

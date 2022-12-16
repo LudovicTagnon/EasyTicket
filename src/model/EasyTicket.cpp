@@ -16,6 +16,11 @@ void EasyTicket::pushWindow(QWidget* state){
     stateManager.push(state);
 }
 
+void EasyTicket::popWindow()
+{
+    stateManager.pop();
+}
+
 bool EasyTicket::openDB()
 {
     return db.open();

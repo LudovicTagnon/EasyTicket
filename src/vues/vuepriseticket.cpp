@@ -26,5 +26,5 @@ void VuePriseTicket::on_ConfirmerButton_clicked(){
 }
 
 void VuePriseTicket::on_AnnulerButton_clicked(){
-    this->close();
+    easyTicket.popWindow();
 }

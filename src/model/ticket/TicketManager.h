@@ -4,7 +4,7 @@
 #include <vector>
 #include <memory>
 #include <QtCore/QString>
-#include <QListWidget>
+#include <QStringList>
 
 #include "../db/DBManager.h"
 #include "Ticket.h"

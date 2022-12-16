@@ -5,7 +5,7 @@
 #include <QSqlDatabase>
 #include <QSqlQuery>
 #include <QSqlRecord>
-#include <QListWidget>
+#include <QStringList>
 
 #include "../ticket/Category.h"
 #include "../ticket/filters/Filters.h"

@@ -23,6 +23,6 @@ void VueNouveauTicket::on_ConfirmerButton_clicked() {
 }
 
 void VueNouveauTicket::on_RetourButton_clicked(){
-    this->close();
+    easyTicket.popWindow();
 }
 

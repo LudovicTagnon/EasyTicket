@@ -23,5 +23,5 @@ void VueChangeCategorie::on_ConfirmerButton_clicked(){
 }
 
 void VueChangeCategorie::on_AnnulerButton_clicked(){
-    this->close();
+    easyTicket.popWindow();
 }
