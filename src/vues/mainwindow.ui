@@ -59,7 +59,7 @@ background-color: rgba(64, 64, 64, 196);</string>
      <item>
       <layout class="QHBoxLayout" name="horizontalLayout_3">
        <item>
-        <widget class="QLabel" name="adresseMailLabel">
+        <widget class="QLabel" name="AdresseMailLabel">
          <property name="styleSheet">
           <string notr="true">color: white;
 background-color: rgba(64, 64, 64, 196);</string>
@@ -70,7 +70,7 @@ background-color: rgba(64, 64, 64, 196);</string>
         </widget>
        </item>
        <item>
-        <widget class="QLineEdit" name="adresseMail">
+        <widget class="QLineEdit" name="AdresseMail">
          <property name="styleSheet">
           <string notr="true">color: white
 </string>
@@ -82,7 +82,7 @@ background-color: rgba(64, 64, 64, 196);</string>
      <item>
       <layout class="QHBoxLayout" name="horizontalLayout_2">
        <item>
-        <widget class="QLabel" name="motDePasseLabel">
+        <widget class="QLabel" name="MDPLabel">
          <property name="styleSheet">
           <string notr="true">color: white;
 background-color: rgba(64, 64, 64, 196);</string>
@@ -93,7 +93,7 @@ background-color: rgba(64, 64, 64, 196);</string>
         </widget>
        </item>
        <item>
-        <widget class="QLineEdit" name="motDePasse"/>
+        <widget class="QLineEdit" name="MDP"/>
        </item>
       </layout>
      </item>
