@@ -3,8 +3,10 @@
 
 //TODO: Define categories
 enum Category {
-    A,
-    B
+    Création,
+    Visualisation,
+    Windows,
+    Réclamation
 };
 
 #endif /*Category*/
