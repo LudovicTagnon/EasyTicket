@@ -21,10 +21,10 @@ class DBManager
         DBManager();
         QSqlQuery query;
 
-        bool open();
+        void open();
         bool isOpen() const;
         void createIfNotExistsDataBase();
-        void connection(const QString username, const QString password);
+        int connection(const QString usermail, const QString password);
         void close();
 
         void requestPostTicket(const Category category, const QString message);
