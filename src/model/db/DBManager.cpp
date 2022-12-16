@@ -125,7 +125,12 @@ void DBManager::requestSendMessage(const Ticket& ticket, const QString& message)
 
 QStringList DBManager::getCategories()
 {
-    return {};
+    query.exec("SELECT cat_name FROM Category;");
+    QStringList qstrlist;
+    while (query.next()) {
+        qstrlist << query.value(0).toString();
+    }
+    return qstrlist;
 }
 
 QStringList DBManager::getEmployees()
