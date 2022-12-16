@@ -6,7 +6,7 @@
 #include "../vues/mainwindow.h"
 
 EasyTicket::EasyTicket()
- : db(DBManager())
+ : db(DBManager(*this))
  , ticketManager(TicketManager(db))
 {
     stateManager.push(new MainWindow(*this));
@@ -26,7 +26,7 @@ bool EasyTicket::openDB()
     return db.open();
 }
 
-int EasyTicket::connectionDB(const QString username, const QString password)
+std::pair<int, int> EasyTicket::connectionDB(const QString username, const QString password)
 {
     return db.connection(username, password);
 }
@@ -41,7 +41,12 @@ void EasyTicket::closeDB()
     db.close();
 }
 
-void EasyTicket::postTicket(const Category category, const QString message, const QString title)
+User EasyTicket::getUserInfo(const int userId)
+{
+    return db.getUserInfo(userId);
+}
+
+void EasyTicket::postTicket(const Category category, const QString message)
 {
     ticketManager.postTicket(category, message, title);
 }

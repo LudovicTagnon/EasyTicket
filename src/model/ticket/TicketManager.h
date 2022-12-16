@@ -4,14 +4,14 @@
 #include <vector>
 #include <memory>
 #include <QtCore/QString>
-#include <QStringList>
+#include <QListWidget>
 
-#include "../db/DBManager.h"
 #include "Ticket.h"
 #include "Category.h"
-#include "filters/Filters.h"
 
 class User;
+class DBManager;
+class Filters;
 
 class TicketManager
 {
@@ -21,11 +21,6 @@ class TicketManager
 
     public:
         TicketManager(DBManager& db);
-
-        void openDB(const QString username, const QString password);
-        void connectionBD(const QString username, const QString password);
-        bool isOpenDB() const;
-        void closeDB();
 
         void postTicket(const Category category, const QString message, const QString title);
         QString getMessage(const Ticket& ticket);

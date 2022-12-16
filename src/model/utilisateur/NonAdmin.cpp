@@ -1,7 +1,7 @@
 #include "NonAdmin.h"
 
-NonAdmin::NonAdmin(const QString userId, const QString name, const QString surname, const QString email, EasyTicket& easyTicket)
-: User(userId, name, surname, email, easyTicket)
+NonAdmin::NonAdmin(const User user, EasyTicket& easyTicket)
+: User(user, easyTicket)
 {
 
 }

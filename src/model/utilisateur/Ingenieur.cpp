@@ -1,13 +1,13 @@
 #include "Ingenieur.h"
 
-Ingenieur::Ingenieur(const QString userId, const QString name, const QString surname, const QString email, EasyTicket& easyTicket)
-: NonAdmin(userId, name, surname, email, easyTicket), isAllCategories(true)
+Ingenieur::Ingenieur(const User user, EasyTicket& easyTicket)
+: NonAdmin(user, easyTicket), isAllCategories(true)
 {
 
 }
 
-Ingenieur::Ingenieur(const QString userId, const QString name, const QString surname, const QString email, EasyTicket& easyTicket, bool isAllCategories, std::set<Category> categories)
-: NonAdmin(userId, name, surname, email, easyTicket), isAllCategories(isAllCategories), categories(categories)
+Ingenieur::Ingenieur(const User user, EasyTicket& easyTicket, bool isAllCategories, std::set<Category> categories)
+: NonAdmin(user, easyTicket), isAllCategories(isAllCategories), categories(categories)
 {
 
 }

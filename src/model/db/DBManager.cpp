@@ -3,9 +3,10 @@
 #include <QFileInfo>
 #include <iostream>
 
+#include "../utilisateur/User.h"
 #include "../ticket/Ticket.h"
 
-DBManager::DBManager() : dbEasyTicket(QSqlDatabase::addDatabase("QSQLITE"))
+DBManager::DBManager(EasyTicket& easyTicket) : easyTicket(easyTicket), dbEasyTicket(QSqlDatabase::addDatabase("QSQLITE"))
 {
 
 }
@@ -71,6 +72,11 @@ void DBManager::createIfNotExistsDataBase()
 void DBManager::close()
 {
     dbEasyTicket.close();
+}
+
+User DBManager::getUserInfo(const int userId)
+{
+    return User(userId, "John", "Doe", "johndoe@mail.com", easyTicket);
 }
 
 int DBManager::requestPostTicket(const Category category, const QString message, const QString title)

@@ -10,9 +10,34 @@ User::User(const int& userId, const QString& name, const QString& surname, const
 
 }
 
-int User::getUserId()
+User::User(const User& user, EasyTicket& easyTicket)
+            : userId(user.getUserID())
+            , name(user.getName())
+            , surname(user.getSurname())
+            , email(user.getEmail())
+            , easyTicket(easyTicket)
 {
-  return userId;
+    
+}
+
+const int& User::getUserID() const
+{
+    return userId;
+}
+
+const QString& User::getName() const
+{
+    return name;
+}
+
+const QString& User::getSurname() const
+{
+    return surname;
+}
+
+const QString& User::getEmail() const
+{
+    return email;
 }
 
 User::~User()

@@ -1,12 +1,15 @@
 #ifndef EASYTICKET_H
 #define EASYTICKET_H
 
-#include <QStringList>
+#include <QListWidget>
 
 #include "ticket/TicketManager.h"
+#include "db/DBManager.h"
 #include "states/StateManager.h"
 #include "ticket/Category.h"
 #include "ticket/filters/Filters.h"
+
+class User;
 
 class EasyTicket
 {
@@ -19,10 +22,11 @@ class EasyTicket
         void pushWindow(QWidget* state);
         void popWindow();
         bool openDB();
-        int connectionDB(const QString username, const QString password);
+        std::pair<int, int> connectionDB(const QString username, const QString password);
         bool isOpenDB() const;
         void closeDB();
 
+        User getUserInfo(const int userId);
         void postTicket(const Category category, const QString message);
         void sendMessage(const Ticket& ticket, const QString& message);
         QString getMessage(const Ticket& ticket);

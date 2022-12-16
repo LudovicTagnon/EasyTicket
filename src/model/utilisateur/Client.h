@@ -5,10 +5,10 @@
 #include "../ticket/Category.h"
 #include "../EasyTicket.h"
 
-class Client : NonAdmin
+class Client : public NonAdmin
 {
     public:
-        Client(const QString userId, const QString name, const QString surname, const QString email, EasyTicket& easyTicket);
+        Client(const User user, EasyTicket& easyTicket);
         void postTicket(const Category category, const QString message);
         ~Client();
 };

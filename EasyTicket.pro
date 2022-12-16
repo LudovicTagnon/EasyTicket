@@ -21,6 +21,8 @@ SOURCES += \
     src/vues/vueclient.cpp \
     src/vues/vueadmin.cpp \
     src/vues/vueingetech.cpp \
+    src/vues/vueinge.cpp \
+    src/vues/vuetech.cpp \
     src/vues/vueticket.cpp \
     src/vues/vuepriseticket.cpp \
     src/vues/vuechangecategorie.cpp \
@@ -48,6 +50,8 @@ HEADERS += \
     src/vues/vueclient.h \
     src/vues/vueadmin.h \
     src/vues/vueingetech.h \
+    src/vues/vueinge.h \
+    src/vues/vuetech.h \
     src/vues/vueticket.h \
     src/vues/vuepriseticket.h \
     src/vues/vuechangecategorie.h \

@@ -12,9 +12,9 @@
 
 #include "../model/ticket/filters/FiltersBuilder.h"
 
-VueAdmin::VueAdmin(EasyTicket& easyTicket, QWidget *parent) :
+VueAdmin::VueAdmin(Admin admin, EasyTicket& easyTicket, QWidget *parent) :
         QWidget(parent), ui(new Ui::VueAdmin), easyTicket(easyTicket),
-        page(1) {
+        admin(admin), page(1) {
     ui->setupUi(this);
 }
 

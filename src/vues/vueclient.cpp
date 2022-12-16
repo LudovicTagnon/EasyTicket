@@ -9,8 +9,8 @@
 #include "ui_VueClient.h"
 
 
-VueClient::VueClient(EasyTicket& easyTicket, QWidget *parent) :
-QWidget(parent), ui(new Ui::VueClient), easyTicket(easyTicket) {
+VueClient::VueClient(Client client, EasyTicket& easyTicket, QWidget *parent) :
+QWidget(parent), ui(new Ui::VueClient), easyTicket(easyTicket), client(client), page(1){
     ui->setupUi(this);
 }
 

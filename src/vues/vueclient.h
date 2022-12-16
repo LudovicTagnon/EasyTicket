@@ -6,6 +6,7 @@
 #define EASYTICKET_VUECLIENT_H
 
 #include <QWidget>
+#include "../model/utilisateur/Client.h"
 #include "../model/EasyTicket.h"
 #include "vuenouveauticket.h"
 #include "vueticket.h"
@@ -18,11 +19,8 @@ QT_END_NAMESPACE
 class VueClient : public QWidget {
 Q_OBJECT
 
-    VueClient(QWidget *parent);
-
-
 public:
-    explicit VueClient(EasyTicket& easyTicket, QWidget *parent = nullptr);
+    explicit VueClient(Client client, EasyTicket& easyTicket, QWidget *parent = nullptr);
 
     ~VueClient() override;
 
@@ -35,6 +33,9 @@ private slots:
 private:
     Ui::VueClient *ui;
     EasyTicket& easyTicket;
+    Client client;
+
+    int page;
 };
 
 

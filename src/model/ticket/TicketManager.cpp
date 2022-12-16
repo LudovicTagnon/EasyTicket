@@ -1,28 +1,10 @@
 #include "TicketManager.h"
 
+#include "../db/DBManager.h"
+
 TicketManager::TicketManager(DBManager& db) : db(db)
 {
 
-}
-
-void TicketManager::openDB(const QString username, const QString password)
-{
-    db.open();
-}
-
-bool TicketManager::isOpenDB() const
-{
-    return db.isOpen();
-}
-
-void TicketManager::connectionBD(const QString username, const QString password)
-{
-    db.connection(username, password);
-}
-
-void TicketManager::closeDB()
-{
-    db.close();
 }
 
 void TicketManager::postTicket(const Category category, const QString message, const QString title)
