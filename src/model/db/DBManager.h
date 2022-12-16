@@ -10,7 +10,7 @@
 #include "../ticket/Category.h"
 #include "../ticket/filters/Filters.h"
 
-enum Autorisation
+enum
 {
   CLIENT,
   INGETECH,
