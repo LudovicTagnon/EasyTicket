@@ -12,6 +12,10 @@
 VueTransferer::VueTransferer(EasyTicket& easyTicket, QWidget *parent) :
         QWidget(parent), ui(new Ui::VueTransferer), easyTicket(easyTicket)  {
     ui->setupUi(this);
+
+    //TODO: remplir le list par les employé
+    
+    //ui->listWidgetEmployes
 }
 
 VueTransferer::~VueTransferer() {

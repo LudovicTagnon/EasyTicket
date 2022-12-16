@@ -86,6 +86,11 @@ QStringList EasyTicket::getCategories()
     return db.getCategories();
 }
 
+QStringList EasyTicket::getEmployees()
+{
+    return db.getEmployees();
+}
+
 EasyTicket::~EasyTicket()
 {
 

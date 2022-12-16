@@ -128,6 +128,11 @@ QStringList DBManager::getCategories()
     return {};
 }
 
+QStringList getEmployees()
+{
+    return {}
+}
+
 DBManager::~DBManager()
 {
     close();

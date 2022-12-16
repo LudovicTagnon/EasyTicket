@@ -49,6 +49,7 @@ class DBManager
 		void requestChangeCategory(const Ticket& ticket, const Category category);
 		void requestSendMessage(const Ticket& ticket, const QString& message);
 		QStringList getCategories();
+		QStringList getEmployees();
 
 		~DBManager();
 };
