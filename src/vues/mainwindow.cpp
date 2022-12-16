@@ -23,18 +23,16 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_connexionButton_clicked()
 {
-    easyTicket.openDB();
-    if(easyTicket.isOpenDB())
-    {
-        QMessageBox::information(this, "Connection", "Connected");
-        
-        easyTicket.pushWindow(new VueAdmin(easyTicket));
-        easyTicket.start();
-    }
-    else
+    if(easyTicket.openDB())
     {
         QMessageBox::information(this, "Connection", "Error");
+        return;
     }
+
+    QMessageBox::information(this, "Connection", "Connected");
+    
+    easyTicket.pushWindow(new VueAdmin(easyTicket));
+    easyTicket.start();
 }
 
 void MainWindow::on_inscriptionButton_clicked()
