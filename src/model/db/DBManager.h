@@ -10,6 +10,13 @@
 #include "../ticket/Category.h"
 #include "../ticket/filters/Filters.h"
 
+enum Autorisation
+{
+  0,
+  1,
+  2
+}
+
 class Ticket;
 class User;
 
@@ -22,7 +29,7 @@ class DBManager
         DBManager();
         QSqlQuery query;
 
-        void open();
+        bool open();
         bool isOpen() const;
         void createIfNotExistsDataBase();
         int connection(const QString usermail, const QString password);

@@ -7,24 +7,22 @@ DBManager::DBManager() : dbEasyTicket(QSqlDatabase::addDatabase("QSQLITE"))
 
 }
 
-void DBManager::open()
+bool DBManager::open()
 {
     QDir directoryPath;
     QString path = directoryPath.currentPath() + "/EasyTicket.db";
 
     dbEasyTicket.setDatabaseName(path);
     dbEasyTicket.open()
-    if(!dbEasyTicket.isOpen())
-    {
-        exit(EXIT_FAILURE);
-    }
+
+    return dbEasyTicket.open();
 }
 
 int DBManager::connection(const QString usermail, const QString password)
 {
   query.exec("SELECT user_level FROM User WHERE lower(user_email) like '" + usermail.toLower() + "'and user_password like '" + password + "';");
   if(!query.next()) return -1;
-  else return query.values(0).toInt();
+  else return query.value(0).toInt();
 }
 
 bool DBManager::isOpen() const
