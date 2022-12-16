@@ -31,7 +31,7 @@ pair DBManager::connection(const QString usermail, const QString password)
 {
   query.exec("SELECT user_level, user_id FROM User WHERE lower(user_email) like '" + usermail.toLower() + "'and user_password like '" + password + "';");
   if(!query.next()) return {-1, -1};
-  else return {query.value(0).toInt(), query.value(1).toInt()};
+  return {query.value(0).toInt(), query.value(1).toInt()};
 }
 
 bool DBManager::isOpen() const
@@ -83,9 +83,9 @@ int DBManager::requestPostTicket(const Category category, const QString message,
 
 QString DBManager::requestMessage(const Ticket& ticket)
 {
-    //Make request
-
-    return "";
+  query.exec("SELECT message_text FROM Message WHERE ticket_num = " + ticket.getTicketId() + ";");
+  if(!query.next()) return "";
+  return query.value(0).toString();
 }
 
 void DBManager::requestPrendreTicket(const User& user, const Ticket& ticket)
