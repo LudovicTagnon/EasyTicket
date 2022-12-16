@@ -51,7 +51,6 @@ class DBManager
 		QStringList getCategories();
 
 		~DBManager();
->>>>>>> 47c8c446576152dcd03caa041a0efb3f4c45a330
 };
 
 #endif /*DBMANAGER_H*/
