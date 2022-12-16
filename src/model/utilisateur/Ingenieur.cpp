@@ -12,11 +12,6 @@ Ingenieur::Ingenieur(const QString userId, const QString name, const QString sur
 
 }
 
-void Ingenieur::takeTicket(const Ticket& ticket)
-{
-    easyTicket.takeTicket(ticket);
-}
-
 void Ingenieur::changeCategory(const Ticket& ticket, const Category category)
 {
     easyTicket.changeCategory(ticket, category);

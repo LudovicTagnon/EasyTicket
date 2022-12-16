@@ -13,7 +13,6 @@ bool DBManager::open()
     QString path = directoryPath.currentPath() + "/EasyTicket.db";
 
     dbEasyTicket.setDatabaseName(path);
-    dbEasyTicket.open()
 
     return dbEasyTicket.open();
 }
@@ -65,11 +64,6 @@ void DBManager::close()
 }
 
 void DBManager::requestPostTicket(const Category category, const QString message)
-{
-    //Make request
-}
-
-void DBManager::requestTakeTicket(const Ticket& ticket)
 {
     //Make request
 }

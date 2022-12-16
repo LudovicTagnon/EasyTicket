@@ -46,11 +46,6 @@ void EasyTicket::postTicket(const Category category, const QString message)
     ticketManager.postTicket(category, message);
 }
 
-void EasyTicket::takeTicket(const Ticket& ticket)
-{
-    ticketManager.takeTicket(ticket);
-}
-
 void EasyTicket::sendMessage(const Ticket& ticket, const QString& message)
 {
     ticketManager.sendMessage(ticket, message);

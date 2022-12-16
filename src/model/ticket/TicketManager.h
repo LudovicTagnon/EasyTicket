@@ -28,7 +28,6 @@ class TicketManager
         void closeDB();
 
         void postTicket(const Category category, const QString message);
-        void takeTicket(const Ticket& ticket);
         QString getMessage(const Ticket& ticket);
         void prendreTicket(const User& user, const Ticket& ticket);
         void transfertTicket(const User& user, const Ticket& ticket);

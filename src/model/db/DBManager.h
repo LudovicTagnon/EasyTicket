@@ -36,7 +36,6 @@ class DBManager
         void close();
 
         void requestPostTicket(const Category category, const QString message);
-        void requestTakeTicket(const Ticket& ticket);
         QString requestMessage(const Ticket& ticket);
         void requestPrendreTicket(const User& user, const Ticket& ticket);
         void requestTransfertTicket(const User& user, const Ticket& ticket);

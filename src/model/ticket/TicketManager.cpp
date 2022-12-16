@@ -30,11 +30,6 @@ void TicketManager::postTicket(const Category category, const QString message)
     db.requestPostTicket(category, message);
 }
 
-void TicketManager::takeTicket(const Ticket& ticket)
-{
-    db.requestTakeTicket(ticket);
-}
-
 QString TicketManager::getMessage(const Ticket& ticket)
 {
     return db.requestMessage(ticket);
