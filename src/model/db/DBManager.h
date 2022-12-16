@@ -5,6 +5,7 @@
 #include <QSqlDatabase>
 #include <QSqlQuery>
 #include <QSqlRecord>
+#include <QListWidget>
 
 #include "../ticket/Category.h"
 #include "../ticket/filters/Filters.h"
@@ -32,7 +33,7 @@ class DBManager
         QString requestMessage(const Ticket& ticket);
         void requestPrendreTicket(const User& user, const Ticket& ticket);
         void requestTransfertTicket(const User& user, const Ticket& ticket);
-        std::vector<QString> requestTicketsSummary(const int pageNum, const Filters& filters);
+        QStringList requestTicketsSummary(const int pageNum, const Filters& filters);
         void requestChangeCategory(const Ticket& ticket, const Category category);
         void requestSendMessage(const Ticket& ticket, const QString& message);
 

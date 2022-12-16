@@ -23,17 +23,11 @@ VueAdmin::~VueAdmin() {
 }
 
 void VueAdmin::on_RafraichirButton_clicked(){
-    //EXPERIMENTAL
-    /*
-    auto tmp = easyTicket.getTicketsSummary(page,
+    QStringList tmp = easyTicket.getTicketsSummary(page,
         FiltersBuilder()
             .addCategory(ALL)
             .setCheckClosedState(false)
-            .toFilters()
-    );
-    */
-
-    QStringList tmp{"AAA", "BBB", "CCC"};
+            .toFilters());
 
     QListWidget* list = findChild<QListWidget*>("listWidgetStats");
 
