@@ -31,7 +31,9 @@ bool DBManager::open()
 std::pair<int, int> DBManager::connection(const QString usermail, const QString password)
 {
   query.exec("SELECT user_level, user_id FROM User WHERE lower(user_email) like '" + usermail.toLower() + "'and user_password like '" + password + "';");
+
   if(!query.next()) return {-1, -1};
+
   return {query.value(0).toInt(), query.value(1).toInt()};
 }
 
@@ -75,6 +77,11 @@ void DBManager::close()
 }
 
 User DBManager::getUserInfo(const int userId)
+{
+    return User(userId, "John", "Doe", "johndoe@mail.com", easyTicket);
+}
+
+void DBManager::requestPostTicket(const Category category, const QString message)
 {
     return User(userId, "John", "Doe", "johndoe@mail.com", easyTicket);
 }
