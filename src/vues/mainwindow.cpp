@@ -23,10 +23,8 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_connexionButton_clicked()
 {
-    std::cout << "OK" << std::endl;
-
     easyTicket.openDB();
-    if(easyTicket.isOpenDB() || true)
+    if(easyTicket.isOpenDB())
     {
         QMessageBox::information(this, "Connection", "Connected");
         

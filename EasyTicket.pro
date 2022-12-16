@@ -1,11 +1,8 @@
 QT += core gui sql
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
-greaterThan(QT_MAJOR_VERSION, 4): QT += multimedia
-greaterThan(QT_MAJOR_VERSION, 4): QT += multimediawidgets
 
-
-CONFIG += c++11
+CONFIG += c++17
 
 # The following define makes your compiler emit warnings if you use
 # any Qt feature that has been marked deprecated (the exact warnings

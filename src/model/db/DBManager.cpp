@@ -2,7 +2,7 @@
 
 #include "../ticket/Ticket.h"
 
-DBManager::DBManager() : dbEasyTicket(QSqlDatabase::addDatabase("QMYSQL"))
+DBManager::DBManager() : dbEasyTicket(QSqlDatabase::addDatabase("QSQLITE"))
 {
 
 }
@@ -16,7 +16,7 @@ bool DBManager::open()
     if(!dbEasyTicket.open())
     {
         //TODO: manage errors
-        //exit(EXIT_FAILURE);
+        exit(EXIT_FAILURE);
     }
 
     return dbEasyTicket.isOpen();
