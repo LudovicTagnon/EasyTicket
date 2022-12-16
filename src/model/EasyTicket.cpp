@@ -83,7 +83,7 @@ void EasyTicket::changeCategory(const Ticket& ticket, const Category category)
 
 QStringList EasyTicket::getCategories()
 {
-    return {};//db.getCategories();
+    return db.getCategories();
 }
 
 EasyTicket::~EasyTicket()
