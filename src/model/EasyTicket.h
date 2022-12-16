@@ -29,8 +29,6 @@ class EasyTicket
         std::vector<QString> getTicketsSummary(const int pageNum, const Filters& filters);
         void changeCategory(const Ticket& ticket, const Category category);
 
-        void start();
-
         ~EasyTicket();
 
 };

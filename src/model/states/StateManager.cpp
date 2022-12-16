@@ -8,7 +8,11 @@ StateManager::StateManager()
 }
 
 void StateManager::push(QWidget* state) {
+    if(!stateManager.empty())
+        stateManager.top()->hide();
+
     stateManager.push(state);
+    stateManager.top()->show();
 }
 
 void StateManager::pop()

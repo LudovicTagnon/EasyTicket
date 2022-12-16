@@ -16,7 +16,5 @@ int main(int argc, char *argv[])
 
     EasyTicket easyTicket = EasyTicket();
 
-    easyTicket.start();
-
     return a.exec();
 }

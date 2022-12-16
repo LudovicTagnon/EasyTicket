@@ -76,11 +76,6 @@ void EasyTicket::changeCategory(const Ticket& ticket, const Category category)
     ticketManager.changeCategory(ticket, category);
 }
 
-void EasyTicket::start()
-{
-    stateManager.top()->show();
-}
-
 EasyTicket::~EasyTicket()
 {
 

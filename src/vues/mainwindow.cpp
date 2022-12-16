@@ -32,7 +32,6 @@ void MainWindow::on_connexionButton_clicked()
     QMessageBox::information(this, "Connection", "Connected");
     
     easyTicket.pushWindow(new VueAdmin(easyTicket));
-    easyTicket.start();
 }
 
 void MainWindow::on_inscriptionButton_clicked()
