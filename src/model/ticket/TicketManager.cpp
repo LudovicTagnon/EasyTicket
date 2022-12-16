@@ -25,9 +25,10 @@ void TicketManager::closeDB()
     db.close();
 }
 
-void TicketManager::postTicket(const Category category, const QString message)
+void TicketManager::postTicket(const Category category, const QString message, const QString title)
 {
-    db.requestPostTicket(category, message);
+    int ticketNum = db.requestPostTicket(category, message);
+    tickets.insert(Ticket(ticketNum, title, category));
 }
 
 QString TicketManager::getMessage(const Ticket& ticket)
@@ -62,5 +63,5 @@ void TicketManager::sendMessage(const Ticket& ticket, const QString& message)
 
 TicketManager::~TicketManager()
 {
-    
+
 }
