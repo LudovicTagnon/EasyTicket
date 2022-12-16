@@ -16,9 +16,9 @@ void EasyTicket::pushWindow(QWidget* state){
     stateManager.push(state);
 }
 
-void EasyTicket::openDB()
+bool EasyTicket::openDB()
 {
-    db.open();
+    return db.open();
 }
 
 void EasyTicket::connectionDB(const QString username, const QString password)

@@ -15,7 +15,7 @@ class EasyTicket
     public:
         EasyTicket();
         void pushWindow(QWidget* state);
-        void openDB();
+        bool openDB();
         void connectionDB(const QString username, const QString password);
         bool isOpenDB() const;
         void closeDB();
