@@ -22,7 +22,7 @@ class User
              const QString& email,
              EasyTicket& easyTicket);
 
-        getUserId();
+        int getUserId();
 
         ~User();
 };

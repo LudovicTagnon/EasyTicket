@@ -83,19 +83,19 @@ int DBManager::requestPostTicket(const Category category, const QString message,
 
 QString DBManager::requestMessage(const Ticket& ticket)
 {
-  query.exec("SELECT message_text FROM Message WHERE ticket_num = " + ticket.getTicketId() + ";");
+  query.exec("SELECT message_text FROM Message WHERE ticket_num = " + QString::number(ticket.getTicketId()) + ";");
   if(!query.next()) return "";
   return query.value(0).toString();
 }
 
 void DBManager::requestPrendreTicket(const User& user, const Ticket& ticket)
 {
-  query.exec("UPDATE Ticket SET user_id = " + user.getUserId() + "WHERE ticket_num = " + ticket.getTicketId() +";")
+  query.exec("UPDATE Ticket SET user_id = " + QString::number(user.getUserId()) + "WHERE ticket_num = " + QString::number(ticket.getTicketId()) +";")
 }
 
 void DBManager::requestTransfertTicket(const User& user, const Ticket& ticket)
 {
-  query.exec("UPDATE Ticket SET user_id = " + user.getUserId() + "WHERE ticket_num = " + ticket.getTicketId() +";")
+  query.exec("UPDATE Ticket SET user_id = " + QString::number(user.getUserId()) + "WHERE ticket_num = " + QString::number(ticket.getTicketId()) +";")
 }
 
 QStringList DBManager::requestTicketsSummary(const int pageNum, const Filters& filters)
@@ -107,12 +107,12 @@ QStringList DBManager::requestTicketsSummary(const int pageNum, const Filters& f
 
 void DBManager::requestChangeCategory(const Ticket& ticket, const Category category)
 {
-  query.exec("UPDATE Ticket SET car_id = " + category + "WHERE ticket_num = " + ticket.getTicketId() +";")
+  query.exec("UPDATE Ticket SET car_id = " + category + "WHERE ticket_num = " + QString::number(ticket.getTicketId()) + ";")
 }
 
 void DBManager::requestSendMessage(const Ticket& ticket, const QString& message)
 {
-  query.exec("INSERT INTO Message(message_text, ticket_num) VALUES('" + message + "', " + ticket.getTicketId() + ");");
+  query.exec("INSERT INTO Message(message_text, ticket_num) VALUES('" + message + "', " + QString::number(ticket.getTicketId()) + ");");
 }
 
 DBManager::~DBManager()
