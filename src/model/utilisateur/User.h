@@ -21,6 +21,9 @@ class User
              const QString& surname,
              const QString& email,
              EasyTicket& easyTicket);
+
+        getUserId();
+
         ~User();
 };
 

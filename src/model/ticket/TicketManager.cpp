@@ -27,8 +27,8 @@ void TicketManager::closeDB()
 
 void TicketManager::postTicket(const Category category, const QString message, const QString title)
 {
-    int ticketNum = db.requestPostTicket(category, message);
-    tickets.insert(Ticket(ticketNum, title, category));
+    int ticketNum = db.requestPostTicket(category, message, title);
+    tickets.push_back(Ticket(ticketNum, title, category));
 }
 
 QString TicketManager::getMessage(const Ticket& ticket)

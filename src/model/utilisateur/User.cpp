@@ -10,6 +10,11 @@ User::User(const int& userId, const QString& name, const QString& surname, const
 
 }
 
+int User::getUserId()
+{
+  return userId;
+}
+
 User::~User()
 {
 

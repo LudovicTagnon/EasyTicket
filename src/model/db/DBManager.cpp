@@ -90,12 +90,12 @@ QString DBManager::requestMessage(const Ticket& ticket)
 
 void DBManager::requestPrendreTicket(const User& user, const Ticket& ticket)
 {
-  query.exec("UPDATE Ticket SET user_id = " user)
+  query.exec("UPDATE Ticket SET user_id = " + user.getUserId() + "WHERE ticket_num = " + ticket.getTicketId() +";")
 }
 
 void DBManager::requestTransfertTicket(const User& user, const Ticket& ticket)
 {
-    //Make request
+  query.exec("UPDATE Ticket SET user_id = " + user.getUserId() + "WHERE ticket_num = " + ticket.getTicketId() +";")
 }
 
 QStringList DBManager::requestTicketsSummary(const int pageNum, const Filters& filters)
@@ -107,12 +107,12 @@ QStringList DBManager::requestTicketsSummary(const int pageNum, const Filters& f
 
 void DBManager::requestChangeCategory(const Ticket& ticket, const Category category)
 {
-    //Make request
+  query.exec("UPDATE Ticket SET car_id = " + category + "WHERE ticket_num = " + ticket.getTicketId() +";")
 }
 
 void DBManager::requestSendMessage(const Ticket& ticket, const QString& message)
 {
-    //Make request
+  query.exec("INSERT INTO Message(message_text, ticket_num) VALUES('" + message + "', " + ticket.getTicketId() + ");");
 }
 
 DBManager::~DBManager()
