@@ -13,8 +13,8 @@ class Ingenieur : NonAdmin
         bool isAllCategories;
         std::set<Category> categories;
     public:
-        Ingenieur(const QString userId, const QString name, const QString surname, const QString email, EasyTicket& easyTicket);
-        Ingenieur(const QString userId, const QString name, const QString surname, const QString email, EasyTicket& easyTicket, bool isAllCategories, std::set<Category> categories);
+        Ingenieur(const int& userId, const QString& name, const QString& surname, const QString& email, EasyTicket& easyTicket);
+        Ingenieur(const int& userId, const QString& name, const QString& surname, const QString& email, EasyTicket& easyTicket, bool isAllCategories, std::set<Category> categories);
         void changeCategory(const Ticket& ticket, const Category category);
         void transferTicket(const User& user, const Ticket& ticket);
         ~Ingenieur();

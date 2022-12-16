@@ -26,7 +26,7 @@ bool EasyTicket::openDB()
     return db.open();
 }
 
-int EasyTicket::connectionDB(const QString username, const QString password)
+std::pair<int, int> EasyTicket::connectionDB(const QString username, const QString password)
 {
     return db.connection(username, password);
 }
@@ -78,7 +78,7 @@ void EasyTicket::changeCategory(const Ticket& ticket, const Category category)
 
 QStringList EasyTicket::getCategories()
 {
-    return db.getCategories();
+    return {};//db.getCategories();
 }
 
 EasyTicket::~EasyTicket()

@@ -19,11 +19,11 @@ class EasyTicket
         void pushWindow(QWidget* state);
         void popWindow();
         bool openDB();
-        int connectionDB(const QString username, const QString password);
+        std::pair<int, int> connectionDB(const QString username, const QString password);
         bool isOpenDB() const;
         void closeDB();
 
-        void postTicket(const Category category, const QString message);
+        void postTicket(const Category category, const QString message, const QString title);
         void sendMessage(const Ticket& ticket, const QString& message);
         QString getMessage(const Ticket& ticket);
         void prendreTicket(const User& user, const Ticket& ticket);

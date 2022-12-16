@@ -2,7 +2,7 @@
 
 #include "../EasyTicket.h"
 
-Technicien::Technicien(const QString userId, const QString name, const QString surname, const QString email, EasyTicket& easyTicket, const std::set<Category> categories)
+Technicien::Technicien(const int& userId, const QString& name, const QString& surname, const QString& email, EasyTicket& easyTicket, const std::set<Category> categories)
 : Ingenieur(userId, name, surname, email, easyTicket, false, categories)
 {
 
@@ -11,5 +11,5 @@ Technicien::Technicien(const QString userId, const QString name, const QString s
 
 Technicien::~Technicien()
 {
-    
+
 }

@@ -28,7 +28,7 @@ class Ticket
                 const bool isClosed = false,
                 const std::time_t dateFin = std::chrono::system_clock::to_time_t(std::chrono::system_clock::now()));
 
-        int getTicketId();
+        int getTicketId() const;
 
         ~Ticket();
 };

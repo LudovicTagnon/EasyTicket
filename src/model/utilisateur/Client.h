@@ -8,8 +8,8 @@
 class Client : NonAdmin
 {
     public:
-        Client(const QString userId, const QString name, const QString surname, const QString email, EasyTicket& easyTicket);
-        void postTicket(const Category category, const QString message);
+        Client(const int& userId, const QString& name, const QString& surname, const QString& email, EasyTicket& easyTicket);
+        void postTicket(const Category category, const QString message, const QString title);
         ~Client();
 };
 

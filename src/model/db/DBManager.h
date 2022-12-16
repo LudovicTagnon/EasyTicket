@@ -9,6 +9,7 @@
 
 #include "../ticket/Category.h"
 #include "../ticket/filters/Filters.h"
+#include "../utilisateur/User.h"
 
 enum
 {
@@ -44,6 +45,7 @@ class DBManager
         QStringList requestTicketsSummary(const int pageNum, const Filters& filters);
         void requestChangeCategory(const Ticket& ticket, const Category category);
         void requestSendMessage(const Ticket& ticket, const QString& message);
+				QStringList getCategories();
 
         ~DBManager();
 

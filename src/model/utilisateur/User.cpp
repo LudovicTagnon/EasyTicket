@@ -10,7 +10,7 @@ User::User(const int& userId, const QString& name, const QString& surname, const
 
 }
 
-int User::getUserId()
+int User::getUserId() const
 {
   return userId;
 }
