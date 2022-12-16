@@ -12,10 +12,10 @@
 
 enum Autorisation
 {
-  0,
-  1,
-  2
-}
+  CLIENT,
+  INGETECH,
+  ADMIN
+};
 
 class Ticket;
 class User;
