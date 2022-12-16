@@ -27,7 +27,7 @@ bool DBManager::open()
     return true;
 }
 
-pair DBManager::connection(const QString usermail, const QString password)
+std::pair<int, int> DBManager::connection(const QString usermail, const QString password)
 {
   query.exec("SELECT user_level, user_id FROM User WHERE lower(user_email) like '" + usermail.toLower() + "'and user_password like '" + password + "';");
   if(!query.next()) return {-1, -1};
@@ -90,7 +90,7 @@ QString DBManager::requestMessage(const Ticket& ticket)
 
 void DBManager::requestPrendreTicket(const User& user, const Ticket& ticket)
 {
-    //Make request
+  query.exec("UPDATE Ticket SET user_id = " user)
 }
 
 void DBManager::requestTransfertTicket(const User& user, const Ticket& ticket)

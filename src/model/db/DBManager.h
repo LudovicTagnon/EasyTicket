@@ -34,7 +34,7 @@ class DBManager
         bool open();
         bool isOpen() const;
         void createIfNotExistsDataBase();
-        pair connection(const QString usermail, const QString password);
+        std::pair<int, int> connection(const QString usermail, const QString password);
         void close();
 
         int requestPostTicket(const Category category, const QString message, const QString title);
