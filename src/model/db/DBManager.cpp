@@ -1,5 +1,8 @@
 #include "DBManager.h"
 
+#include <QFileInfo>
+#include <iostream>
+
 #include "../ticket/Ticket.h"
 
 DBManager::DBManager() : dbEasyTicket(QSqlDatabase::addDatabase("QSQLITE"))
@@ -14,7 +17,14 @@ bool DBManager::open()
 
     dbEasyTicket.setDatabaseName(path);
 
-    return dbEasyTicket.open();
+    QFileInfo check_file(path);
+    bool fillFile = !(check_file.exists() && check_file.isFile());
+
+    if(!dbEasyTicket.open()) return false;
+
+    if(fillFile) createIfNotExistsDataBase();
+
+    return true;
 }
 
 int DBManager::connection(const QString usermail, const QString password)
