@@ -1,7 +1,6 @@
 #include "mainwindow.h"
 
 #include "ui_mainwindow.h"
-#include "vueinscription.h"
 
 #include <QMessageBox>
 #include <iostream>
@@ -31,11 +30,11 @@ void MainWindow::on_connexionButton_clicked()
     }
 
     QMessageBox::information(this, "Connection", "Connected");
-
-    easyTicket.pushWindow(new VueAdmin(easyTicket));
+    
+    easyTicket.pushWindow(new VueClient(easyTicket));
 }
 
 void MainWindow::on_inscriptionButton_clicked()
 {
-    easyTicket.pushWindow(new VueInscription(easyTicket));
+    //stateManager.push(new InscriptionWindow(*this));
 }

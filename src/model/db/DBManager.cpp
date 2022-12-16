@@ -92,7 +92,7 @@ void DBManager::requestTransfertTicket(const User& user, const Ticket& ticket)
     //Make request
 }
 
-std::vector<QString> DBManager::requestTicketsSummary(const int pageNum, const Filters& filters)
+QStringList DBManager::requestTicketsSummary(const int pageNum, const Filters& filters)
 {
     //Make request
 
