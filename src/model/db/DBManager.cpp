@@ -47,7 +47,7 @@ void DBManager::createIfNotExistsDataBase()
 
     query.exec("CREATE TABLE IF NOT EXISTS Message (message_text VARCHAR(200) NOT NULL, message_date DATE DEFAULT CURRENT_DATE, ticket_num INT NOT NULL, FOREIGN KEY (ticket_num)  REFERENCES Ticket(ticket_num) ON DELETE CASCADE);");
 
-    query.exec("CREATE TABLE IF NOT EXISTS Ticket (ticket_num INT, ticket_title VARCHAR(50) NOT NULL, ticket_date_post Date DEFAULT CURRENT_DATE, ticket_date_end Date DEFAULT NULL, user_id INT, cat_id INT NOT NULL, status INT DEFAULT 1, PRIMARY KEY (ticket_num), FOREIGN KEY (user_id)  REFERENCES User(user_id) ON DELETE CASCADE, FOREIGN KEY (cat_id)  REFERENCES Category(cat_id) ON DELETE CASCADE);");
+    query.exec("CREATE TABLE IF NOT EXISTS Ticket (ticket_num INT, ticket_title VARCHAR(50) NOT NULL, ticket_date_post Date DEFAULT CURRENT_DATE, ticket_date_end Date DEFAULT NULL, user_id INT, cat_id INT NOT NULL, status INT DEFAULT 0, PRIMARY KEY (ticket_num), FOREIGN KEY (user_id)  REFERENCES User(user_id) ON DELETE CASCADE, FOREIGN KEY (cat_id)  REFERENCES Category(cat_id) ON DELETE CASCADE);");
 
     query.exec("CREATE TABLE IF NOT EXISTS User (user_id  INT, user_email VARCHAR(200) NOT NULL, user_password VARCHAR(200) NOT NULL, user_name VARCHAR(200) NOT NULL, user_surname VARCHAR(200) NOT NULL, user_level INT NOT NULL DEFAULT 0, PRIMARY KEY (user_id));");
 
@@ -80,14 +80,14 @@ void DBManager::close()
 User DBManager::getUserInfo(const int userId)
 {
     query.exec("SELECT user_name, user_surname, user_email FROM User WHERE user_id = " + QString::number(userId) + ";");
-    if(!query.next()) return NULL;
+    query.next();
     return User(userId, query.value(0).toString(), query.value(1).toString(), query.value(2).toString(), easyTicket);
 }
 
 int DBManager::requestPostTicket(const Category category, const QString message, const QString title, const int userId)
 {
   ++ticketId;
-  query.exec("INSERT INTO Ticket(ticket_num, ticket_title, user_id, cat_id, status) VALUES(" + QString::number(ticketId) + ", '" + title + "', " + QString::number(userId) + ", " + QString::number(category) + ", " + "0" + ");");
+  query.exec("INSERT INTO Ticket(ticket_num, ticket_title, user_id, cat_id) VALUES(" + QString::number(ticketId) + ", '" + title + "', " + QString::number(userId) + ", " + QString::number(category) + ");");
   query.exec("INSERT INTO Message(message_text, ticket_num) VALUES('" + message + "', " + QString::number(ticketId) + ");");
   return ticketId;
 }
@@ -111,7 +111,6 @@ void DBManager::requestTransfertTicket(const User& user, const Ticket& ticket)
 
 QStringList DBManager::requestTicketsSummary(const int pageNum, const Filters& filters)
 {
-    //Make request
 
     return {};
 }

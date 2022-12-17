@@ -16,7 +16,7 @@ class NonAdmin;
 class Filters
 {
     private:
-        const QString ticketId;
+        const int ticketId;
         const QString title;
         const std::set<Category> categories;
         const std::time_t dateDebut;
@@ -26,11 +26,11 @@ class Filters
         const NonAdmin* employeeOnIt;
 
     public:
-        Filters(const QString ticketId, const QString title, const std::set<Category> categories
-             , const std::time_t dateDebut = -1, const bool checkClosedState = false, const bool isClosed = false
-             , const std::time_t dateFin = -1, const NonAdmin* employeeOnIt = nullptr);
-        
-        const QString& getTicketId() const;
+        Filters(const int& ticketId, const QString& title, const std::set<Category>& categories
+             , const std::time_t& dateDebut = -1, const bool& checkClosedState = false, const bool& isClosed = false
+             , const std::time_t& dateFin = -1, const NonAdmin* employeeOnIt = nullptr);
+
+        const int& getTicketId() const;
         const QString& getTitle() const;
         const std::set<Category>& addCategories() const;
         const std::time_t& getDateDebut() const;

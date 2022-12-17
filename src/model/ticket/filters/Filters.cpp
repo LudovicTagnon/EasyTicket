@@ -1,7 +1,7 @@
 #include "Filters.h"
 
-Filters::Filters(const QString ticketId, const QString title, const std::set<Category> categories
-             , const std::time_t dateDebut, const bool checkClosedState, const bool isClosed, const std::time_t dateFin, const NonAdmin* employeeOnIt)
+Filters::Filters(const int& ticketId, const QString& title, const std::set<Category>& categories
+             , const std::time_t& dateDebut, const bool& checkClosedState, const bool& isClosed, const std::time_t& dateFin, const NonAdmin* employeeOnIt)
  : ticketId(ticketId)
  , title(title)
  , categories(categories)
@@ -11,10 +11,10 @@ Filters::Filters(const QString ticketId, const QString title, const std::set<Cat
  , dateFin(dateFin)
  , employeeOnIt(employeeOnIt)
 {
-    
+
 }
 
-const QString& Filters::getTicketId() const
+const int& Filters::getTicketId() const
 {
     return ticketId;
 }
