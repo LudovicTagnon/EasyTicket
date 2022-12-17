@@ -13,7 +13,7 @@
 VueClient::VueClient(Client client, EasyTicket& easyTicket, QWidget *parent) :
 QWidget(parent), ui(new Ui::VueClient), easyTicket(easyTicket), client(client), page(1){
     ui->setupUi(this);
-
+    filtre = 0;
     affichageTickets();
 
 }
@@ -33,25 +33,65 @@ void VueClient::affichageTickets() {
     QStringList qstrlistStatus;
 
     for(Ticket ticket: easyTicket.getTicketManager().getTickets()){
-        qstrlistTitle << ticket.getTitle();
 
-        if(ticket.getCategory()==ALL){
-            qstrlistCategorie << (QString) "ALL";
-        }else if(ticket.getCategory()==CREATION){
-            qstrlistCategorie << (QString) "CREATION";
-        }else if(ticket.getCategory()==VISUALISATION){
-            qstrlistCategorie << (QString) "VISUALISATION";
-        }else if(ticket.getCategory()==WINDOWS){
-            qstrlistCategorie << (QString) "WINDOWS";
-        }else if(ticket.getCategory()==RECLAMATION){
-            qstrlistCategorie << (QString) "RECLAMATION";
+        if(filtre == 0){ // si pas de filtre
+            if (ticket.getIsClosed()){
+                qstrlistStatus << "Clos";
+            }else {
+                qstrlistStatus << "En cours";
+            }
+            qstrlistTitle << ticket.getTitle();
+
+            if(ticket.getCategory()==ALL){
+                qstrlistCategorie << (QString) "ALL";
+            }else if(ticket.getCategory()==CREATION){
+                qstrlistCategorie << (QString) "CREATION";
+            }else if(ticket.getCategory()==VISUALISATION){
+                qstrlistCategorie << (QString) "VISUALISATION";
+            }else if(ticket.getCategory()==WINDOWS){
+                qstrlistCategorie << (QString) "WINDOWS";
+            }else if(ticket.getCategory()==RECLAMATION){
+                qstrlistCategorie << (QString) "RECLAMATION";
+            }
+        }
+        else if(filtre == 1){
+            if (!ticket.getIsClosed()){
+                qstrlistStatus << "En cours";
+                qstrlistTitle << ticket.getTitle();
+
+                if(ticket.getCategory()==ALL){
+                    qstrlistCategorie << (QString) "ALL";
+                }else if(ticket.getCategory()==CREATION){
+                    qstrlistCategorie << (QString) "CREATION";
+                }else if(ticket.getCategory()==VISUALISATION){
+                    qstrlistCategorie << (QString) "VISUALISATION";
+                }else if(ticket.getCategory()==WINDOWS){
+                    qstrlistCategorie << (QString) "WINDOWS";
+                }else if(ticket.getCategory()==RECLAMATION){
+                    qstrlistCategorie << (QString) "RECLAMATION";
+                }
+            }
+        }
+        else if(filtre == -1){
+            if (ticket.getIsClosed()){
+                qstrlistStatus << "Clos";
+                qstrlistTitle << ticket.getTitle();
+
+                if(ticket.getCategory()==ALL){
+                    qstrlistCategorie << (QString) "ALL";
+                }else if(ticket.getCategory()==CREATION){
+                    qstrlistCategorie << (QString) "CREATION";
+                }else if(ticket.getCategory()==VISUALISATION){
+                    qstrlistCategorie << (QString) "VISUALISATION";
+                }else if(ticket.getCategory()==WINDOWS){
+                    qstrlistCategorie << (QString) "WINDOWS";
+                }else if(ticket.getCategory()==RECLAMATION){
+                    qstrlistCategorie << (QString) "RECLAMATION";
+                }
+            }
         }
 
-        if(ticket.getIsClosed()){
-            qstrlistStatus << "Clos";
-        } else{
-            qstrlistStatus << "En cours";
-        }
+
 
 
     }
@@ -70,10 +110,22 @@ void VueClient::on_NouveauButton_clicked() {
 
 void VueClient::on_ClosButton_clicked(){
     QMessageBox::information(this, "Status", "Affichage des tickets clos");
+    if(filtre==1 || filtre == 0){
+        filtre = -1;
+    }else{
+        filtre = 0;
+    }
+    affichageTickets();
 }
 
 void VueClient::on_EnCoursButton_clicked(){
     QMessageBox::information(this, "Status", "Affichage des tickets en cours");
+    if(filtre==-1 || filtre == 0){
+        filtre = 1;
+    }else{
+        filtre = 0;
+    }
+    affichageTickets();
 }
 
 void VueClient::on_RafraichirButton_clicked(){

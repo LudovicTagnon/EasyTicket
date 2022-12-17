@@ -37,6 +37,7 @@ private:
     Ui::VueClient *ui;
     EasyTicket& easyTicket;
     Client client;
+    int filtre;
 
     int page;
 };
