@@ -37,6 +37,7 @@ class EasyTicket
         QStringList getCategories();
         QStringList getEmployees();
         void refreshTickets();
+        bool setEmployeeOntIt(const Ticket& ticket, const NonAdmin& nonAdmin);
 
         ~EasyTicket();
 

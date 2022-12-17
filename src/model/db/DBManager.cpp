@@ -187,6 +187,11 @@ std::vector<Ticket> DBManager::getTickets() {
     return Tickets;
 }
 
+bool DBManager::setEmployeeOntIt(const Ticket& ticket, const NonAdmin& nonAdmin)
+{
+  //MAKE REQUEST
+}
+
 DBManager::~DBManager()
 {
     close();

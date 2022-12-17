@@ -13,6 +13,8 @@ class VueTech : public VueIngeTech {
 public:
     explicit VueTech(Technicien technicien, EasyTicket& easyTicket);
 
+    void on_PrendreButton_clicked() override;
+
 private:
     Technicien technicien;
 };

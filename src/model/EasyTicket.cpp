@@ -97,6 +97,14 @@ QStringList EasyTicket::getEmployees()
     return db.getEmployees();
 }
 
+bool EasyTicket::setEmployeeOntIt(const Ticket& ticket, const NonAdmin& nonAdmin)
+{
+    bool ret = db.setEmployeeOntIt(ticket, nonAdmin);
+    if(ret) ticket.setEmployeeOnIt(&nonAdmin);
+
+    return ret;
+}
+
 EasyTicket::~EasyTicket()
 {
 

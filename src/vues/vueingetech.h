@@ -22,12 +22,14 @@ Q_OBJECT
 public:
     explicit VueIngeTech(EasyTicket& easyTicket, QWidget *parent = nullptr);
 
+    int getIndexOfSelected();
+
     ~VueIngeTech() override;
 
 protected slots:
     void affichageTickets();
     void on_OuvrirButton_clicked();
-    void on_PrendreButton_clicked();
+    virtual void on_PrendreButton_clicked() = 0;
     void on_ChangeCatButton_clicked();
     void on_TransfererButton_clicked();
     void on_ATraiterButton_clicked();

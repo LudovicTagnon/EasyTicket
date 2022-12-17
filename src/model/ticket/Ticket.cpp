@@ -49,6 +49,11 @@ std::vector<Message>& Ticket::getMessages()
     return messages;
 }
 
+void Ticket::setEmployeeOnIt(NonAdmin* nonAdmin)
+{
+    employeeOnIt = nonAdmin;
+}
+
 Ticket::~Ticket()
 {
 

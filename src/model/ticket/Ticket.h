@@ -39,6 +39,7 @@ class Ticket
         const QString* getEmployeeOnItName() const;
         std::vector<Message>& getMessages();
         void addMessage(Message message);
+        void setEmployeeOnIt(NonAdmin* nonAdmin);
 };
 
 #endif /*TICKET_H*/

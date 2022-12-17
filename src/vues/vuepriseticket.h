@@ -17,7 +17,7 @@ class VuePriseTicket : public QWidget {
 Q_OBJECT
 
 public:
-    explicit VuePriseTicket(EasyTicket& easyTicket, QWidget *parent = nullptr);
+    explicit VuePriseTicket(EasyTicket& easyTicket, NonAdmin& nonAdmin, Ticket& ticket, QWidget *parent = nullptr);
 
     ~VuePriseTicket() override;
 
@@ -26,6 +26,8 @@ private slots:
     void on_AnnulerButton_clicked();
 
 private:
+    NonAdmin& nonAdmin;
+    Ticket& ticket;
     Ui::VuePriseTicket *ui;
     EasyTicket& easyTicket;
 };

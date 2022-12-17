@@ -7,3 +7,10 @@ VueInge::VueInge(Ingenieur ingenieur, EasyTicket& easyTicket)
 {
 
 }
+
+void VueInge::on_PrendreButton_clicked() {
+    int index = getIndexOfSelected();
+    if(index == -1) return;
+    
+    easyTicket.pushWindow(new VuePriseTicket(easyTicket, ingenieur, easyTicket.getTicketManager().getTickets().at(index)));
+}

@@ -46,11 +46,12 @@ void VueIngeTech::affichageTickets() {
     ui->listWidgetStatusTicket->addItems(qstrlistStatus);
 }
 
-void VueIngeTech::on_OuvrirButton_clicked() {
+int VueIngeTech::getIndexOfSelected()
+{
     if(ui->listWidgetTitreTicket->selectedItems().isEmpty())
     {
         QMessageBox::information(this, "Status", "Veuillez selectionner un ticket");
-        return;
+        return -1;
     }
 
     QString selectedItem = ui->listWidgetTitreTicket->selectedItems().at(0)->text();
@@ -61,11 +62,15 @@ void VueIngeTech::on_OuvrirButton_clicked() {
         if(ui->listWidgetTitreTicket->item(index)->text().compare(selectedItem) == 0)
             break;
     }
-    easyTicket.pushWindow(new VueTicket(easyTicket, easyTicket.getTicketManager().getTickets().at(index)));
+
+    return index;
 }
 
-void VueIngeTech::on_PrendreButton_clicked() {
-    easyTicket.pushWindow(new VuePriseTicket(easyTicket));
+void VueIngeTech::on_OuvrirButton_clicked() {
+    int index = getIndexOfSelected();
+    if(index == -1) return;
+    
+    easyTicket.pushWindow(new VueTicket(easyTicket, easyTicket.getTicketManager().getTickets().at(index)));
 }
 
 void VueIngeTech::on_ChangeCatButton_clicked() {
