@@ -13,7 +13,6 @@ void TicketManager::refreshTickets() {
     }
 }
 
-
 const std::vector<Ticket> &TicketManager::getTickets() const {
     return tickets;
 }
