@@ -153,19 +153,11 @@ std::vector<Ticket> DBManager::getTickets() {
     std::vector<Ticket> Tickets;
 
     query.exec("SELECT ticket_num, ticket_title, cat_id FROM Ticket;");
-    QStringList qstrlistTicketID, qstrlistTitle, qstrlistCateg;
 
     while(query.next())
     {
-      qstrlistTicketID.append(query.value(0).toString());
-      qstrlistTitle.append(query.value(1).toString());
-      qstrlistCateg.append(query.value(2).toString());
-    }
-
-    for(int i = 0;i < qstrlistTicketID.size();++i)
-    {
-        Ticket ticket = Ticket(qstrlistTicketID.value(i).toInt(), qstrlistTitle.value(i), (Category) qstrlistCateg.value(i).toInt());
-        Tickets.push_back(ticket);
+      Ticket ticket = Ticket(query.value(0).toInt(), query.value(1).toString(), (Category) query.value(2).toInt());
+      Tickets.push_back(ticket);
     }
 
     return Tickets;
