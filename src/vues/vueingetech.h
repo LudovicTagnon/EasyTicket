@@ -38,6 +38,7 @@ protected slots:
 protected:
     Ui::VueIngeTech *ui;
     EasyTicket& easyTicket;
+    int filtre;
 };
 
 
