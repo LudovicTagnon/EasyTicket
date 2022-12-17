@@ -45,13 +45,13 @@ bool DBManager::isOpen() const
 
 void DBManager::createIfNotExistsDataBase()
 {
-    query.exec("CREATE TABLE IF NOT EXISTS Category (cat_id INT, cat_name VARCHAR(25) NOT NULL UNIQUE, PRIMARY KEY (cat_id));");
+    query.exec("CREATE TABLE IF NOT EXISTS Category (cat_id INT, cat_name STRING NOT NULL UNIQUE, PRIMARY KEY (cat_id));");
 
-    query.exec("CREATE TABLE IF NOT EXISTS Message (message_text VARCHAR(200) NOT NULL, message_date DATE DEFAULT CURRENT_DATE, ticket_num INT NOT NULL, FOREIGN KEY (ticket_num)  REFERENCES Ticket(ticket_num) ON DELETE CASCADE);");
+    query.exec("CREATE TABLE IF NOT EXISTS Message (message_text STRING NOT NULL, message_date DATE DEFAULT CURRENT_DATE, ticket_num INT NOT NULL, FOREIGN KEY (ticket_num)  REFERENCES Ticket(ticket_num) ON DELETE CASCADE);");
 
-    query.exec("CREATE TABLE IF NOT EXISTS Ticket (ticket_num INT, ticket_title VARCHAR(50) NOT NULL, ticket_date_post Date DEFAULT CURRENT_DATE, ticket_date_end Date DEFAULT NULL, user_id INT NOT NULL, cat_id INT NOT NULL, status INT DEFAULT 0, employee_on_it_id INT, PRIMARY KEY (ticket_num), FOREIGN KEY (user_id) REFERENCES User(user_id) ON DELETE CASCADE, FOREIGN KEY (employee_on_it_id) REFERENCES User(user_id) ON DELETE CASCADE, FOREIGN KEY (cat_id)  REFERENCES Category(cat_id) ON DELETE CASCADE);");
+    query.exec("CREATE TABLE IF NOT EXISTS Ticket (ticket_num INT, ticket_title STRING NOT NULL, ticket_date_post Date DEFAULT CURRENT_DATE, ticket_date_end Date DEFAULT NULL, user_id INT NOT NULL, cat_id INT NOT NULL, status INT DEFAULT 0, employee_on_it_id INT, PRIMARY KEY (ticket_num), FOREIGN KEY (user_id) REFERENCES User(user_id) ON DELETE CASCADE, FOREIGN KEY (employee_on_it_id) REFERENCES User(user_id) ON DELETE CASCADE, FOREIGN KEY (cat_id)  REFERENCES Category(cat_id) ON DELETE CASCADE);");
 
-    query.exec("CREATE TABLE IF NOT EXISTS User (user_id  INT, user_email VARCHAR(200) NOT NULL, user_password VARCHAR(200) NOT NULL, user_name VARCHAR(200) NOT NULL, user_surname VARCHAR(200) NOT NULL, user_level INT NOT NULL DEFAULT 0, PRIMARY KEY (user_id));");
+    query.exec("CREATE TABLE IF NOT EXISTS User (user_id  INT, user_email STRING NOT NULL, user_password STRING NOT NULL, user_name STRING NOT NULL, user_surname STRING NOT NULL, user_level INT NOT NULL DEFAULT 0, PRIMARY KEY (user_id));");
 
     query.exec("SELECT * FROM Category;");
 
