@@ -95,10 +95,9 @@ std::pair<int, QString> DBManager::requestPostTicket(const Category category, co
   strftime(buff, 20, "%Y-%m-%d", localtime(&now));
   QString date(buff);
 
-  std::cout << "INSERT INTO Message(message_date, message_text, ticket_num) VALUES('" + date.toStdString() + ", " + message.toStdString() + "', " + QString::number(ticketId).toStdString() + ");" << std::endl;
-
-  if(!query.exec("INSERT INTO Ticket(ticket_num, ticket_title, user_id, cat_id, employee_on_it_id) VALUES(" + QString::number(ticketId) + ", '" + title + "', " + QString::number(userId) + ", " + QString::number(category) + ", -1);"
-                + "INSERT INTO Message(message_date, message_text, ticket_num) VALUES(" + date + ", " + message + ", " + QString::number(ticketId) + ");"))
+  if(!query.exec("INSERT INTO Ticket(ticket_num, ticket_title, user_id, cat_id, employee_on_it_id) VALUES(" + QString::number(ticketId) + ", '" + title + "', " + QString::number(userId) + ", " + QString::number(category) + ", -1);"))
+    return {-1, ""};
+  if(!query.exec("INSERT INTO Message(message_date, message_text, ticket_num) VALUES('" + date + "', '" + message + "', " + QString::number(ticketId) + ");"))
     return {-1, ""};
 
   return {ticketId, date};
