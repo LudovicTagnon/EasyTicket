@@ -79,7 +79,9 @@ void DBManager::close()
 
 User DBManager::getUserInfo(const int userId)
 {
-    return User(userId, "John", "Doe", "johndoe@mail.com", easyTicket);
+    query.exec("SELECT user_name, user_surname, user_email FROM User WHERE user_id = " + QString::number(userId) + ";");
+    if(!query.next()) return NULL;
+    return User(userId, query.value(0).toString(), query.value(1).toString(), query.value(2).toString(), easyTicket);
 }
 
 int DBManager::requestPostTicket(const Category category, const QString message, const QString title, const int userId)
@@ -138,13 +140,18 @@ QStringList DBManager::getCategories()
 
 QStringList DBManager::getEmployees()
 {
-    return {};
+  QStringList listEmployees;
+  query.exec("SELECT user_name, user_surname FROM User WHERE user_level > 0;");
+
+  while(query.next())
+  {
+    listEmployees.append(query.value(0).toString() + ", " + query.value(1).toString());
+  }
+    return listEmployees;
 }
 
 std::vector<Ticket> DBManager::getTickets() {
     std::vector<Ticket> Tickets;
-
-    std::cout << "test";
 
     query.exec("SELECT ticket_num, ticket_title, cat_id FROM Ticket;");
     QStringList qstrlistTicketID, qstrlistTitle, qstrlistCateg;
