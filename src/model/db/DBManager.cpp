@@ -69,7 +69,6 @@ void DBManager::createIfNotExistsDataBase()
         query.exec("INSERT INTO User(user_id, user_email, user_password, user_name, user_surname, user_level) VALUES(2, 'inge@inge.fr', 'inge', 'Harry', 'LeBoss', 2);");
         query.exec("INSERT INTO User(user_id, user_email, user_password, user_name, user_surname, user_level) VALUES(3, 'tech@tech.fr', 'tech', 'Harty', 'LApprenti', 1);");
         query.exec("INSERT INTO User(user_id, user_email, user_password, user_name, user_surname, user_level) VALUES(4, 'client@client.fr', 'client', 'Hugo', 'LeRandom', 0);");
-
     }
 }
 
@@ -127,12 +126,14 @@ void DBManager::requestSendMessage(const Ticket& ticket, const QString& message)
 
 QStringList DBManager::getCategories()
 {
-    query.exec("SELECT cat_name FROM Category;");
-    QStringList qstrlist;
-    while (query.next()) {
-        qstrlist << query.value(0).toString();
-    }
-    return qstrlist;
+  QStringList listCategory;
+
+  query.exec("SELECT cat_name FROM Category;");
+  while(query.next())
+  {
+    listCategory.append(query.value(0).toString());
+  }
+  return listCategory;
 }
 
 QStringList DBManager::getEmployees()
@@ -145,27 +146,21 @@ std::vector<Ticket> DBManager::getTickets() {
 
     std::cout << "test";
 
-    query.exec("SELECT ticket_num FROM Ticket;");
-    QStringList qstrlistTicketID;
-    while (query.next()) {
-        qstrlistTicketID << query.value(0).toString();
-    }
-    query.exec("SELECT ticket_title FROM Ticket;");
-    QStringList qstrlistTitle;
-    while (query.next()) {
-        qstrlistTitle << query.value(0).toString();
-    }
-    query.exec("SELECT cat_id FROM Ticket;");
-    QStringList qstrlistCateg;
-    while (query.next()) {
-        qstrlistCateg << query.value(0).toString();
+    query.exec("SELECT ticket_num, ticket_title, cat_id FROM Ticket;");
+    QStringList qstrlistTicketID, qstrlistTitle, qstrlistCateg;
+
+    while(query.next())
+    {
+      qstrlistTicketID.append(query.value(0).toString());
+      qstrlistTitle.append(query.value(1).toString());
+      qstrlistCateg.append(query.value(2).toString());
     }
 
-    for(int i = 0; i<qstrlistTicketID.size() ; i++){
+    for(int i = 0;i < qstrlistTicketID.size();++i)
+    {
         Ticket ticket = Ticket(qstrlistTicketID.value(i).toInt(), qstrlistTitle.value(i), (Category) qstrlistCateg.value(i).toInt());
         Tickets.push_back(ticket);
     }
-
 
     return Tickets;
 }
