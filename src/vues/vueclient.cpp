@@ -54,6 +54,3 @@ void VueClient::on_EnCoursButton_clicked(){
 void VueClient::on_RafraichirButton_clicked(){
     affichageTickets();
 }
-
-
-

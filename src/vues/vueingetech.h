@@ -25,6 +25,7 @@ public:
     ~VueIngeTech() override;
 
 protected slots:
+    void affichageTickets();
     void on_OuvrirButton_clicked();
     void on_PrendreButton_clicked();
     void on_ChangeCatButton_clicked();

@@ -94,7 +94,7 @@
            </widget>
           </item>
           <item>
-           <widget class="QListWidget" name="listWidget_2">
+           <widget class="QListWidget" name="listWidgetTitreTicket">
             <item>
              <property name="text">
               <string>ticket1</string>
@@ -114,7 +114,7 @@
            </widget>
           </item>
           <item>
-           <widget class="QListWidget" name="listWidget_4">
+           <widget class="QListWidget" name="listWidgetResumeTicket_IngeTech">
             <item>
              <property name="text">
               <string>Pas reçu la commande ubère it</string>
@@ -134,7 +134,7 @@
            </widget>
           </item>
           <item>
-           <widget class="QListWidget" name="listWidget_3">
+           <widget class="QListWidget" name="listWidgetCategoryTicket">
             <item>
              <property name="text">
               <string>RéceptionCommande</string>
@@ -154,7 +154,7 @@
            </widget>
           </item>
           <item>
-           <widget class="QListWidget" name="listWidget">
+           <widget class="QListWidget" name="listWidgetStatusTicket">
             <item>
              <property name="text">
               <string>En cours</string>

@@ -19,6 +19,20 @@ VueIngeTech::~VueIngeTech() {
 
 }
 
+void VueIngeTech::affichageTickets()
+{
+    ui->listWidgetTitreTicket->clear();
+    ui->listWidgetResumeTicket_IngeTech->clear();
+    ui->listWidgetCategoryTicket->clear();
+    ui->listWidgetStatusTicket->clear();
+
+    QStringList qstrlistTitle;
+    for(Ticket ticket: easyTicket.getTicketManager().getTickets()){
+        qstrlistTitle << ticket.getTitle();
+    }
+    ui->listWidgetTitreTicket->addItems(qstrlistTitle);
+}
+
 void VueIngeTech::on_OuvrirButton_clicked() {
     easyTicket.pushWindow(new VueTicket(easyTicket));
 }
