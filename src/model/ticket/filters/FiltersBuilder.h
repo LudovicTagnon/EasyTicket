@@ -16,7 +16,7 @@ class NonAdmin;
 class FiltersBuilder
 {
     private:
-        QString ticketId;
+        int ticketId;
         QString title;
         std::set<Category> categories;
         std::time_t dateDebut;
@@ -24,11 +24,11 @@ class FiltersBuilder
         bool isClosed;
         std::time_t dateFin;
         NonAdmin* employeeOnIt;
-        
+
     public:
         FiltersBuilder();
 
-        FiltersBuilder& setTicketId(QString ticketId);
+        FiltersBuilder& setTicketId(int ticketId);
         FiltersBuilder& setTitle(QString title);
         FiltersBuilder& addCategories(std::set<Category> categories);
         FiltersBuilder& addCategory(Category category);

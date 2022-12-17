@@ -5,7 +5,7 @@ FiltersBuilder::FiltersBuilder()
 
 }
 
-FiltersBuilder& FiltersBuilder::setTicketId(QString ticketId)
+FiltersBuilder& FiltersBuilder::setTicketId(int ticketId)
 {
     this->ticketId = ticketId;
     return *this;
