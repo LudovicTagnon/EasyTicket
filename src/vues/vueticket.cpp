@@ -20,6 +20,8 @@ VueTicket::~VueTicket() {
 
 void VueTicket::on_EnvoyerButton_clicked(){
     QMessageBox::information(this, "Status", "Message envoyé");
+    //easyTicket.requestSendMessage();
+    easyTicket.popWindow();
 }
 
 void VueTicket::on_RetourButton_clicked(){

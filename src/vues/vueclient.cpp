@@ -5,7 +5,10 @@
 // You may need to build the project (run Qt uic code generator) to get "ui_VueClient.h" resolved
 
 #include <QMessageBox>
+#include <QListWidget>
+
 #include <iostream>
+
 #include "vueclient.h"
 #include "ui_VueClient.h"
 
@@ -101,6 +104,22 @@ void VueClient::affichageTickets() {
 }
 
 void VueClient::on_OuvrirButton_clicked() {
+    if(ui->listWidgetNomTicket->selectedItems().isEmpty())
+    {
+        QMessageBox::information(this, "Status", "Veuillez selectionner un ticket");
+        return;
+    }
+
+    QString selectedItem = ui->listWidgetNomTicket->selectedItems().at(0)->text();
+
+    int index = 0;
+    for(; index < ui->listWidgetNomTicket->count(); index++)
+    {
+        if(ui->listWidgetNomTicket->item(index)->text().compare(selectedItem) == 0)
+            break;
+    }
+
+    std::cout << index << std::endl;
     easyTicket.pushWindow(new VueTicket(easyTicket));
 }
 
