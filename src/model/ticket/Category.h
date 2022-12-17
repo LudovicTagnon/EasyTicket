@@ -8,7 +8,8 @@ enum Category {
     CREATION,
     VISUALISATION,
     WINDOWS,
-    RECLAMATION
+    RECLAMATION,
+    OTHER
 };
 
 #endif /*Category*/

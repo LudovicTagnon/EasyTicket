@@ -55,6 +55,8 @@ void VueClient::affichageTickets() {
                 qstrlistCategorie << (QString) "WINDOWS";
             }else if(ticket.getCategory()==RECLAMATION){
                 qstrlistCategorie << (QString) "RECLAMATION";
+            }else if(ticket.getCategory()==OTHER){
+                qstrlistCategorie << (QString) "OTHER";
             }
         }
         else if(filtre == 1){
@@ -72,6 +74,8 @@ void VueClient::affichageTickets() {
                     qstrlistCategorie << (QString) "WINDOWS";
                 }else if(ticket.getCategory()==RECLAMATION){
                     qstrlistCategorie << (QString) "RECLAMATION";
+                }else if(ticket.getCategory()==OTHER){
+                    qstrlistCategorie << (QString) "OTHER";
                 }
             }
         }
@@ -90,6 +94,8 @@ void VueClient::affichageTickets() {
                     qstrlistCategorie << (QString) "WINDOWS";
                 }else if(ticket.getCategory()==RECLAMATION){
                     qstrlistCategorie << (QString) "RECLAMATION";
+                }else if(ticket.getCategory()==OTHER){
+                    qstrlistCategorie << (QString) "OTHER";
                 }
             }
         }

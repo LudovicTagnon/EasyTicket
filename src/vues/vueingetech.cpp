@@ -37,7 +37,7 @@ void VueIngeTech::affichageTickets() {
         else if(ticket.getCategory()==VISUALISATION) qstrlistCategorie << (QString) "VISUALISATION";
         else if(ticket.getCategory()==WINDOWS) qstrlistCategorie << (QString) "WINDOWS";
         else if(ticket.getCategory()==RECLAMATION) qstrlistCategorie << (QString) "RECLAMATION";
-        
+        else if(ticket.getCategory()==OTHER) qstrlistCategorie << (QString) "OTHER";
         if(ticket.getIsClosed())  qstrlistStatus << "Clos";
         else  qstrlistStatus << "En cours";
     }
