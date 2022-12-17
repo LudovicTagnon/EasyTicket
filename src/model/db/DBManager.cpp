@@ -47,7 +47,7 @@ void DBManager::createIfNotExistsDataBase()
 
     query.exec("CREATE TABLE IF NOT EXISTS Message (message_text VARCHAR(200) NOT NULL, message_date DATE DEFAULT CURRENT_DATE, ticket_num INT NOT NULL, FOREIGN KEY (ticket_num)  REFERENCES Ticket(ticket_num) ON DELETE CASCADE);");
 
-    query.exec("CREATE TABLE IF NOT EXISTS Ticket (ticket_num INT, ticket_title VARCHAR(50) NOT NULL, ticket_date_post Date DEFAULT CURRENT_DATE, ticket_date_end Date DEFAULT NULL, user_id INT, cat_id INT NOT NULL, PRIMARY KEY (ticket_num), FOREIGN KEY (user_id)  REFERENCES User(user_id) ON DELETE CASCADE, FOREIGN KEY (cat_id)  REFERENCES Category(cat_id) ON DELETE CASCADE);");
+    query.exec("CREATE TABLE IF NOT EXISTS Ticket (ticket_num INT, ticket_title VARCHAR(50) NOT NULL, ticket_date_post Date DEFAULT CURRENT_DATE, ticket_date_end Date DEFAULT NULL, user_id INT, cat_id INT NOT NULL, status INT DEFAULT 1, PRIMARY KEY (ticket_num), FOREIGN KEY (user_id)  REFERENCES User(user_id) ON DELETE CASCADE, FOREIGN KEY (cat_id)  REFERENCES Category(cat_id) ON DELETE CASCADE);");
 
     query.exec("CREATE TABLE IF NOT EXISTS User (user_id  INT, user_email VARCHAR(200) NOT NULL, user_password VARCHAR(200) NOT NULL, user_name VARCHAR(200) NOT NULL, user_surname VARCHAR(200) NOT NULL, user_level INT NOT NULL DEFAULT 0, PRIMARY KEY (user_id));");
 
@@ -69,6 +69,7 @@ void DBManager::createIfNotExistsDataBase()
         query.exec("INSERT INTO User(user_id, user_email, user_password, user_name, user_surname, user_level) VALUES(2, 'inge@inge.fr', 'inge', 'Harry', 'LeBoss', 2);");
         query.exec("INSERT INTO User(user_id, user_email, user_password, user_name, user_surname, user_level) VALUES(3, 'tech@tech.fr', 'tech', 'Harty', 'LApprenti', 1);");
         query.exec("INSERT INTO User(user_id, user_email, user_password, user_name, user_surname, user_level) VALUES(4, 'client@client.fr', 'client', 'Hugo', 'LeRandom', 0);");
+
     }
 }
 
@@ -85,7 +86,7 @@ User DBManager::getUserInfo(const int userId)
 int DBManager::requestPostTicket(const Category category, const QString message, const QString title)
 {
   ++ticketId;
-  query.exec("INSERT INTO Ticket(ticket_num, ticket_title, cat_id) VALUES(" + QString::number(ticketId) + ", '" + title + "', " + QString::number(category) + ");");
+  query.exec("INSERT INTO Ticket(ticket_num, ticket_title, cat_id, status) VALUES(" + QString::number(ticketId) + ", '" + title + "', " + QString::number(category) + ", " + "0" + ");");
   query.exec("INSERT INTO Message(message_text, ticket_num) VALUES('" + message + "', " + QString::number(ticketId) + ");");
   return ticketId;
 }
