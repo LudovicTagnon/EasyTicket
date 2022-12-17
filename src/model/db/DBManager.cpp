@@ -30,11 +30,10 @@ bool DBManager::open()
 
 std::pair<int, int> DBManager::connection(const QString usermail, const QString password)
 {
-  query.exec("SELECT user_level, user_id FROM User WHERE lower(user_email) like '" + usermail.toLower() + "'and user_password like '" + password + "';");
+    query.exec("SELECT user_level, user_id FROM User WHERE lower(user_email) like '" + usermail.toLower() + "'and user_password like '" + password + "';");
 
-  if(!query.next()) return {-1, -1};
-
-  return {query.value(0).toInt(), query.value(1).toInt()};
+    if(!query.next()) return {-1, -1};
+    return {query.value(0).toInt(), query.value(1).toInt()};
 }
 
 bool DBManager::isOpen() const
@@ -63,6 +62,8 @@ void DBManager::createIfNotExistsDataBase()
         query.exec("INSERT INTO Category(cat_id, cat_name) VALUES(2, 'VISUALISATION');");
         query.exec("INSERT INTO Category(cat_id, cat_name) VALUES(3, 'WINDOWS');");
         query.exec("INSERT INTO Category(cat_id, cat_name) VALUES(4, 'RECLAMATION');");
+        query.exec("INSERT INTO Category(cat_id, cat_name) VALUES(5, 'OTHER');");
+
 
         query.exec("INSERT INTO User(user_id, user_email, user_password, user_name, user_surname, user_level) VALUES(1, 'admin@admin.fr', 'admin', 'Henri', 'LeBigBoss', 3);");
         query.exec("INSERT INTO User(user_id, user_email, user_password, user_name, user_surname, user_level) VALUES(2, 'inge@inge.fr', 'inge', 'Harry', 'LeBoss', 2);");

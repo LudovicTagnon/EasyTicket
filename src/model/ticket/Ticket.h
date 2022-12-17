@@ -22,6 +22,7 @@ class Ticket
         const std::time_t dateFin;
         std::vector<Message> messages;
         const NonAdmin* employeeOnIt;
+
     public:
         Ticket(const int ticketId, const QString title, const Category category,
                 const std::time_t dateDebut = std::chrono::system_clock::to_time_t(std::chrono::system_clock::now()),
