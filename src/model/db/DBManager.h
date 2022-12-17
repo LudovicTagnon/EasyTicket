@@ -13,6 +13,7 @@
 
 class EasyTicket;
 class Filters;
+class NonAdmin;
 
 enum
 {

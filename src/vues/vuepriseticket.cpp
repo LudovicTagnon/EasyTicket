@@ -12,11 +12,11 @@
 #include "../model/utilisateur/NonAdmin.h"
 
 VuePriseTicket::VuePriseTicket(EasyTicket& easyTicket, NonAdmin& nonAdmin, Ticket& ticket, QWidget *parent) :
-        QWidget(parent),
-        ui(new Ui::VuePriseTicket),
-        easyTicket(easyTicket),
+        ticket(ticket),
         nonAdmin(nonAdmin),
-        ticket(ticket)
+        easyTicket(easyTicket),
+        ui(new Ui::VuePriseTicket),
+        QWidget(parent)
 {
     ui->setupUi(this);
 }
