@@ -50,6 +50,7 @@ class DBManager
 		void requestSendMessage(const Ticket& ticket, const QString& message);
 		QStringList getCategories();
 		QStringList getEmployees();
+		std::vector<Ticket> getTickets();
 
 		~DBManager();
 };

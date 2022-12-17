@@ -4,7 +4,7 @@
 
 TicketManager::TicketManager(DBManager& db) : db(db)
 {
-
+    tickets = db.getTickets();
 }
 
 const std::vector<Ticket> &TicketManager::getTickets() const {

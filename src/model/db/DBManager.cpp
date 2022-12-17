@@ -140,6 +140,36 @@ QStringList DBManager::getEmployees()
     return {};
 }
 
+std::vector<Ticket> DBManager::getTickets() {
+    std::vector<Ticket> Tickets;
+
+    std::cout << "test";
+
+    query.exec("SELECT ticket_num FROM Ticket;");
+    QStringList qstrlistTicketID;
+    while (query.next()) {
+        qstrlistTicketID << query.value(0).toString();
+    }
+    query.exec("SELECT ticket_title FROM Ticket;");
+    QStringList qstrlistTitle;
+    while (query.next()) {
+        qstrlistTitle << query.value(0).toString();
+    }
+    query.exec("SELECT cat_id FROM Ticket;");
+    QStringList qstrlistCateg;
+    while (query.next()) {
+        qstrlistCateg << query.value(0).toString();
+    }
+
+    for(int i = 0; i<qstrlistTicketID.size() ; i++){
+        Ticket ticket = Ticket(qstrlistTicketID.value(i).toInt(), qstrlistTitle.value(i), (Category) qstrlistCateg.value(i).toInt());
+        Tickets.push_back(ticket);
+    }
+
+
+    return Tickets;
+}
+
 DBManager::~DBManager()
 {
     close();
