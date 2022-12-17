@@ -10,14 +10,14 @@ User::User(const int& userId, const QString& name, const QString& surname, const
 
 }
 
-User::User(const User& user, EasyTicket& easyTicket)
-            : userId(user.getUserID())
-            , name(user.getName())
-            , surname(user.getSurname())
-            , email(user.getEmail())
+User::User(const User* user, EasyTicket& easyTicket)
+            : userId(user->getUserID())
+            , name(user->getName())
+            , surname(user->getSurname())
+            , email(user->getEmail())
             , easyTicket(easyTicket)
 {
-
+    
 }
 
 const int& User::getUserID() const

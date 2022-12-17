@@ -77,11 +77,11 @@ void DBManager::close()
     dbEasyTicket.close();
 }
 
-User DBManager::getUserInfo(const int userId)
+std::unique_ptr<User> DBManager::getUserInfo(const int userId)
 {
     query.exec("SELECT user_name, user_surname, user_email FROM User WHERE user_id = " + QString::number(userId) + ";");
-    query.next();
-    return User(userId, query.value(0).toString(), query.value(1).toString(), query.value(2).toString(), easyTicket);
+    if(!query.next()) return nullptr;
+    return std::unique_ptr<User>{new User(userId, query.value(0).toString(), query.value(1).toString(), query.value(2).toString(), easyTicket)};
 }
 
 int DBManager::requestPostTicket(const Category category, const QString message, const QString title, const int userId)

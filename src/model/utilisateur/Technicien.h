@@ -9,7 +9,7 @@ class EasyTicket;
 class Technicien: public Ingenieur
 {
     public:
-        Technicien(const User user, EasyTicket& easyTicket, const std::set<Category> categories);
+        Technicien(const User* user, EasyTicket& easyTicket, const std::set<Category> categories);
         ~Technicien();
 };
 

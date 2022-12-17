@@ -14,7 +14,7 @@ class Admin : public User
     private:
         std::vector<Stat*> stats;
     public:
-        Admin(const User user, EasyTicket& easyTicket);
+        Admin(const User* user, EasyTicket& easyTicket);
         Stat& requestStats();
         ~Admin();
 };

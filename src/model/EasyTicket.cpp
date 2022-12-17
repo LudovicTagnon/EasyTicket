@@ -45,7 +45,7 @@ void EasyTicket::closeDB()
     db.close();
 }
 
-User EasyTicket::getUserInfo(const int userId)
+std::unique_ptr<User> EasyTicket::getUserInfo(const int userId)
 {
     return db.getUserInfo(userId);
 }

@@ -1,6 +1,6 @@
 #include "NonAdmin.h"
 
-NonAdmin::NonAdmin(const User user, EasyTicket& easyTicket)
+NonAdmin::NonAdmin(const User* user, EasyTicket& easyTicket)
 : User(user, easyTicket)
 {
 

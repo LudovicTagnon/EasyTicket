@@ -1,6 +1,6 @@
 #include "Admin.h"
 
-Admin::Admin(const User user, EasyTicket& easyTicket)
+Admin::Admin(const User* user, EasyTicket& easyTicket)
 : User(user, easyTicket)
 {
 

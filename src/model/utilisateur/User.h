@@ -22,7 +22,7 @@ class User
 
     public:
         User(const int& userId, const QString& name, const QString& surname, const QString& email, EasyTicket& easyTicket);
-        User(const User& user, EasyTicket& easyTicket);
+        User(const User* user, EasyTicket& easyTicket);
 
         const int& getUserID() const;
         const QString& getName() const;

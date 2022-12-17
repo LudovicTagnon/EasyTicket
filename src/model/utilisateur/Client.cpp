@@ -1,6 +1,6 @@
 #include "Client.h"
 
-Client::Client(const User user, EasyTicket& easyTicket)
+Client::Client(const User* user, EasyTicket& easyTicket)
 : NonAdmin(user, easyTicket)
 {
 

@@ -1,12 +1,12 @@
 #include "Ingenieur.h"
 
-Ingenieur::Ingenieur(const User user, EasyTicket& easyTicket)
+Ingenieur::Ingenieur(const User* user, EasyTicket& easyTicket)
 : NonAdmin(user, easyTicket), isAllCategories(true)
 {
 
 }
 
-Ingenieur::Ingenieur(const User user, EasyTicket& easyTicket, bool isAllCategories, std::set<Category> categories)
+Ingenieur::Ingenieur(const User* user, EasyTicket& easyTicket, bool isAllCategories, std::set<Category> categories)
 : NonAdmin(user, easyTicket), isAllCategories(isAllCategories), categories(categories)
 {
 

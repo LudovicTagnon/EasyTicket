@@ -8,7 +8,7 @@
 class Client : public NonAdmin
 {
     public:
-        Client(const User user, EasyTicket& easyTicket);
+        Client(const User* user, EasyTicket& easyTicket);
         void postTicket(const Category category, const QString message, const QString title, const int userId);
         ~Client();
 };

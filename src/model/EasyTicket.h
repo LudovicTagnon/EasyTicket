@@ -26,7 +26,7 @@ class EasyTicket
         bool isOpenDB() const;
         void closeDB();
 
-        User getUserInfo(const int userId);
+        std::unique_ptr<User> getUserInfo(const int userId);
         void postTicket(const Category category, const QString message, const QString title, const int userId);
         void sendMessage(const Ticket& ticket, const QString& message);
         QString getMessage(const Ticket& ticket);

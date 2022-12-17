@@ -1,6 +1,8 @@
 #ifndef DBMANAGER_H
 #define DBMANAGER_H
 
+#include <memory>
+
 #include <QtSql>
 #include <QSqlDatabase>
 #include <QSqlQuery>
@@ -40,7 +42,7 @@ class DBManager
 		std::pair<int, int> connection(const QString usermail, const QString password);
 		void close();
 
-    	User getUserInfo(const int userId);
+    	std::unique_ptr<User> getUserInfo(const int userId);
 		int requestPostTicket(const Category category, const QString message, const QString title, const int userId);
 		QString requestMessage(const Ticket& ticket);
 		void requestPrendreTicket(const User& user, const Ticket& ticket);

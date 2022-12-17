@@ -16,7 +16,7 @@
 class NonAdmin : public User
 {
     public:
-    NonAdmin(const User user, EasyTicket& easyTicket);
+    NonAdmin(const User* user, EasyTicket& easyTicket);
         QString& requestMessage(const Ticket& ticket);
         //TODO: Have reflection about how to store Summary
         std::vector<QString> requestTicketsSummary(const int pageNum, const Filters& filters);
