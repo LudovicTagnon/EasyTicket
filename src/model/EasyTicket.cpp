@@ -46,9 +46,9 @@ User EasyTicket::getUserInfo(const int userId)
     return db.getUserInfo(userId);
 }
 
-void EasyTicket::postTicket(const Category category, const QString message, const QString title)
+void EasyTicket::postTicket(const Category category, const QString message, const QString title, const int userId)
 {
-    ticketManager.postTicket(category, message, title);
+    ticketManager.postTicket(category, message, title, userId);
 }
 
 void EasyTicket::sendMessage(const Ticket& ticket, const QString& message)

@@ -7,9 +7,9 @@ TicketManager::TicketManager(DBManager& db) : db(db)
 
 }
 
-void TicketManager::postTicket(const Category category, const QString message, const QString title)
+void TicketManager::postTicket(const Category category, const QString message, const QString title, const int userId)
 {
-    int ticketNum = db.requestPostTicket(category, message, title);
+    int ticketNum = db.requestPostTicket(category, message, title, userId);
     tickets.push_back(Ticket(ticketNum, title, category));
 }
 

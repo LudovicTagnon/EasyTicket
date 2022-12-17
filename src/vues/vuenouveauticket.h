@@ -7,7 +7,7 @@
 
 #include <QWidget>
 #include "../model/EasyTicket.h"
-
+#include "Client.h"
 
 
 QT_BEGIN_NAMESPACE
@@ -18,7 +18,7 @@ class VueNouveauTicket : public QWidget {
 Q_OBJECT
 
 public:
-    explicit VueNouveauTicket(EasyTicket& easyTicket, QWidget *parent = nullptr);
+    explicit VueNouveauTicket(EasyTicket& easyTicket, Client client, QWidget *parent = nullptr);
 
     ~VueNouveauTicket() override;
 
@@ -29,6 +29,7 @@ private slots:
 private:
     Ui::VueNouveauTicket *ui;
     EasyTicket& easyTicket;
+    Client client;
 };
 
 

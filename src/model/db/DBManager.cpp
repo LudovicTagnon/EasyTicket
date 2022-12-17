@@ -83,10 +83,10 @@ User DBManager::getUserInfo(const int userId)
     return User(userId, "John", "Doe", "johndoe@mail.com", easyTicket);
 }
 
-int DBManager::requestPostTicket(const Category category, const QString message, const QString title)
+int DBManager::requestPostTicket(const Category category, const QString message, const QString title, const int userId)
 {
   ++ticketId;
-  query.exec("INSERT INTO Ticket(ticket_num, ticket_title, cat_id, status) VALUES(" + QString::number(ticketId) + ", '" + title + "', " + QString::number(category) + ", " + "0" + ");");
+  query.exec("INSERT INTO Ticket(ticket_num, ticket_title, user_id, cat_id, status) VALUES(" + QString::number(ticketId) + ", '" + title + "', " + QString::number(userId) + ", " + QString::number(category) + ", " + "0" + ");");
   query.exec("INSERT INTO Message(message_text, ticket_num) VALUES('" + message + "', " + QString::number(ticketId) + ");");
   return ticketId;
 }

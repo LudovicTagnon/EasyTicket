@@ -9,8 +9,8 @@
 #include "ui_VueNouveauTicket.h"
 
 
-VueNouveauTicket::VueNouveauTicket(EasyTicket& easyTicket, QWidget *parent) :
-        QWidget(parent), ui(new Ui::VueNouveauTicket), easyTicket(easyTicket) {
+VueNouveauTicket::VueNouveauTicket(EasyTicket& easyTicket, Client client, QWidget *parent) :
+        QWidget(parent), ui(new Ui::VueNouveauTicket), easyTicket(easyTicket), client(client) {
     ui->setupUi(this);
     ui->listWidgetCateg->clear();
     ui->listWidgetCateg->addItems(easyTicket.getCategories());
@@ -21,7 +21,7 @@ VueNouveauTicket::~VueNouveauTicket() {
 }
 
 void VueNouveauTicket::on_ConfirmerButton_clicked() {
-    easyTicket.postTicket(static_cast<Category>(ui->listWidgetCateg->row(ui->listWidgetCateg->selectedItems().at(0))), ui->textEditTicket->toPlainText(), ui->textEditResume->toPlainText());
+    easyTicket.postTicket(static_cast<Category>(ui->listWidgetCateg->row(ui->listWidgetCateg->selectedItems().at(0))), ui->textEditTicket->toPlainText(), ui->textEditResume->toPlainText(), client.getUserID());
     QMessageBox::information(this, "Status", "Ticket créé");
 }
 

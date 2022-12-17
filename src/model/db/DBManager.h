@@ -41,7 +41,7 @@ class DBManager
 		void close();
 
     	User getUserInfo(const int userId);
-		int requestPostTicket(const Category category, const QString message, const QString title);
+		int requestPostTicket(const Category category, const QString message, const QString title, const int userId);
 		QString requestMessage(const Ticket& ticket);
 		void requestPrendreTicket(const User& user, const Ticket& ticket);
 		void requestTransfertTicket(const User& user, const Ticket& ticket);

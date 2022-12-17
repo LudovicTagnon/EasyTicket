@@ -7,6 +7,7 @@
 
 #include <QWidget>
 #include "../model/EasyTicket.h"
+#include "Client.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class VueTicket; }

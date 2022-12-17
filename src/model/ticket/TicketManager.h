@@ -22,7 +22,7 @@ class TicketManager
     public:
         TicketManager(DBManager& db);
 
-        void postTicket(const Category category, const QString message, const QString title);
+        void postTicket(const Category category, const QString message, const QString title, const int userId);
         QString getMessage(const Ticket& ticket);
         void prendreTicket(const User& user, const Ticket& ticket);
         void transfertTicket(const User& user, const Ticket& ticket);

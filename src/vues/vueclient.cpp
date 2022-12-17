@@ -23,7 +23,7 @@ void VueClient::on_OuvrirButton_clicked() {
 }
 
 void VueClient::on_NouveauButton_clicked() {
-    easyTicket.pushWindow(new VueNouveauTicket(easyTicket));
+    easyTicket.pushWindow(new VueNouveauTicket(easyTicket, client));
 }
 
 void VueClient::on_ClosButton_clicked(){
