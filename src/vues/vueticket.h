@@ -28,6 +28,7 @@ private slots:
 private:
     Ui::VueTicket *ui;
     EasyTicket& easyTicket;
+    
 };
 
 

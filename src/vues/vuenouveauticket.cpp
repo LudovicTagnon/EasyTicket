@@ -22,6 +22,12 @@ VueNouveauTicket::~VueNouveauTicket() {
 }
 
 void VueNouveauTicket::on_ConfirmerButton_clicked() {
+    if(ui->listWidgetCateg->selectedItems().isEmpty())
+    {
+        QMessageBox::information(this, "Status", "Veuillez selectionner une catégorie");
+        return;
+    }
+    
     easyTicket.postTicket(static_cast<Category>(ui->listWidgetCateg->row(ui->listWidgetCateg->selectedItems().at(0))), ui->textEditTicket->toPlainText(), ui->textEditResume->toPlainText(), client.getUserID());
     QMessageBox::information(this, "Status", "Ticket créé");
 }
