@@ -89,14 +89,18 @@ std::unique_ptr<User> DBManager::getUserInfo(const int userId)
 std::pair<int, QString> DBManager::requestPostTicket(const Category category, const QString message, const QString title, const int userId)
 {
   ++ticketId;
-  query.exec("INSERT INTO Ticket(ticket_num, ticket_title, user_id, cat_id, employee_on_it_id) VALUES(" + QString::number(ticketId) + ", '" + title + "', " + QString::number(userId) + ", " + QString::number(category) + ", -1);");
-  
+
   char buff[20];
   std::time_t now = std::chrono::system_clock::to_time_t(std::chrono::system_clock::now());
   strftime(buff, 20, "%Y-%m-%d", localtime(&now));
   QString date(buff);
 
-  query.exec("INSERT INTO Message(message_date, message_text, ticket_num) VALUES('" + date + ", " + message + "', " + QString::number(ticketId) + ");");
+  std::cout << "INSERT INTO Message(message_date, message_text, ticket_num) VALUES('" + date.toStdString() + ", " + message.toStdString() + "', " + QString::number(ticketId).toStdString() + ");" << std::endl;
+
+  if(!query.exec("INSERT INTO Ticket(ticket_num, ticket_title, user_id, cat_id, employee_on_it_id) VALUES(" + QString::number(ticketId) + ", '" + title + "', " + QString::number(userId) + ", " + QString::number(category) + ", -1);"
+                + "INSERT INTO Message(message_date, message_text, ticket_num) VALUES(" + date + ", " + message + ", " + QString::number(ticketId) + ");"))
+    return {-1, ""};
+
   return {ticketId, date};
 }
 

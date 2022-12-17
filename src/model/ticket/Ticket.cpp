@@ -11,7 +11,7 @@ Ticket::Ticket(const int ticketId, const QString title, const Category category,
  , dateFin(dateFin)
  , employeeOnIt(employeeOnIt)
 {
-    messages.push_back(message);
+    messages.push_back(Message(message.getDate(), message.getMessage()));
 }
 
 const QString &Ticket::getTitle() const {
