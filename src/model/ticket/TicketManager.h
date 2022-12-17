@@ -32,6 +32,8 @@ class TicketManager
         void sendMessage(const Ticket& ticket, const QString& message);
 
         ~TicketManager();
+
+    const std::vector<Ticket> &getTickets() const;
 };
 
 #endif /*TICKETMANAGER_H*/

@@ -59,6 +59,13 @@
           </property>
          </widget>
         </item>
+        <item row="1" column="0">
+         <widget class="QPushButton" name="RafraichirButton">
+          <property name="text">
+           <string>Rafraichir</string>
+          </property>
+         </widget>
+        </item>
        </layout>
       </item>
       <item>
@@ -66,14 +73,14 @@
         <item>
          <layout class="QVBoxLayout" name="verticalLayout">
           <item>
-           <widget class="QLabel" name="label">
+           <widget class="QLabel" name="labelNomTicket">
             <property name="text">
              <string>Nom ticket</string>
             </property>
            </widget>
           </item>
           <item>
-           <widget class="QListWidget" name="listWidget_2">
+           <widget class="QListWidget" name="listWidgetNomTicket">
             <item>
              <property name="text">
               <string>ticket1</string>
@@ -86,14 +93,14 @@
         <item>
          <layout class="QVBoxLayout" name="verticalLayout_4">
           <item>
-           <widget class="QLabel" name="label_4">
+           <widget class="QLabel" name="labelResumeTicket">
             <property name="text">
              <string>Résumé</string>
             </property>
            </widget>
           </item>
           <item>
-           <widget class="QListWidget" name="listWidget_4">
+           <widget class="QListWidget" name="listWidgetResumeTicket">
             <item>
              <property name="text">
               <string>Pas reçu la commande ubère it</string>
@@ -106,14 +113,14 @@
         <item>
          <layout class="QVBoxLayout" name="verticalLayout_2">
           <item>
-           <widget class="QLabel" name="label_2">
+           <widget class="QLabel" name="labelCategorieTicket">
             <property name="text">
              <string>Catégorie</string>
             </property>
            </widget>
           </item>
           <item>
-           <widget class="QListWidget" name="listWidget_3">
+           <widget class="QListWidget" name="listWidgetCategorieTicket">
             <item>
              <property name="text">
               <string>RéceptionCommande</string>
@@ -126,14 +133,14 @@
         <item>
          <layout class="QVBoxLayout" name="verticalLayout_3">
           <item>
-           <widget class="QLabel" name="label_3">
+           <widget class="QLabel" name="labelStatusResolutionTicket">
             <property name="text">
              <string>Résolution</string>
             </property>
            </widget>
           </item>
           <item>
-           <widget class="QListWidget" name="listWidget">
+           <widget class="QListWidget" name="listWidgetStatusResolutionTicket">
             <item>
              <property name="text">
               <string>En cours</string>

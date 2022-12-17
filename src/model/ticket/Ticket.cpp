@@ -11,6 +11,18 @@ Ticket::Ticket(const int ticketId, const QString title, const Category category,
 
 }
 
+const QString &Ticket::getTitle() const {
+    return title;
+}
+
+const Category Ticket::getCategory() const {
+    return category;
+}
+
+const bool Ticket::getIsClosed() const {
+    return isClosed;
+}
+
 int Ticket::getTicketId() const
 {
   return ticketId;

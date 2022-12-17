@@ -39,6 +39,8 @@ class EasyTicket
 
         ~EasyTicket();
 
+    const TicketManager &getTicketManager() const;
+
 };
 
 #endif /*EASYTICKET_H*/

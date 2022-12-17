@@ -7,6 +7,7 @@
 #include <QMessageBox>
 #include "vuenouveauticket.h"
 #include "ui_VueNouveauTicket.h"
+#include "vueclient.h"
 
 
 VueNouveauTicket::VueNouveauTicket(EasyTicket& easyTicket, Client client, QWidget *parent) :

@@ -12,6 +12,10 @@ EasyTicket::EasyTicket()
     stateManager.push(new MainWindow(*this));
 }
 
+const TicketManager &EasyTicket::getTicketManager() const {
+    return ticketManager;
+}
+
 void EasyTicket::pushWindow(QWidget* state){
     stateManager.push(state);
 }

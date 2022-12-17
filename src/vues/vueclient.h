@@ -24,11 +24,14 @@ public:
 
     ~VueClient() override;
 
+    void affichageTickets();
+
 private slots:
     void on_OuvrirButton_clicked();
     void on_NouveauButton_clicked();
     void on_ClosButton_clicked();
     void on_EnCoursButton_clicked();
+    void on_RafraichirButton_clicked();
 
 private:
     Ui::VueClient *ui;

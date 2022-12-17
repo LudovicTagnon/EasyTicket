@@ -7,6 +7,10 @@ TicketManager::TicketManager(DBManager& db) : db(db)
 
 }
 
+const std::vector<Ticket> &TicketManager::getTickets() const {
+    return tickets;
+}
+
 void TicketManager::postTicket(const Category category, const QString message, const QString title, const int userId)
 {
     int ticketNum = db.requestPostTicket(category, message, title, userId);
