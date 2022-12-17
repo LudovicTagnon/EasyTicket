@@ -33,7 +33,7 @@ void VueIngeTech::affichageTickets() {
         qstrlistTitle << ticket.getTitle();
 
         if(ticket.getCategory()==ALL) qstrlistCategorie << (QString) "ALL";
-        else if(ticket.getCategory()==CREATION qstrlistCategorie << (QString) "CREATION";
+        else if(ticket.getCategory()==CREATION) qstrlistCategorie << (QString) "CREATION";
         else if(ticket.getCategory()==VISUALISATION) qstrlistCategorie << (QString) "VISUALISATION";
         else if(ticket.getCategory()==WINDOWS) qstrlistCategorie << (QString) "WINDOWS";
         else if(ticket.getCategory()==RECLAMATION) qstrlistCategorie << (QString) "RECLAMATION";
