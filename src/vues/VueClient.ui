@@ -130,6 +130,20 @@
           </item>
          </layout>
         </item>
+        <item>
+         <layout class="QVBoxLayout" name="verticalLayout_5">
+          <item>
+           <widget class="QLabel" name="labelStatusIdentifiantTicket">
+            <property name="text">
+             <string>Identifiant Ticket</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QListWidget" name="listWidgetIdentifiantTicket"/>
+          </item>
+         </layout>
+        </item>
        </layout>
       </item>
      </layout>

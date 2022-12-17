@@ -1,5 +1,7 @@
 #include "EasyTicket.h"
 
+#include <iostream>
+
 #include "ticket/Ticket.h"
 #include "utilisateur/User.h"
 
@@ -12,7 +14,7 @@ EasyTicket::EasyTicket()
     stateManager.push(new MainWindow(*this));
 }
 
-const TicketManager &EasyTicket::getTicketManager() const {
+TicketManager &EasyTicket::getTicketManager() {
     return ticketManager;
 }
 

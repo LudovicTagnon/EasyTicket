@@ -40,7 +40,7 @@ class EasyTicket
 
         ~EasyTicket();
 
-    const TicketManager &getTicketManager() const;
+        TicketManager &getTicketManager();
 
 };
 

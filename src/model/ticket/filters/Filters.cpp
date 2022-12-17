@@ -1,7 +1,7 @@
 #include "Filters.h"
 
 Filters::Filters(const int& ticketId, const QString& title, const std::set<Category>& categories
-             , const std::time_t& dateDebut, const bool& checkClosedState, const bool& isClosed, const std::time_t& dateFin, const NonAdmin* employeeOnIt)
+             , const QString& dateDebut, const bool& checkClosedState, const bool& isClosed, const QString& dateFin, const NonAdmin* employeeOnIt)
  : ticketId(ticketId)
  , title(title)
  , categories(categories)
@@ -29,7 +29,7 @@ const std::set<Category>& Filters::addCategories() const
     return categories;
 }
 
-const std::time_t& Filters::getDateDebut() const
+const QString& Filters::getDateDebut() const
 {
     return dateDebut;
 }
@@ -44,7 +44,7 @@ const bool& Filters::getIsClosed() const
     return isClosed;
 }
 
-const std::time_t& Filters::getDateFin() const
+const QString& Filters::getDateFin() const
 {
     return dateFin;
 }
@@ -56,7 +56,7 @@ const NonAdmin* Filters::getEmployeeOnIt() const
 
 const std::map<std::string, std::any> Filters::toMap()
 {
-    //std::string, std::string, std::set<Category>*, std::time_t, std::time_t, bool, bool, NonAdmin*
+    //std::string, std::string, std::set<Category>*, QString, QString, bool, bool, NonAdmin*
     return std::map<std::string, std::any>{
         {"ticketId", ticketId},
         {"title", title},

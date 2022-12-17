@@ -7,11 +7,14 @@
 class Message
 {
     private:
-        const std::time_t date;
-        QString message;
+        const QString date;
+        const QString message;
     public:
-        Message();
+        Message(const QString& date, const QString& message);
         ~Message();
+
+        const QString& getMessage() const;
+        const QString& getDate() const;
 };
 
 #endif /*MESSAGE_H*/

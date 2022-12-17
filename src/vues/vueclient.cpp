@@ -18,7 +18,6 @@ QWidget(parent), ui(new Ui::VueClient), easyTicket(easyTicket), client(client), 
     ui->setupUi(this);
     filtre = 0;
     affichageTickets();
-
 }
 
 VueClient::~VueClient() {
@@ -29,11 +28,12 @@ void VueClient::affichageTickets() {
     ui->listWidgetNomTicket->clear();
     ui->listWidgetCategorieTicket->clear();
     ui->listWidgetStatusResolutionTicket->clear();
+    ui->listWidgetIdentifiantTicket->clear();
 
     QStringList qstrlistTitle;
-    QStringList qstrlistResume;
     QStringList qstrlistCategorie;
     QStringList qstrlistStatus;
+    QStringList qstrlistIdentifiant;
 
     for(Ticket ticket: easyTicket.getTicketManager().getTickets()){
 
@@ -102,11 +102,12 @@ void VueClient::affichageTickets() {
 
 
 
-
+        qstrlistIdentifiant << QString::number(ticket.getTicketId());
     }
     ui->listWidgetNomTicket->addItems(qstrlistTitle);
     ui->listWidgetCategorieTicket->addItems(qstrlistCategorie);
     ui->listWidgetStatusResolutionTicket->addItems(qstrlistStatus);
+    ui->listWidgetIdentifiantTicket->addItems(qstrlistIdentifiant);
 }
 
 void VueClient::on_OuvrirButton_clicked() {
@@ -125,8 +126,7 @@ void VueClient::on_OuvrirButton_clicked() {
             break;
     }
 
-    std::cout << index << std::endl;
-    easyTicket.pushWindow(new VueTicket(easyTicket));
+    easyTicket.pushWindow(new VueTicket(easyTicket, easyTicket.getTicketManager().getTickets().at(index)));
 }
 
 void VueClient::on_NouveauButton_clicked() {

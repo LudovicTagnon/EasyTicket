@@ -1,14 +1,17 @@
 #include "Ticket.h"
 
-Ticket::Ticket(const int ticketId, const QString title, const Category category, const std::time_t dateDebut, const bool isClosed, const std::time_t dateFin)
+#include "../utilisateur/NonAdmin.h"
+
+Ticket::Ticket(const int ticketId, const QString title, const Category category, const NonAdmin* employeeOnIt, const Message message, const QString dateDebut, const bool isClosed, const QString dateFin)
  : ticketId(ticketId)
  , title(title)
  , category(category)
  , dateDebut(dateDebut)
  , isClosed(isClosed)
  , dateFin(dateFin)
+ , employeeOnIt(employeeOnIt)
 {
-
+    messages.push_back(message);
 }
 
 const QString &Ticket::getTitle() const {
@@ -26,6 +29,24 @@ bool Ticket::getIsClosed() const {
 int Ticket::getTicketId() const
 {
   return ticketId;
+}
+
+const QString* Ticket::getEmployeeOnItName() const
+{
+    if(!employeeOnIt)
+        return nullptr;
+
+    return &employeeOnIt->getName();
+}
+
+void Ticket::addMessage(Message message)
+{
+    messages.push_back(message);
+}
+
+std::vector<Message>& Ticket::getMessages()
+{
+    return messages;
 }
 
 Ticket::~Ticket()

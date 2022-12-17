@@ -19,24 +19,24 @@ class Filters
         const int ticketId;
         const QString title;
         const std::set<Category> categories;
-        const std::time_t dateDebut;
+        const QString dateDebut;
         const bool checkClosedState;
         const bool isClosed;
-        const std::time_t dateFin;
+        const QString dateFin;
         const NonAdmin* employeeOnIt;
 
     public:
         Filters(const int& ticketId, const QString& title, const std::set<Category>& categories
-             , const std::time_t& dateDebut = -1, const bool& checkClosedState = false, const bool& isClosed = false
-             , const std::time_t& dateFin = -1, const NonAdmin* employeeOnIt = nullptr);
+             , const QString& dateDebut = "N/A", const bool& checkClosedState = false, const bool& isClosed = false
+             , const QString& dateFin = "N/A", const NonAdmin* employeeOnIt = nullptr);
 
         const int& getTicketId() const;
         const QString& getTitle() const;
         const std::set<Category>& addCategories() const;
-        const std::time_t& getDateDebut() const;
+        const QString& getDateDebut() const;
         const bool& getCheckClosedState() const;
         const bool& getIsClosed() const;
-        const std::time_t& getDateFin() const;
+        const QString& getDateFin() const;
         const NonAdmin* getEmployeeOnIt() const;
 
         //https://stackoverflow.com/questions/24702235/c-stdmap-holding-any-type-of-value

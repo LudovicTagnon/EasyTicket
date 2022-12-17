@@ -28,7 +28,7 @@ void VueNouveauTicket::on_ConfirmerButton_clicked() {
         return;
     }
     
-    easyTicket.postTicket(static_cast<Category>(ui->listWidgetCateg->row(ui->listWidgetCateg->selectedItems().at(0))), ui->textEditTicket->toPlainText(), ui->textEditResume->toPlainText(), client.getUserID());
+    easyTicket.postTicket(static_cast<Category>(ui->listWidgetCateg->row(ui->listWidgetCateg->selectedItems().at(0))), ui->textEditTicket->toPlainText(), ui->lineEditTitreTicket->text(), client.getUserID());
     QMessageBox::information(this, "Status", "Ticket créé");
 }
 

@@ -19,10 +19,10 @@ class FiltersBuilder
         int ticketId;
         QString title;
         std::set<Category> categories;
-        std::time_t dateDebut;
+        QString dateDebut;
         bool checkClosedState;
         bool isClosed;
-        std::time_t dateFin;
+        QString dateFin;
         NonAdmin* employeeOnIt;
 
     public:
@@ -34,10 +34,10 @@ class FiltersBuilder
         FiltersBuilder& addCategory(Category category);
         FiltersBuilder& removeCategories(std::set<Category> categories);
         FiltersBuilder& removeCategory(Category category);
-        FiltersBuilder& setDateDebut(std::time_t dateDebut);
+        FiltersBuilder& setDateDebut(QString dateDebut);
         FiltersBuilder& setCheckClosedState(bool checkClosedState);
         FiltersBuilder& setIsClosed(bool isClosed);
-        FiltersBuilder& setDateFin(std::time_t dateFin);
+        FiltersBuilder& setDateFin(QString dateFin);
         FiltersBuilder& setEmployeeOnIt(NonAdmin* employeeOnIt);
 
         Filters toFilters();

@@ -34,7 +34,7 @@ class TicketManager
 
         ~TicketManager();
 
-    const std::vector<Ticket> &getTickets() const;
+        std::vector<Ticket> &getTickets();
 };
 
 #endif /*TICKETMANAGER_H*/

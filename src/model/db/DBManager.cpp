@@ -4,7 +4,9 @@
 #include <iostream>
 
 #include "../utilisateur/User.h"
+#include "../utilisateur/NonAdmin.h"
 #include "../ticket/Ticket.h"
+#include "../ticket/Message.h"
 
 DBManager::DBManager(EasyTicket& easyTicket) : easyTicket(easyTicket), dbEasyTicket(QSqlDatabase::addDatabase("QSQLITE"))
 {
@@ -47,7 +49,7 @@ void DBManager::createIfNotExistsDataBase()
 
     query.exec("CREATE TABLE IF NOT EXISTS Message (message_text VARCHAR(200) NOT NULL, message_date DATE DEFAULT CURRENT_DATE, ticket_num INT NOT NULL, FOREIGN KEY (ticket_num)  REFERENCES Ticket(ticket_num) ON DELETE CASCADE);");
 
-    query.exec("CREATE TABLE IF NOT EXISTS Ticket (ticket_num INT, ticket_title VARCHAR(50) NOT NULL, ticket_date_post Date DEFAULT CURRENT_DATE, ticket_date_end Date DEFAULT NULL, user_id INT, cat_id INT NOT NULL, status INT DEFAULT 0, PRIMARY KEY (ticket_num), FOREIGN KEY (user_id)  REFERENCES User(user_id) ON DELETE CASCADE, FOREIGN KEY (cat_id)  REFERENCES Category(cat_id) ON DELETE CASCADE);");
+    query.exec("CREATE TABLE IF NOT EXISTS Ticket (ticket_num INT, ticket_title VARCHAR(50) NOT NULL, ticket_date_post Date DEFAULT CURRENT_DATE, ticket_date_end Date DEFAULT NULL, user_id INT NOT NULL, cat_id INT NOT NULL, status INT DEFAULT 0, employee_on_it_id INT, PRIMARY KEY (ticket_num), FOREIGN KEY (user_id) REFERENCES User(user_id) ON DELETE CASCADE, FOREIGN KEY (employee_on_it_id) REFERENCES User(user_id) ON DELETE CASCADE, FOREIGN KEY (cat_id)  REFERENCES Category(cat_id) ON DELETE CASCADE);");
 
     query.exec("CREATE TABLE IF NOT EXISTS User (user_id  INT, user_email VARCHAR(200) NOT NULL, user_password VARCHAR(200) NOT NULL, user_name VARCHAR(200) NOT NULL, user_surname VARCHAR(200) NOT NULL, user_level INT NOT NULL DEFAULT 0, PRIMARY KEY (user_id));");
 
@@ -84,12 +86,18 @@ std::unique_ptr<User> DBManager::getUserInfo(const int userId)
     return std::unique_ptr<User>{new User(userId, query.value(0).toString(), query.value(1).toString(), query.value(2).toString(), easyTicket)};
 }
 
-int DBManager::requestPostTicket(const Category category, const QString message, const QString title, const int userId)
+std::pair<int, QString> DBManager::requestPostTicket(const Category category, const QString message, const QString title, const int userId)
 {
   ++ticketId;
-  query.exec("INSERT INTO Ticket(ticket_num, ticket_title, user_id, cat_id) VALUES(" + QString::number(ticketId) + ", '" + title + "', " + QString::number(userId) + ", " + QString::number(category) + ");");
-  query.exec("INSERT INTO Message(message_text, ticket_num) VALUES('" + message + "', " + QString::number(ticketId) + ");");
-  return ticketId;
+  query.exec("INSERT INTO Ticket(ticket_num, ticket_title, user_id, cat_id, employee_on_it_id) VALUES(" + QString::number(ticketId) + ", '" + title + "', " + QString::number(userId) + ", " + QString::number(category) + ", -1);");
+  
+  char buff[20];
+  std::time_t now = std::chrono::system_clock::to_time_t(std::chrono::system_clock::now());
+  strftime(buff, 20, "%Y-%m-%d", localtime(&now));
+  QString date(buff);
+
+  query.exec("INSERT INTO Message(message_date, message_text, ticket_num) VALUES('" + date + ", " + message + "', " + QString::number(ticketId) + ");");
+  return {ticketId, date};
 }
 
 QString DBManager::requestMessage(const Ticket& ticket)
@@ -101,12 +109,12 @@ QString DBManager::requestMessage(const Ticket& ticket)
 
 void DBManager::requestPrendreTicket(const User& user, const Ticket& ticket)
 {
-  query.exec("UPDATE Ticket SET user_id = " + QString::number(user.getUserID()) + "WHERE ticket_num = " + QString::number(ticket.getTicketId()) +";");
+  query.exec("UPDATE Ticket SET employee_on_it = " + QString::number(user.getUserID()) + "WHERE ticket_num = " + QString::number(ticket.getTicketId()) +";");
 }
 
 void DBManager::requestTransfertTicket(const User& user, const Ticket& ticket)
 {
-  query.exec("UPDATE Ticket SET user_id = " + QString::number(user.getUserID()) + "WHERE ticket_num = " + QString::number(ticket.getTicketId()) +";");
+  query.exec("UPDATE Ticket SET employee_on_it = " + QString::number(user.getUserID()) + "WHERE ticket_num = " + QString::number(ticket.getTicketId()) +";");
 }
 
 QStringList DBManager::requestTicketsSummary(const int pageNum, const Filters& filters)
@@ -152,12 +160,24 @@ QStringList DBManager::getEmployees()
 std::vector<Ticket> DBManager::getTickets() {
     std::vector<Ticket> Tickets;
 
-    query.exec("SELECT ticket_num, ticket_title, cat_id FROM Ticket;");
+    query.exec("SELECT ticket_num, ticket_title, cat_id, employee_on_it_id FROM Ticket;");
 
     while(query.next())
     {
-      Ticket ticket = Ticket(query.value(0).toInt(), query.value(1).toString(), (Category) query.value(2).toInt());
+      NonAdmin* employeeOnIt = nullptr;
+      if(query.value(3).toInt() != -1)
+      {
+        employeeOnIt = std::unique_ptr<NonAdmin>{new NonAdmin(getUserInfo(query.value(3).toInt()).get(), easyTicket)}.get();
+      }
+
+      Ticket ticket = Ticket(query.value(0).toInt(), query.value(1).toString(), (Category) query.value(2).toInt(), employeeOnIt, Message(QString(""), QString("")));
       Tickets.push_back(ticket);
+
+      QSqlQuery tmp;
+      tmp.exec("SELECT message_text, message_date FROM Message where ticket_num=" + QString::number(query.value(0).toInt()) + ";");
+      while(tmp.next())
+        Tickets.back().addMessage(Message(tmp.value(0).toString(), tmp.value(1).toString()));
+      //Tickets.back().getMessages().erase(Tickets.back().getMessages().begin());
     }
 
     return Tickets;

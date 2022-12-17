@@ -1,5 +1,7 @@
 #include "TicketManager.h"
 
+#include <iostream>
+
 #include "../db/DBManager.h"
 
 TicketManager::TicketManager(DBManager& db) : db(db)
@@ -10,17 +12,22 @@ TicketManager::TicketManager(DBManager& db) : db(db)
 void TicketManager::refreshTickets() {
     if (db.isOpen()){
         tickets = db.getTickets();
+        //std::cout << tickets.at(0).getMessages().at(0).getMessage().toStdString() << std::endl;
     }
 }
 
-const std::vector<Ticket> &TicketManager::getTickets() const {
+std::vector<Ticket>& TicketManager::getTickets() {
     return tickets;
 }
 
 void TicketManager::postTicket(const Category category, const QString message, const QString title, const int userId)
 {
-    int ticketNum = db.requestPostTicket(category, message, title, userId);
-    tickets.push_back(Ticket(ticketNum, title, category));
+    std::pair<int, QString> ret = db.requestPostTicket(category, message, title, userId);
+
+    tickets.push_back(Ticket(ret.first, title, category, nullptr, Message(ret.second, message)));
+
+    std::cout << tickets.back().getMessages()[0].getMessage().toStdString() << std::endl;
+
 }
 
 QString TicketManager::getMessage(const Ticket& ticket)

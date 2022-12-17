@@ -17,27 +17,28 @@ class Ticket
         const int ticketId;
         const QString title;
         const Category category;
-        const std::time_t dateDebut;
+        const QString dateDebut;
         const bool isClosed;
-        const std::time_t dateFin;
+        const QString dateFin;
         std::vector<Message> messages;
         const NonAdmin* employeeOnIt;
 
     public:
-        Ticket(const int ticketId, const QString title, const Category category,
-                const std::time_t dateDebut = std::chrono::system_clock::to_time_t(std::chrono::system_clock::now()),
+        Ticket(const int ticketId, const QString title, const Category category, const NonAdmin* employeeOnIt, const Message message,
+                const QString dateDebut = "N/A",
                 const bool isClosed = false,
-                const std::time_t dateFin = std::chrono::system_clock::to_time_t(std::chrono::system_clock::now()));
+                const QString dateFin = "N/A");
 
         int getTicketId() const;
 
         ~Ticket();
 
-    const QString &getTitle() const;
-
-    Category getCategory() const;
-
-    bool getIsClosed() const;
+        const QString &getTitle() const;
+        Category getCategory() const;
+        bool getIsClosed() const;
+        const QString* getEmployeeOnItName() const;
+        std::vector<Message>& getMessages();
+        void addMessage(Message message);
 };
 
 #endif /*TICKET_H*/

@@ -46,7 +46,7 @@ FiltersBuilder& FiltersBuilder::removeCategory(Category category)
     return *this;
 }
 
-FiltersBuilder& FiltersBuilder::setDateDebut(std::time_t dateDebut)
+FiltersBuilder& FiltersBuilder::setDateDebut(QString dateDebut)
 {
     this->dateDebut = dateDebut;
     return *this;
@@ -64,7 +64,7 @@ FiltersBuilder& FiltersBuilder::setIsClosed(bool isClosed)
     return *this;
 }
 
-FiltersBuilder& FiltersBuilder::setDateFin(std::time_t dateFin)
+FiltersBuilder& FiltersBuilder::setDateFin(QString dateFin)
 {
     this->dateFin = dateFin;
     return *this;

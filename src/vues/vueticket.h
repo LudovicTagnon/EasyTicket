@@ -9,6 +9,8 @@
 #include "../model/EasyTicket.h"
 #include "../model/utilisateur/Client.h"
 
+class Ticket;
+
 QT_BEGIN_NAMESPACE
 namespace Ui { class VueTicket; }
 QT_END_NAMESPACE
@@ -17,7 +19,7 @@ class VueTicket : public QWidget {
 Q_OBJECT
     VueTicket(QWidget *parent);
 public:
-    explicit VueTicket(EasyTicket& easyTicket, QWidget *parent = nullptr);
+    explicit VueTicket(EasyTicket& easyTicket, Ticket& ticket, QWidget *parent = nullptr);
 
     ~VueTicket() override;
 
@@ -28,7 +30,7 @@ private slots:
 private:
     Ui::VueTicket *ui;
     EasyTicket& easyTicket;
-    
+    Ticket& ticket;
 };
 
 

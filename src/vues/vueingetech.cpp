@@ -47,7 +47,21 @@ void VueIngeTech::affichageTickets() {
 }
 
 void VueIngeTech::on_OuvrirButton_clicked() {
-    easyTicket.pushWindow(new VueTicket(easyTicket));
+    if(ui->listWidgetTitreTicket->selectedItems().isEmpty())
+    {
+        QMessageBox::information(this, "Status", "Veuillez selectionner un ticket");
+        return;
+    }
+
+    QString selectedItem = ui->listWidgetTitreTicket->selectedItems().at(0)->text();
+
+    int index = 0;
+    for(; index < ui->listWidgetTitreTicket->count(); index++)
+    {
+        if(ui->listWidgetTitreTicket->item(index)->text().compare(selectedItem) == 0)
+            break;
+    }
+    easyTicket.pushWindow(new VueTicket(easyTicket, easyTicket.getTicketManager().getTickets().at(index)));
 }
 
 void VueIngeTech::on_PrendreButton_clicked() {
