@@ -15,11 +15,11 @@ const QString &Ticket::getTitle() const {
     return title;
 }
 
-const Category Ticket::getCategory() const {
+Category Ticket::getCategory() const {
     return category;
 }
 
-const bool Ticket::getIsClosed() const {
+bool Ticket::getIsClosed() const {
     return isClosed;
 }
 

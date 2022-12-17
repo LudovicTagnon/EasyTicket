@@ -7,7 +7,7 @@
 
 #include <QWidget>
 #include "../model/EasyTicket.h"
-#include "Client.h"
+#include "../model/utilisateur/Client.h"
 
 
 QT_BEGIN_NAMESPACE

@@ -35,9 +35,9 @@ class Ticket
 
     const QString &getTitle() const;
 
-    const Category getCategory() const;
+    Category getCategory() const;
 
-    const bool getIsClosed() const;
+    bool getIsClosed() const;
 };
 
 #endif /*TICKET_H*/
