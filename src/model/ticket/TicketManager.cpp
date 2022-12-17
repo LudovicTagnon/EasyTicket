@@ -4,8 +4,15 @@
 
 TicketManager::TicketManager(DBManager& db) : db(db)
 {
-    tickets = db.getTickets();
+    refreshTickets();
 }
+
+void TicketManager::refreshTickets() {
+    if (db.isOpen()){
+        tickets = db.getTickets();
+    }
+}
+
 
 const std::vector<Ticket> &TicketManager::getTickets() const {
     return tickets;
