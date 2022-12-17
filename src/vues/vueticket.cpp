@@ -26,8 +26,17 @@ QWidget(parent), ui(new Ui::VueTicket), easyTicket(easyTicket), ticket(ticket) {
 
     ui->labelTech_2->setText(employeeOnIt);
 
-    for(auto& m : ticket.getMessages())
-        std::cout << "--" << m.getMessage().toStdString() << "--:--" << m.getDate().toStdString() << "--" << std::endl;
+    QStringList qstrlistWidget;
+    QStringList qstrlistWidget_2;
+
+    for(Message& m : ticket.getMessages())
+    {
+        qstrlistWidget << m.getMessage();
+        qstrlistWidget_2 << m.getDate();
+    }
+
+    ui->listWidget->addItems(qstrlistWidget);
+    ui->listWidget_2->addItems(qstrlistWidget_2);
 }
 
 VueTicket::~VueTicket() {
