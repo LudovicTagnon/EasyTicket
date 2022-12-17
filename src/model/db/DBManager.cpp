@@ -190,6 +190,7 @@ std::vector<Ticket> DBManager::getTickets() {
 bool DBManager::setEmployeeOntIt(const Ticket& ticket, const NonAdmin& nonAdmin)
 {
   //MAKE REQUEST
+  return false;
 }
 
 DBManager::~DBManager()
