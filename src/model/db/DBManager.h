@@ -53,7 +53,7 @@ class DBManager
 		QStringList getCategories();
 		QStringList getEmployees();
 		std::vector<Ticket> getTickets();
-		bool setEmployeeOntIt(const Ticket& ticket, const NonAdmin& nonAdmin)
+		bool setEmployeeOntIt(const Ticket& ticket, const NonAdmin& nonAdmin);
 
 		~DBManager();
 };
