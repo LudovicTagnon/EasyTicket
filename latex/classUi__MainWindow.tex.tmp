@@ -1,0 +1,62 @@
+\hypertarget{classUi__MainWindow}{}\doxysection{Ui\+\_\+\+Main\+Window Class Reference}
+\label{classUi__MainWindow}\index{Ui\_MainWindow@{Ui\_MainWindow}}
+
+
+Inheritance diagram for Ui\+\_\+\+Main\+Window\+:
+% FIG 0
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classUi__MainWindow_acf4a0872c4c77d8f43a2ec66ed849b58}\label{classUi__MainWindow_acf4a0872c4c77d8f43a2ec66ed849b58}} 
+void {\bfseries setup\+Ui} (Q\+Main\+Window $\ast$Main\+Window)
+\item 
+\mbox{\Hypertarget{classUi__MainWindow_a097dd160c3534a204904cb374412c618}\label{classUi__MainWindow_a097dd160c3534a204904cb374412c618}} 
+void {\bfseries retranslate\+Ui} (Q\+Main\+Window $\ast$Main\+Window)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classUi__MainWindow_a356f1cf3ebda15f1fac59467ee081b74}\label{classUi__MainWindow_a356f1cf3ebda15f1fac59467ee081b74}} 
+Q\+Widget $\ast$ {\bfseries centralwidget}
+\item 
+\mbox{\Hypertarget{classUi__MainWindow_a713d8e541d9de8389ad4292131dc931a}\label{classUi__MainWindow_a713d8e541d9de8389ad4292131dc931a}} 
+Q\+Graphics\+View $\ast$ {\bfseries graphics\+View}
+\item 
+\mbox{\Hypertarget{classUi__MainWindow_abd008cd55d0790d86dba374c3539521e}\label{classUi__MainWindow_abd008cd55d0790d86dba374c3539521e}} 
+Q\+Group\+Box $\ast$ {\bfseries vertical\+Group\+Box}
+\item 
+\mbox{\Hypertarget{classUi__MainWindow_aecd96a04789fcfec3f98d80390ad8184}\label{classUi__MainWindow_aecd96a04789fcfec3f98d80390ad8184}} 
+Q\+V\+Box\+Layout $\ast$ {\bfseries vertical\+Layout}
+\item 
+\mbox{\Hypertarget{classUi__MainWindow_aa5ee820bb58f9e752d633aa8cf38b4ba}\label{classUi__MainWindow_aa5ee820bb58f9e752d633aa8cf38b4ba}} 
+Q\+Label $\ast$ {\bfseries login\+Welcome\+Label}
+\item 
+\mbox{\Hypertarget{classUi__MainWindow_a03ce63974cc69b067c91bbf285cceca8}\label{classUi__MainWindow_a03ce63974cc69b067c91bbf285cceca8}} 
+Q\+H\+Box\+Layout $\ast$ {\bfseries horizontal\+Layout\+\_\+3}
+\item 
+\mbox{\Hypertarget{classUi__MainWindow_a6ba5d4ea61a4f5bb387621a1e56cd4d6}\label{classUi__MainWindow_a6ba5d4ea61a4f5bb387621a1e56cd4d6}} 
+Q\+Label $\ast$ {\bfseries Adresse\+Mail\+Label}
+\item 
+\mbox{\Hypertarget{classUi__MainWindow_a9ecd5fd756f64fd1ecff473ee2ed1e0c}\label{classUi__MainWindow_a9ecd5fd756f64fd1ecff473ee2ed1e0c}} 
+Q\+Line\+Edit $\ast$ {\bfseries Adresse\+Mail}
+\item 
+\mbox{\Hypertarget{classUi__MainWindow_a80867018070156432923d0266cc9fe25}\label{classUi__MainWindow_a80867018070156432923d0266cc9fe25}} 
+Q\+H\+Box\+Layout $\ast$ {\bfseries horizontal\+Layout\+\_\+2}
+\item 
+\mbox{\Hypertarget{classUi__MainWindow_a3e687275ce93eca867d4f558f0338ab4}\label{classUi__MainWindow_a3e687275ce93eca867d4f558f0338ab4}} 
+Q\+Label $\ast$ {\bfseries M\+D\+P\+Label}
+\item 
+\mbox{\Hypertarget{classUi__MainWindow_a79449a939e67cc89cbd2244d57aaf124}\label{classUi__MainWindow_a79449a939e67cc89cbd2244d57aaf124}} 
+Q\+Line\+Edit $\ast$ {\bfseries M\+DP}
+\item 
+\mbox{\Hypertarget{classUi__MainWindow_aaa98f66119a03b6c1b1a6a8590e775b2}\label{classUi__MainWindow_aaa98f66119a03b6c1b1a6a8590e775b2}} 
+Q\+Push\+Button $\ast$ {\bfseries connexion\+Button}
+\item 
+\mbox{\Hypertarget{classUi__MainWindow_a1581d1ed56799286a662efe1683a50ef}\label{classUi__MainWindow_a1581d1ed56799286a662efe1683a50ef}} 
+Q\+Push\+Button $\ast$ {\bfseries inscription\+Button}
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+ui\+\_\+mainwindow.\+h\end{DoxyCompactItemize}
