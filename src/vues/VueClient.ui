@@ -135,7 +135,7 @@
           <item>
            <widget class="QLabel" name="labelStatusResolutionTicket">
             <property name="text">
-             <string>Résolution</string>
+             <string>Status</string>
             </property>
            </widget>
           </item>
