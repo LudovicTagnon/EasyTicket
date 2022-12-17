@@ -10,6 +10,7 @@
 #include <QListWidget>
 
 #include "../ticket/Category.h"
+#include "NonAdmin.h"
 
 class EasyTicket;
 class Filters;

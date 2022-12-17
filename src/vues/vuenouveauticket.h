@@ -19,7 +19,7 @@ Q_OBJECT
 
 public:
     explicit VueNouveauTicket(EasyTicket& easyTicket, Client client, QWidget *parent = nullptr);
-
+    static QString removeAccents(QString s);
     ~VueNouveauTicket() override;
 
 private slots:
