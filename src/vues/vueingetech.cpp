@@ -8,42 +8,104 @@
 #include "vueingetech.h"
 #include "ui_VueIngeTech.h"
 
+#include <iostream>
 
 VueIngeTech::VueIngeTech(EasyTicket& easyTicket, QWidget *parent) :
         QWidget(parent), ui(new Ui::VueIngeTech), easyTicket(easyTicket) {
     ui->setupUi(this);
-}
 
-VueIngeTech::~VueIngeTech() {
-    delete ui;
-
+    affichageTickets();
 }
 
 void VueIngeTech::affichageTickets() {
     ui->listWidgetTitreTicket->clear();
     ui->listWidgetCategoryTicket->clear();
     ui->listWidgetStatusTicket->clear();
+    ui->listWidgetIdentifiantTicket->clear();
 
     QStringList qstrlistTitle;
-    QStringList qstrlistResume;
     QStringList qstrlistCategorie;
     QStringList qstrlistStatus;
+    QStringList qstrlistIdentifiant;
 
     for(Ticket ticket: easyTicket.getTicketManager().getTickets()){
-        qstrlistTitle << ticket.getTitle();
 
-        if(ticket.getCategory()==ALL) qstrlistCategorie << (QString) "ALL";
-        else if(ticket.getCategory()==CREATION) qstrlistCategorie << (QString) "CREATION";
-        else if(ticket.getCategory()==VISUALISATION) qstrlistCategorie << (QString) "VISUALISATION";
-        else if(ticket.getCategory()==WINDOWS) qstrlistCategorie << (QString) "WINDOWS";
-        else if(ticket.getCategory()==RECLAMATION) qstrlistCategorie << (QString) "RECLAMATION";
-        else if(ticket.getCategory()==OTHER) qstrlistCategorie << (QString) "OTHER";
-        if(ticket.getIsClosed())  qstrlistStatus << "Clos";
-        else  qstrlistStatus << "En cours";
+        if(filtre == 0){ // si pas de filtre
+            if (ticket.getIsClosed()){
+                qstrlistStatus << "Clos";
+            }else {
+                qstrlistStatus << "En cours";
+            }
+            qstrlistTitle << ticket.getTitle();
+
+            if(ticket.getCategory()==ALL){
+                qstrlistCategorie << (QString) "ALL";
+            }else if(ticket.getCategory()==CREATION){
+                qstrlistCategorie << (QString) "CREATION";
+            }else if(ticket.getCategory()==VISUALISATION){
+                qstrlistCategorie << (QString) "VISUALISATION";
+            }else if(ticket.getCategory()==WINDOWS){
+                qstrlistCategorie << (QString) "WINDOWS";
+            }else if(ticket.getCategory()==RECLAMATION){
+                qstrlistCategorie << (QString) "RECLAMATION";
+            }else if(ticket.getCategory()==OTHER){
+                qstrlistCategorie << (QString) "OTHER";
+            }
+        }
+        else if(filtre == 1){
+            if (!ticket.getIsClosed()){
+                qstrlistStatus << "En cours";
+                qstrlistTitle << ticket.getTitle();
+
+                if(ticket.getCategory()==ALL){
+                    qstrlistCategorie << (QString) "ALL";
+                }else if(ticket.getCategory()==CREATION){
+                    qstrlistCategorie << (QString) "CREATION";
+                }else if(ticket.getCategory()==VISUALISATION){
+                    qstrlistCategorie << (QString) "VISUALISATION";
+                }else if(ticket.getCategory()==WINDOWS){
+                    qstrlistCategorie << (QString) "WINDOWS";
+                }else if(ticket.getCategory()==RECLAMATION){
+                    qstrlistCategorie << (QString) "RECLAMATION";
+                }else if(ticket.getCategory()==OTHER){
+                    qstrlistCategorie << (QString) "OTHER";
+                }
+            }
+        }
+        else if(filtre == -1){
+            if (ticket.getIsClosed()){
+                qstrlistStatus << "Clos";
+                qstrlistTitle << ticket.getTitle();
+
+                if(ticket.getCategory()==ALL){
+                    qstrlistCategorie << (QString) "ALL";
+                }else if(ticket.getCategory()==CREATION){
+                    qstrlistCategorie << (QString) "CREATION";
+                }else if(ticket.getCategory()==VISUALISATION){
+                    qstrlistCategorie << (QString) "VISUALISATION";
+                }else if(ticket.getCategory()==WINDOWS){
+                    qstrlistCategorie << (QString) "WINDOWS";
+                }else if(ticket.getCategory()==RECLAMATION){
+                    qstrlistCategorie << (QString) "RECLAMATION";
+                }else if(ticket.getCategory()==OTHER){
+                    qstrlistCategorie << (QString) "OTHER";
+                }
+            }
+        }
+
+
+
+        qstrlistIdentifiant << QString::number(ticket.getTicketId());
     }
     ui->listWidgetTitreTicket->addItems(qstrlistTitle);
     ui->listWidgetCategoryTicket->addItems(qstrlistCategorie);
     ui->listWidgetStatusTicket->addItems(qstrlistStatus);
+    ui->listWidgetIdentifiantTicket->addItems(qstrlistIdentifiant);
+}
+
+VueIngeTech::~VueIngeTech() {
+    delete ui;
+
 }
 
 int VueIngeTech::getIndexOfSelected()
@@ -68,8 +130,9 @@ int VueIngeTech::getIndexOfSelected()
 
 void VueIngeTech::on_OuvrirButton_clicked() {
     int index = getIndexOfSelected();
-    if(index == -1) return;
-    
+    if(index == -1)
+        return;
+
     easyTicket.pushWindow(new VueTicket(easyTicket, easyTicket.getTicketManager().getTickets().at(index)));
 }
 

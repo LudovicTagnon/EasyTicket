@@ -94,33 +94,7 @@
            </widget>
           </item>
           <item>
-           <widget class="QListWidget" name="listWidgetTitreTicket">
-            <item>
-             <property name="text">
-              <string>ticket1</string>
-             </property>
-            </item>
-           </widget>
-          </item>
-         </layout>
-        </item>
-        <item>
-         <layout class="QVBoxLayout" name="verticalLayout_4">
-          <item>
-           <widget class="QLabel" name="label_4">
-            <property name="text">
-             <string>Résumé</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QListWidget" name="listWidgetResumeTicket_IngeTech">
-            <item>
-             <property name="text">
-              <string>Pas reçu la commande ubère it</string>
-             </property>
-            </item>
-           </widget>
+           <widget class="QListWidget" name="listWidgetTitreTicket"/>
           </item>
          </layout>
         </item>
@@ -134,13 +108,7 @@
            </widget>
           </item>
           <item>
-           <widget class="QListWidget" name="listWidgetCategoryTicket">
-            <item>
-             <property name="text">
-              <string>RéceptionCommande</string>
-             </property>
-            </item>
-           </widget>
+           <widget class="QListWidget" name="listWidgetCategoryTicket"/>
           </item>
          </layout>
         </item>
@@ -154,13 +122,21 @@
            </widget>
           </item>
           <item>
-           <widget class="QListWidget" name="listWidgetStatusTicket">
-            <item>
-             <property name="text">
-              <string>En cours</string>
-             </property>
-            </item>
+           <widget class="QListWidget" name="listWidgetStatusTicket"/>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QVBoxLayout" name="verticalLayout_4">
+          <item>
+           <widget class="QLabel" name="label_4">
+            <property name="text">
+             <string>Identifiant</string>
+            </property>
            </widget>
+          </item>
+          <item>
+           <widget class="QListWidget" name="listWidgetIdentifiantTicket"/>
           </item>
          </layout>
         </item>
