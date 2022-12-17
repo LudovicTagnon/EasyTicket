@@ -189,7 +189,9 @@ std::vector<Ticket> DBManager::getTickets() {
 
 bool DBManager::setEmployeeOntIt(const Ticket& ticket, const NonAdmin& nonAdmin)
 {
-  //MAKE REQUEST
+  query.exec("SELECT cat_id FROM Ticket WHERE ticket_num = " + QString::number(ticket.getTicketId()) + " and user_id = " + QString::number(nonAdmin.getUserID()) + ";");
+  if(!query.next()) return false;
+  return true;
 }
 
 DBManager::~DBManager()
