@@ -131,6 +131,7 @@ void DBManager::requestChangeCategory(const Ticket& ticket, const Category categ
   query.exec("UPDATE Ticket SET car_id = " + QString::number(category) + "WHERE ticket_num = " + QString::number(ticket.getTicketId()) + ";");
 }
 
+
 void DBManager::requestSendMessage(const Ticket& ticket, const QString& message)
 {
   query.exec("INSERT INTO Message(message_text, ticket_num) VALUES('" + message + "', " + QString::number(ticket.getTicketId()) + ");");
@@ -140,7 +141,7 @@ QStringList DBManager::getCategories()
 {
   QStringList listCategory;
 
-  query.exec("SELECT cat_name FROM Category;");
+  query.exec("SELECT cat_name FROM Category ORDER BY cat_id;");
   while(query.next())
   {
     listCategory.append(query.value(0).toString());
