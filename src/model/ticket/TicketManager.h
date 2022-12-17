@@ -30,6 +30,7 @@ class TicketManager
         QStringList getTicketsSummary(const int pageNum, const Filters& filters);
         void changeCategory(const Ticket& ticket, const Category category);
         void sendMessage(const Ticket& ticket, const QString& message);
+        void refreshTickets();
 
         ~TicketManager();
 

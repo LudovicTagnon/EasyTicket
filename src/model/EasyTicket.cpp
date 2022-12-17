@@ -99,3 +99,7 @@ EasyTicket::~EasyTicket()
 {
 
 }
+
+void EasyTicket::refreshTickets() {
+    ticketManager.refreshTickets();
+}

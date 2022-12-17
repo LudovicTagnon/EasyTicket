@@ -156,7 +156,7 @@ std::vector<Ticket> DBManager::getTickets() {
       qstrlistCateg.append(query.value(2).toString());
     }
 
-    for(int i = 0;i < qstrlistTicketID.size();++i)
+    for(int i = 0;i < 2;++i)
     {
         Ticket ticket = Ticket(qstrlistTicketID.value(i).toInt(), qstrlistTitle.value(i), (Category) qstrlistCateg.value(i).toInt());
         Tickets.push_back(ticket);

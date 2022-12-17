@@ -30,6 +30,7 @@ void MainWindow::on_connexionButton_clicked()
 
     std::pair<int, int> ret = easyTicket.connectionDB(ui->AdresseMail->text(), ui->MDP->text());
 
+    easyTicket.refreshTickets();
     switch (ret.first) {
         case -1:
             QMessageBox::information(this, "Connection", "Mauvais Login ou MDP");
