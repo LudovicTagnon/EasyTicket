@@ -91,26 +91,6 @@
          </layout>
         </item>
         <item>
-         <layout class="QVBoxLayout" name="verticalLayout_4">
-          <item>
-           <widget class="QLabel" name="labelResumeTicket">
-            <property name="text">
-             <string>Résumé</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QListWidget" name="listWidgetResumeTicket">
-            <item>
-             <property name="text">
-              <string>Pas reçu la commande ubère it</string>
-             </property>
-            </item>
-           </widget>
-          </item>
-         </layout>
-        </item>
-        <item>
          <layout class="QVBoxLayout" name="verticalLayout_2">
           <item>
            <widget class="QLabel" name="labelCategorieTicket">
