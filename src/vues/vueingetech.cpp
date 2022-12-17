@@ -32,25 +32,14 @@ void VueIngeTech::affichageTickets() {
     for(Ticket ticket: easyTicket.getTicketManager().getTickets()){
         qstrlistTitle << ticket.getTitle();
 
-        if(ticket.getCategory()==ALL){
-            qstrlistCategorie << (QString) "ALL";
-        }else if(ticket.getCategory()==CREATION){
-            qstrlistCategorie << (QString) "CREATION";
-        }else if(ticket.getCategory()==VISUALISATION){
-            qstrlistCategorie << (QString) "VISUALISATION";
-        }else if(ticket.getCategory()==WINDOWS){
-            qstrlistCategorie << (QString) "WINDOWS";
-        }else if(ticket.getCategory()==RECLAMATION){
-            qstrlistCategorie << (QString) "RECLAMATION";
-        }
-
-        if(ticket.getIsClosed()){
-            qstrlistStatus << "Clos";
-        } else{
-            qstrlistStatus << "En cours";
-        }
-
-
+        if(ticket.getCategory()==ALL) qstrlistCategorie << (QString) "ALL";
+        else if(ticket.getCategory()==CREATION qstrlistCategorie << (QString) "CREATION";
+        else if(ticket.getCategory()==VISUALISATION) qstrlistCategorie << (QString) "VISUALISATION";
+        else if(ticket.getCategory()==WINDOWS) qstrlistCategorie << (QString) "WINDOWS";
+        else if(ticket.getCategory()==RECLAMATION) qstrlistCategorie << (QString) "RECLAMATION";
+        
+        if(ticket.getIsClosed())  qstrlistStatus << "Clos";
+        else  qstrlistStatus << "En cours";
     }
     ui->listWidgetTitreTicket->addItems(qstrlistTitle);
     ui->listWidgetCategoryTicket->addItems(qstrlistCategorie);
